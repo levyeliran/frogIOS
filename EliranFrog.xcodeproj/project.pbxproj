@@ -14,6 +14,10 @@
 		8EAFA4491EAA2222007C52C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAFA4471EAA2222007C52C0 /* LaunchScreen.storyboard */; };
 		8EAFA4541EAA2222007C52C0 /* EliranFrogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA4531EAA2222007C52C0 /* EliranFrogTests.swift */; };
 		8EAFA45F1EAA2222007C52C0 /* EliranFrogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA45E1EAA2222007C52C0 /* EliranFrogUITests.swift */; };
+		8EAFA46D1EAA28C4007C52C0 /* CollectionGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA46C1EAA28C4007C52C0 /* CollectionGameController.swift */; };
+		8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */; };
+		8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA4721EAA5884007C52C0 /* FrogManager.swift */; };
+		8EEE33AB1EB345E20052DA72 /* CustomFrogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		8EAFA45A1EAA2222007C52C0 /* EliranFrogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EliranFrogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFA45E1EAA2222007C52C0 /* EliranFrogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliranFrogUITests.swift; sourceTree = "<group>"; };
 		8EAFA4601EAA2222007C52C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EAFA46C1EAA28C4007C52C0 /* CollectionGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGameController.swift; sourceTree = "<group>"; };
+		8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGameController.swift; sourceTree = "<group>"; };
+		8EAFA4721EAA5884007C52C0 /* FrogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrogManager.swift; sourceTree = "<group>"; };
+		8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFrogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 				8EAFA4451EAA2222007C52C0 /* Assets.xcassets */,
 				8EAFA4471EAA2222007C52C0 /* LaunchScreen.storyboard */,
 				8EAFA44A1EAA2222007C52C0 /* Info.plist */,
+				8EAFA46C1EAA28C4007C52C0 /* CollectionGameController.swift */,
+				8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */,
+				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
+				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -257,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */,
+				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
+				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
 				8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */,
+				8EEE33AB1EB345E20052DA72 /* CustomFrogCell.swift in Sources */,
+				8EAFA46D1EAA28C4007C52C0 /* CollectionGameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +500,7 @@
 				8EAFA4651EAA2222007C52C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EAFA4661EAA2222007C52C0 /* Build configuration list for PBXNativeTarget "EliranFrogTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +509,7 @@
 				8EAFA4681EAA2222007C52C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EAFA4691EAA2222007C52C0 /* Build configuration list for PBXNativeTarget "EliranFrogUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +518,7 @@
 				8EAFA46B1EAA2222007C52C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

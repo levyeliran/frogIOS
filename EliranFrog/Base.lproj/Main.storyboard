@@ -1,25 +1,172 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
+                                <rect key="frame" x="113" y="521" width="149" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="medium"/>
+                                <connections>
+                                    <action selector="mediumBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9J-61-7o0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-87-xnI">
+                                <rect key="frame" x="113" y="572" width="149" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="hard">
+                                    <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="hardBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLz-rT-J67"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-sw-qAL">
+                                <rect key="frame" x="113" y="472" width="149" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="easy"/>
+                                <connections>
+                                    <action selector="easyBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnc-vB-pJZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rMq-sw-qAL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="3Vg-XC-lVT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rMq-sw-qAL" secondAttribute="trailing" constant="20" id="FMb-l3-CtJ"/>
+                            <constraint firstItem="lBb-Iy-pSE" firstAttribute="top" secondItem="rMq-sw-qAL" secondAttribute="bottom" constant="19" id="JBy-9l-E1b"/>
+                            <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="LxM-rD-MNs"/>
+                            <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="c53-xo-FQG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AZz-87-xnI" secondAttribute="bottom" constant="20" id="fEh-f9-WBB"/>
+                            <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="n7d-9L-JN1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="20" id="rul-FF-CYa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lBb-Iy-pSE" secondAttribute="trailing" constant="20" id="yLZ-rd-JxN"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="O03-kR-M8W"/>
+                        <outlet property="hardlevelBtn" destination="AZz-87-xnI" id="Zsy-rz-y36"/>
+                        <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="Y4N-Ax-ndW"/>
+                        <segue destination="UJr-Lx-E1A" kind="popoverPresentation" identifier="viewSeg" popoverAnchorView="8bC-Xf-vdC" id="Ppg-em-mID">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="CuK-JH-GVW" kind="popoverPresentation" identifier="collectionSeg" popoverAnchorView="8bC-Xf-vdC" id="Wd8-0C-NgT">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="180.5" y="305.5"/>
+        </scene>
+        <!--Random Game Controller-->
+        <scene sceneID="lZv-0K-qoE">
+            <objects>
+                <viewController id="UJr-Lx-E1A" customClass="RandomGameController" customModule="EliranFrog" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Lh-hb-FZP"/>
+                        <viewControllerLayoutGuide type="bottom" id="bmk-dR-33i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ig5-O4-dk6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-4U-oI7">
+                                <rect key="frame" x="67" y="282" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.50094697710000002" blue="0.34445899149999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oSE-4U-oI7" firstAttribute="top" secondItem="0Lh-hb-FZP" secondAttribute="bottom" constant="80" id="Grb-3Q-6ve"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oSE-4U-oI7" secondAttribute="trailing" constant="20" id="MKC-lB-wk9"/>
+                            <constraint firstItem="oSE-4U-oI7" firstAttribute="leading" secondItem="Ig5-O4-dk6" secondAttribute="leadingMargin" constant="20" id="UHP-Zh-3H8"/>
+                            <constraint firstItem="bmk-dR-33i" firstAttribute="top" secondItem="oSE-4U-oI7" secondAttribute="bottom" constant="20" id="l79-ar-Wtt"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3g-BI-qeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.5" y="79.5"/>
+        </scene>
+        <!--Collection Game Controller-->
+        <scene sceneID="cZl-US-igf">
+            <objects>
+                <viewController id="CuK-JH-GVW" customClass="CollectionGameController" customModule="EliranFrog" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nx9-G6-14q"/>
+                        <viewControllerLayoutGuide type="bottom" id="3oQ-1z-wWj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S6h-TE-w76">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
+                                <rect key="frame" x="89" y="387" width="240" height="137"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.50094697710000002" blue="0.34445899149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBq-FC-1LV">
+                                    <size key="itemSize" width="101" height="102"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eliranFrogCell" id="Vzw-sn-6qV" customClass="CustomFrogCell" customModule="EliranFrog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="101" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.58821210580000005" blue="0.77150017670000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6ja-ew-eF5" secondAttribute="trailing" constant="20" id="Eaf-0E-wcv"/>
+                            <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="6ja-ew-eF5" secondAttribute="bottom" constant="20" id="cyD-9w-Kee"/>
+                            <constraint firstItem="6ja-ew-eF5" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="20" id="dp9-YV-8F4"/>
+                            <constraint firstItem="6ja-ew-eF5" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="80" id="nzk-uG-AJQ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="gameCollection" destination="6ja-ew-eF5" id="umF-ud-d2a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SSM-OQ-hkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887.5" y="855.5"/>
         </scene>
     </scenes>
 </document>
