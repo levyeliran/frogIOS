@@ -14,13 +14,15 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     var level = GAME_LEVEL.EASY
     var frogMngr = FrogManager()
-    //var timer =
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.frogMngr = FrogManager(level: level, xBottom: -1, yBottom: -1)
         self.gameCollection.dataSource = self
         self.gameCollection.delegate = self
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -66,7 +68,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     }
     
-    func eachinterval(){
+    func onTimerUpdate(){
         Dispat
     }
     
