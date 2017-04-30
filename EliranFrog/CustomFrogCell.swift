@@ -9,5 +9,7 @@
 import UIKit
 
 class CustomFrogCell: UICollectionViewCell{
-    
+    @IBOutlet weak var cellImage: UIImageView!
+    var isGoodFrog:Bool = false
 }
+
