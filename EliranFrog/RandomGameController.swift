@@ -28,13 +28,13 @@ class RandomGameController: UIViewController {
     
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
-    var counter = 60
+    var counter = 45
     var frogMngr = FrogManager()
     var timer: NSTimer?
     var hits = 0
     var missed = 0
     var countDownFlag = false
-    var tapGestureRecognizer = UITapGestureRecognizer()
+    //var tapGestureRecognizer = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +45,10 @@ class RandomGameController: UIViewController {
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "frogsBG")!)
         self.topX = self.gameBoardView.frame.origin.x
         self.topY = self.gameBoardView.frame.origin.y
         self.bottomX = Int(self.gameBoardView.frame.width - self.topX - 5)
         self.bottomY = Int(self.gameBoardView.frame.height - 5)
-        self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "frogImageTapped")
     }
     
     func frogImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -112,6 +110,7 @@ class RandomGameController: UIViewController {
                 self.displayedFrogs.append(frog)
 
                 let imgView = frog.imgView
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "frogImageTapped:")
                 imgView.userInteractionEnabled = true
                 imgView.addGestureRecognizer(tapGestureRecognizer)
                 
@@ -121,12 +120,17 @@ class RandomGameController: UIViewController {
     }
     
     func removeFrogs(){
+        var isMissed = false
         for item in self.displayedFrogs {
-            //loose point for each bad frog
-            if !item.isGoodFrog{
-                missed--
+            if item.isGoodFrog{
+                isMissed = true
             }
             item.imgView.removeFromSuperview()
+        }
+        //loose point for at least unclicked good frog
+        if isMissed{
+            missed++
+            self.missedLabel.text = "\(self.missed)"
         }
         self.displayedFrogs.removeAll()
     }

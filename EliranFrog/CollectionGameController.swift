@@ -40,7 +40,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "frogsBG")!)
 
     }
     

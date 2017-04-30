@@ -44,8 +44,8 @@ class FrogImageView{
 class FrogManager{
     
     //create manager consts
-    var frogWidth = 50
-    var frogHeight = 50
+    var frogWidth = 60
+    var frogHeight = 60
     var easyLevelDim = 4
     var mediumLevelDim = 5
     var hardLevelCount = 50
@@ -207,7 +207,7 @@ class FrogManager{
     }
     
     func getDefaultImage()-> UIImage{
-        return UIImage(named: "fly")!
+        return UIImage(named: "default")!
     }
     
     func getDisplayedFrogPositions() -> [FrogPoint]{
