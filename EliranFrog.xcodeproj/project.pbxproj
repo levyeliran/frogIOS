@@ -10,6 +10,7 @@
 		8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */; };
 		8EA1DDE31EB74426008A9C22 /* frogRibbet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8EA1DDE21EB74426008A9C22 /* frogRibbet.wav */; };
 		8EA1DDE71EB74F9D008A9C22 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA1DDE61EB74F9D008A9C22 /* gameMusic.mp3 */; };
+		8EA1DDE91EB75CD5008A9C22 /* countdownTimer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA1DDE81EB75CD5008A9C22 /* countdownTimer.mp3 */; };
 		8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */; };
 		8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA4401EAA2222007C52C0 /* ViewController.swift */; };
 		8EAFA4441EAA2222007C52C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAFA4421EAA2222007C52C0 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		8EA1DDE21EB74426008A9C22 /* frogRibbet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = frogRibbet.wav; path = ../../../Downloads/frogRibbet.wav; sourceTree = "<group>"; };
 		8EA1DDE61EB74F9D008A9C22 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gameMusic.mp3; path = ../../../Downloads/gameMusic.mp3; sourceTree = "<group>"; };
+		8EA1DDE81EB75CD5008A9C22 /* countdownTimer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = countdownTimer.mp3; path = ../../../Downloads/countdownTimer.mp3; sourceTree = "<group>"; };
 		8EAFA43B1EAA2222007C52C0 /* EliranFrog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EliranFrog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EAFA4401EAA2222007C52C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		8EA1DDE11EB743F6008A9C22 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8EA1DDE81EB75CD5008A9C22 /* countdownTimer.mp3 */,
 				8EA1DDE61EB74F9D008A9C22 /* gameMusic.mp3 */,
 				8EA1DDE21EB74426008A9C22 /* frogRibbet.wav */,
 			);
@@ -258,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA1DDE91EB75CD5008A9C22 /* countdownTimer.mp3 in Resources */,
 				8EA1DDE31EB74426008A9C22 /* frogRibbet.wav in Resources */,
 				8EAFA4491EAA2222007C52C0 /* LaunchScreen.storyboard in Resources */,
 				8EAFA4461EAA2222007C52C0 /* Assets.xcassets in Resources */,

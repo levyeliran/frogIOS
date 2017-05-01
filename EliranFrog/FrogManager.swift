@@ -238,6 +238,7 @@ class FrogManager{
         animation.autoreverses = true
         label.textColor = UIColor.yellowColor()
         label.layer.addAnimation(animation, forKey: nil)
+        self.playCountDownMusic()
     }
     
     func playFrogSound(){
@@ -251,6 +252,20 @@ class FrogManager{
         }
         catch {
             print("frogRibbet.wav can't be played")
+        }
+    }
+    
+    func playCountDownMusic(){
+        // Load "countdownTimer.mp3"
+        do {
+            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("countdownTimer", ofType: "mp3")!)
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            self.audioPlayer.numberOfLoops = 1
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }
+        catch {
+            print("countdownTimer.mp3 can't be played")
         }
     }
     
@@ -269,7 +284,9 @@ class FrogManager{
     }
     
     func stopFrogMusic(){
-        self.audioPlayer.stop()
+        if self.audioPlayer.playing {
+            self.audioPlayer.stop()
+        }
     }
     
     func getTargetAlert(hits:Int, miss:Int, sec:Int, okButtonHandler:(action: UIAlertAction)->Void) -> UIAlertController{

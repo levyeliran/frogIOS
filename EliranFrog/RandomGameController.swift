@@ -101,7 +101,7 @@ class RandomGameController: UIViewController {
             self.displayScore()
         }
         else {
-            if self.counter <= 10 {
+            if self.counter <= 11 {
                 if !self.countDownFlag{
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
@@ -178,6 +178,7 @@ class RandomGameController: UIViewController {
     }
     
     func stopTimer(){
+        self.frogMngr.stopFrogMusic()
         self.timer?.invalidate()
     }
     

@@ -125,7 +125,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.displayScore()
         }
         else {
-            if self.counter <= 10 {
+            if self.counter <= 11 {
                 if !self.countDownFlag{
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
@@ -194,6 +194,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func stopTimer(){
+        self.frogMngr.stopFrogMusic()
         self.timer?.invalidate()
 
     }
