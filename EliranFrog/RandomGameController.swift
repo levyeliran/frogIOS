@@ -25,7 +25,7 @@ class RandomGameController: UIViewController {
     var bottomY:Int = 0
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
-    var counter = 45
+    var counter = 20
     var frogMngr = FrogManager()
     var timer: NSTimer?
     var hits = 0
@@ -96,6 +96,7 @@ class RandomGameController: UIViewController {
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
+            self.frogMngr.stopCountDownMusic()
             
             //display score
             self.displayScore()
@@ -109,7 +110,7 @@ class RandomGameController: UIViewController {
             }
             
             if self.frogTimeout <= 0 {
-                self.frogTimeout = 4
+                self.frogTimeout = Int(arc4random_uniform(4) + 1)
                 //remove all displayed frogs
                 self.removeFrogs()
             }
@@ -162,7 +163,7 @@ class RandomGameController: UIViewController {
         if self.hits >= 30 {
             isWon = true
         }
-        else if self.missed >= 5 {
+        else if self.missed >= 3 {
             isLost = true
         }
         
@@ -178,7 +179,6 @@ class RandomGameController: UIViewController {
     }
     
     func stopTimer(){
-        self.frogMngr.stopFrogMusic()
         self.timer?.invalidate()
     }
     

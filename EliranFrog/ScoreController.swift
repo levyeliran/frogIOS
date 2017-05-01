@@ -18,13 +18,26 @@ class ScoreController: UIViewController{
     var missed = 0
     var hits = 0
     var frogMngr = FrogManager()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.frogMngr.playFrogMusic()
-
-        if missed >= 3 || hits == 0 {
+        var isLoose = false
+        switch self.level {
+            case GAME_LEVEL.EASY:
+                if missed >= 5 || hits < 10 {
+                    isLoose = true
+                }
+                break
+            default:
+                if missed >= 3 || hits < 30 {
+                   isLoose = true
+                }
+                break
+        }
+        
+        if isLoose {
             bgImgView.backgroundColor = UIColor(patternImage: UIImage(named: "looseBG")!)
             self.winScoreLabel.text = "Again?"
         }

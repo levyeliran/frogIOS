@@ -58,6 +58,7 @@ class FrogManager{
     var frogPositions :[FrogPoint]
     var displayedPositions :[FrogPoint]
     var audioPlayer:AVAudioPlayer
+    var frogCountDownAudioPlayer:AVAudioPlayer
     
     init(){
         self.level = GAME_LEVEL.EASY
@@ -66,6 +67,8 @@ class FrogManager{
         self.frogPositions = [FrogPoint]()
         self.displayedPositions = [FrogPoint]()
         self.audioPlayer = AVAudioPlayer()
+        self.frogCountDownAudioPlayer = AVAudioPlayer()
+        
         self.initGameLevel(level)
     }
     
@@ -76,6 +79,8 @@ class FrogManager{
         self.frogPositions = [FrogPoint]()
         self.displayedPositions = [FrogPoint]()
         self.audioPlayer = AVAudioPlayer()
+        self.frogCountDownAudioPlayer = AVAudioPlayer()
+
         self.initGameLevel(level)
     }
     
@@ -259,10 +264,10 @@ class FrogManager{
         // Load "countdownTimer.mp3"
         do {
             let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("countdownTimer", ofType: "mp3")!)
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
-            self.audioPlayer.numberOfLoops = 1
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.play()
+            self.frogCountDownAudioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            self.frogCountDownAudioPlayer.numberOfLoops = 5
+            self.frogCountDownAudioPlayer.prepareToPlay()
+            self.frogCountDownAudioPlayer.play()
         }
         catch {
             print("countdownTimer.mp3 can't be played")
@@ -274,7 +279,7 @@ class FrogManager{
         do {
             let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gameMusic", ofType: "mp3")!)
             self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
-            self.audioPlayer.numberOfLoops = 1
+            self.audioPlayer.numberOfLoops = 5
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
         }
@@ -284,11 +289,13 @@ class FrogManager{
     }
     
     func stopFrogMusic(){
-        if self.audioPlayer.playing {
-            self.audioPlayer.stop()
-        }
+        self.audioPlayer.stop()
     }
     
+    func stopCountDownMusic(){
+        self.frogCountDownAudioPlayer.stop()
+    }
+
     func getTargetAlert(hits:Int, miss:Int, sec:Int, okButtonHandler:(action: UIAlertAction)->Void) -> UIAlertController{
         let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\nTarget: \(hits) Hits to win, avoid the Bad frog (up to \(miss))."
         let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .Alert)

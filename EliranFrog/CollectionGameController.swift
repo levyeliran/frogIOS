@@ -120,6 +120,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
+            self.frogMngr.stopCountDownMusic()
             
             //display score
             self.displayScore()
@@ -194,7 +195,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func stopTimer(){
-        self.frogMngr.stopFrogMusic()
         self.timer?.invalidate()
 
     }
