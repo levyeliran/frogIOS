@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum GAME_LEVEL{
     case EASY, MEDIUM, HARD
@@ -56,6 +57,7 @@ class FrogManager{
     var level: GAME_LEVEL
     var frogPositions :[FrogPoint]
     var displayedPositions :[FrogPoint]
+    var audioPlayer:AVAudioPlayer
     
     init(){
         self.level = GAME_LEVEL.EASY
@@ -63,6 +65,7 @@ class FrogManager{
         self.yBottom = -1
         self.frogPositions = [FrogPoint]()
         self.displayedPositions = [FrogPoint]()
+        self.audioPlayer = AVAudioPlayer()
         self.initGameLevel(level)
     }
     
@@ -72,6 +75,7 @@ class FrogManager{
         self.yBottom = yBottom
         self.frogPositions = [FrogPoint]()
         self.displayedPositions = [FrogPoint]()
+        self.audioPlayer = AVAudioPlayer()
         self.initGameLevel(level)
     }
     
@@ -228,11 +232,52 @@ class FrogManager{
     
     func bloat(label: UILabel) {
         let animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = NSNumber(float: 2)
+        animation.toValue = NSNumber(float: 3)
         animation.duration = 0.5
         animation.repeatCount = 11.0
         animation.autoreverses = true
+        label.textColor = UIColor.yellowColor()
         label.layer.addAnimation(animation, forKey: nil)
+    }
+    
+    func playFrogSound(){
+        // Load "frogRibbet.wav"
+        do {
+            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("frogRibbet", ofType: "wav")!)
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            self.audioPlayer.numberOfLoops = 1
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }
+        catch {
+            print("frogRibbet.wav can't be played")
+        }
+    }
+    
+    func playFrogMusic(){
+        // Load "gameMusic.mp3"
+        do {
+            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gameMusic", ofType: "mp3")!)
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            self.audioPlayer.numberOfLoops = 1
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }
+        catch {
+            print("gameMusic.mp3 can't be played")
+        }
+    }
+    
+    func stopFrogMusic(){
+        self.audioPlayer.stop()
+    }
+    
+    func getTargetAlert(hits:Int, miss:Int, sec:Int, okButtonHandler:(action: UIAlertAction)->Void) -> UIAlertController{
+        let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\nTarget: \(hits) Hits to win, avoid the Bad frog (up to \(miss))."
+        let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "GO", style: .Default, handler: okButtonHandler)
+        alertController.addAction(defaultAction)
+        return alertController
     }
     
 }

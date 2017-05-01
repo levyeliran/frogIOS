@@ -23,10 +23,11 @@
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-sw-qAL">
-                                <rect key="frame" x="49" y="79" width="149" height="40"/>
+                                <rect key="frame" x="113" y="88" width="149" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.64129265659692714" green="0.93102964743589745" blue="0.24889613488973267" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8mL-hg-OZu"/>
                                     <constraint firstAttribute="height" constant="50" id="prk-kw-5NS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
@@ -38,10 +39,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-87-xnI">
-                                <rect key="frame" x="49" y="182" width="149" height="40"/>
+                                <rect key="frame" x="113" y="215" width="149" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="0ZH-Wf-vOV"/>
                                     <constraint firstAttribute="height" constant="50" id="axW-A0-UXg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
@@ -55,11 +57,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
-                                <rect key="frame" x="49" y="131" width="149" height="40"/>
+                                <rect key="frame" x="113" y="153" width="149" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.68430544490921252" blue="0.17666978087367724" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="L7u-RD-oIv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Zvq-nJ-SQ5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                 <state key="normal" title="Medium">
@@ -74,17 +77,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="CM8-1u-iNP"/>
-                            <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="FmB-Mb-h0k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="100" id="VsT-Xr-cvO"/>
-                            <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Vus-qu-w7f"/>
-                            <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="aIU-oe-f4x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lBb-Iy-pSE" secondAttribute="trailing" constant="100" id="boi-Pc-H7k"/>
+                            <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="FmB-Mb-h0k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="80" id="VsT-Xr-cvO"/>
+                            <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="Vus-qu-w7f"/>
+                            <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="aIU-oe-f4x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lBb-Iy-pSE" secondAttribute="trailing" constant="80" id="boi-Pc-H7k"/>
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fCq-dk-7iL"/>
                             <constraint firstAttribute="trailing" secondItem="5TW-5w-1fJ" secondAttribute="trailing" id="lby-5Q-8Hs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rMq-sw-qAL" secondAttribute="trailing" constant="100" id="rnM-ZE-Rc8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rMq-sw-qAL" secondAttribute="trailing" constant="80" id="rnM-ZE-Rc8"/>
                             <constraint firstAttribute="trailing" secondItem="5TW-5w-1fJ" secondAttribute="trailing" id="sJi-O4-wL1"/>
                             <constraint firstItem="lBb-Iy-pSE" firstAttribute="top" secondItem="rMq-sw-qAL" secondAttribute="bottom" constant="22" id="unq-xg-FJA"/>
-                            <constraint firstItem="rMq-sw-qAL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="wbi-wC-GzR"/>
+                            <constraint firstItem="rMq-sw-qAL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="wbi-wC-GzR"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -152,7 +155,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="label">
                                         <attributes>
-                                            <color key="NSColor" red="1" green="0.95436883931680649" blue="0.036051401018149187" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="22" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -223,8 +226,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LY9-ey-Ktq">
+                                <rect key="frame" x="20" y="376" width="335" height="43"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-Ee-Rsl">
-                                <rect key="frame" x="10" y="20" width="72" height="30"/>
+                                <rect key="frame" x="20" y="28" width="72" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="18"/>
                                 <state key="normal" title="Home">
@@ -235,19 +245,13 @@
                                     <action selector="onBackButtonClick:" destination="oqZ-N7-ysg" eventType="touchUpInside" id="I3I-xg-bvl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LY9-ey-Ktq">
-                                <rect key="frame" x="20" y="376" width="335" height="43"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Cbw-Kx-cC2" secondAttribute="trailing" id="270-9J-Xvt"/>
                             <constraint firstItem="Cbw-Kx-cC2" firstAttribute="leading" secondItem="q6s-w2-G8k" secondAttribute="leading" id="6sd-Gn-fDo"/>
+                            <constraint firstItem="kuh-1Z-qRy" firstAttribute="top" secondItem="Cbw-Kx-cC2" secondAttribute="bottom" constant="-20" id="Q1a-yf-cMS"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -255,14 +259,12 @@
                         <outlet property="backButton" destination="zv2-Ee-Rsl" id="cjB-hu-YLD"/>
                         <outlet property="bgImgView" destination="Cbw-Kx-cC2" id="H6S-N6-OOd"/>
                         <outlet property="winScoreLabel" destination="LY9-ey-Ktq" id="RSR-jK-EHu"/>
-                        <segue destination="BYZ-38-t0r" kind="popoverPresentation" identifier="homeSeg" popoverAnchorView="Cbw-Kx-cC2" id="lps-Xg-ZMa">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeSeg" id="FNe-cD-pLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWL-Vo-9dJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473.5" y="208.5"/>
+            <point key="canvasLocation" x="1597.5" y="428.5"/>
         </scene>
         <!--Collection Game Controller-->
         <scene sceneID="cZl-US-igf">
@@ -354,7 +356,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="label">
                                         <attributes>
-                                            <color key="NSColor" red="1" green="0.92646484389896244" blue="0.025495499646289943" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="22" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>

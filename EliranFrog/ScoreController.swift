@@ -17,12 +17,14 @@ class ScoreController: UIViewController{
     var level = GAME_LEVEL.HARD
     var missed = 0
     var hits = 0
+    var frogMngr = FrogManager()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if missed >= 3 {
+        self.frogMngr.playFrogMusic()
+
+        if missed >= 3 || hits == 0 {
             bgImgView.backgroundColor = UIColor(patternImage: UIImage(named: "looseBG")!)
             self.winScoreLabel.text = "Again?"
         }
@@ -35,7 +37,16 @@ class ScoreController: UIViewController{
     
     
     @IBAction func onBackButtonClick(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.frogMngr.stopFrogMusic()
+        performSegueWithIdentifier("homeSeg", sender: self)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
 }

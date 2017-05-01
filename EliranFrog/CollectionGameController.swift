@@ -31,16 +31,22 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         
         self.counter = level == GAME_LEVEL.EASY ? 120 : 60
-        self.levelInterval = level == GAME_LEVEL.EASY ? 2 : 1
+        self.levelInterval = 1
         self.frogMngr = FrogManager(level: level, xBottom: -1, yBottom: -1)
         self.gameCollection.dataSource = self
         self.gameCollection.delegate = self
         self.gameCollection.backgroundColor = UIColor.clearColor()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+        
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.EASY ? 10 : 30, miss: level == GAME_LEVEL.EASY ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+        })
+        self.presentViewController(targetAlert, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -85,6 +91,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! CustomFrogCell
         
         if selectedCell.isGoodFrog {
+            self.frogMngr.playFrogSound()
             self.hits++
             self.hitsLabel.text = "\(self.hits)"
         }
@@ -194,5 +201,13 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     @IBAction func onBackButtonClick(sender: AnyObject) {
         self.stopTimer()
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
 }

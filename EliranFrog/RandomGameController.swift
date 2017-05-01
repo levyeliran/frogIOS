@@ -38,7 +38,6 @@ class RandomGameController: UIViewController {
         
         self.displayedFrogs = [FrogImageView]()
         self.gameBoardView.backgroundColor = UIColor.clearColor()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
@@ -46,6 +45,14 @@ class RandomGameController: UIViewController {
         self.topY = self.gameBoardView.frame.origin.y
         self.bottomX = Int(self.gameBoardView.frame.width - self.topX - 5)
         self.bottomY = Int(self.gameBoardView.frame.height - 5)
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+        })
+        self.presentViewController(targetAlert, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -66,6 +73,7 @@ class RandomGameController: UIViewController {
             let frog = self.displayedFrogs.removeAtIndex(index!)
             
             if frog.isGoodFrog {
+                self.frogMngr.playFrogSound()
                 self.hits++
                 self.hitsLabel.text = "\(self.hits)"
             }
@@ -128,18 +136,18 @@ class RandomGameController: UIViewController {
     }
     
     func removeFrogs(){
-        var isMissed = false
+        //var isMissed = false
         for item in self.displayedFrogs {
-            if item.isGoodFrog{
-                isMissed = true
-            }
+//            if item.isGoodFrog{
+//                isMissed = true
+//            }
             item.imgView.removeFromSuperview()
         }
         //loose point for at least unclicked good frog
-        if isMissed{
-            missed++
-            self.missedLabel.text = "\(self.missed)"
-        }
+//        if isMissed{
+//            missed++
+//            self.missedLabel.text = "\(self.missed)"
+//        }
         self.displayedFrogs.removeAll()
         
         //calculate score
@@ -177,6 +185,14 @@ class RandomGameController: UIViewController {
     @IBAction func onBackButtonClick(sender: AnyObject) {
         self.stopTimer()
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
 }

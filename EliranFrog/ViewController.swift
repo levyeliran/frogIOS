@@ -14,17 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var mediumLevelBtn: UIButton!
     @IBOutlet weak var hardlevelBtn: UIButton!
     var selectedLevel = GAME_LEVEL.EASY
+    var frogMngr = FrogManager()
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(selectedLevel != GAME_LEVEL.HARD){
             let nextView = segue.destinationViewController as! CollectionGameController
             nextView.level = selectedLevel
         }
+        self.frogMngr.stopFrogMusic()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.frogMngr.playFrogMusic()
         
         easyLevelBtn.layer.cornerRadius = 5
         easyLevelBtn.layer.borderWidth = 4
