@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */; };
 		8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */; };
 		8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA4401EAA2222007C52C0 /* ViewController.swift */; };
 		8EAFA4441EAA2222007C52C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAFA4421EAA2222007C52C0 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		8EAFA43B1EAA2222007C52C0 /* EliranFrog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EliranFrog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EAFA4401EAA2222007C52C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */,
 				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
 				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
+				8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */,
 				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
+				8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */,
 				8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */,
 				8EEE33AB1EB345E20052DA72 /* CustomFrogCell.swift in Sources */,
 				8EAFA46D1EAA28C4007C52C0 /* CollectionGameController.swift in Sources */,

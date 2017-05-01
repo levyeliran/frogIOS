@@ -43,6 +43,13 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
 
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nextView = segue.destinationViewController as! ScoreController
+        nextView.hits = self.hits
+        nextView.missed = self.missed
+        nextView.level = self.level
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return level == GAME_LEVEL.EASY ? 4 : 5
     }
@@ -88,11 +95,15 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         
         let cellX = indexPath.section
         let cellY = indexPath.row
+        
         //free the pos
         self.frogMngr.frogTapped(cellX, col: cellY)
         selectedCell.cellImage?.image = self.frogMngr.getDefaultImage()
         selectedCell.isGoodFrog = false
-    
+        
+        //calculate score
+        self.scoreStatus()
+        
     }
     
     
@@ -102,7 +113,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
-            self.countDownLabel.text = "\(Int(self.counter))"
             
             //display score
             self.displayScore()
@@ -112,9 +122,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 if !self.countDownFlag{
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
-                }
-                self.countDownLabel.text = "\(Int(self.counter))"
-            }
+                }            }
             
             if self.frogTimeout <= 0 {
                 self.frogTimeout = 4
@@ -133,6 +141,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 }
             }
         }
+        self.countDownLabel.text = "\(Int(self.counter))"
+
     }
     
     func removeFrogs(){
@@ -145,8 +155,35 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         frogMngr.removeAllDisplayedFrogs()
     }
     
-    func displayScore(){
+    func scoreStatus(){
+        var isWon = false
+        var isLost = false
         
+        if self.level == GAME_LEVEL.EASY {
+            if self.hits >= 10 {
+                isWon = true
+            }
+            else if self.missed >= 5 {
+                isLost = true
+            }
+        }
+        else {
+            if self.hits >= 30 {
+                isWon = true
+            }
+            else if self.missed >= 3 {
+                isLost = true
+            }
+        }
+        
+        if (isWon || isLost){
+            self.displayScore()
+        }
+    }
+    
+    func displayScore(){
+        self.stopTimer()
+        performSegueWithIdentifier("collectionScoreSeg", sender: self)
     }
     
     func stopTimer(){

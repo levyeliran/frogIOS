@@ -9,23 +9,20 @@
 import UIKit
 
 class RandomGameController: UIViewController {
-
+    
     var level = GAME_LEVEL.HARD
     
     @IBOutlet weak var missedLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
     @IBOutlet weak var countDownLabel: UILabel!
     @IBOutlet weak var gameBoardView: UIView!
-    
     @IBOutlet weak var backButton: UIButton!
-    
     
     
     var topX:CGFloat = 0.0
     var topY:CGFloat = 0.0
     var bottomX:Int = 0
     var bottomY:Int = 0
-    
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
     var counter = 45
@@ -51,6 +48,14 @@ class RandomGameController: UIViewController {
         self.bottomY = Int(self.gameBoardView.frame.height - 5)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nextView = segue.destinationViewController as! ScoreController
+        nextView.hits = self.hits
+        nextView.missed = self.missed
+        nextView.level = self.level
+        
+    }
+    
     func frogImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let imgView = tapGestureRecognizer.view as! UIImageView
@@ -71,6 +76,9 @@ class RandomGameController: UIViewController {
             
             frog.imgView.removeFromSuperview()
         }
+        
+        //calculate score
+        self.scoreStatus()
     }
     
     
@@ -80,7 +88,6 @@ class RandomGameController: UIViewController {
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
-            self.countDownLabel.text = "\(Int(self.counter))"
             
             //display score
             self.displayScore()
@@ -91,7 +98,6 @@ class RandomGameController: UIViewController {
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
                 }
-                self.countDownLabel.text = "\(Int(self.counter))"
             }
             
             if self.frogTimeout <= 0 {
@@ -108,7 +114,7 @@ class RandomGameController: UIViewController {
             for _ in 0...c {
                 let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
                 self.displayedFrogs.append(frog)
-
+                
                 let imgView = frog.imgView
                 let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "frogImageTapped:")
                 imgView.userInteractionEnabled = true
@@ -117,6 +123,8 @@ class RandomGameController: UIViewController {
                 self.gameBoardView.addSubview(imgView)
             }
         }
+        self.countDownLabel.text = "\(Int(self.counter))"
+        
     }
     
     func removeFrogs(){
@@ -133,11 +141,32 @@ class RandomGameController: UIViewController {
             self.missedLabel.text = "\(self.missed)"
         }
         self.displayedFrogs.removeAll()
+        
+        //calculate score
+        self.scoreStatus()
+    }
+    
+    
+    func scoreStatus(){
+        var isWon = false
+        var isLost = false
+        
+        if self.hits >= 30 {
+            isWon = true
+        }
+        else if self.missed >= 5 {
+            isLost = true
+        }
+        
+        if (isWon || isLost){
+            self.displayScore()
+        }
     }
     
     
     func displayScore(){
-        
+        self.stopTimer()
+        performSegueWithIdentifier("viewScoreSeg", sender: self)
     }
     
     func stopTimer(){
