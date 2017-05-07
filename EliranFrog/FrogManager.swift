@@ -188,7 +188,6 @@ class FrogManager{
             self.displayedFrogs++
             //shuffle the array
             self.frogPositions.shuffle()
-            print(pos.x, "|", pos.y)
 
             return pos
         }
