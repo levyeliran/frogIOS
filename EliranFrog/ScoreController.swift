@@ -18,7 +18,10 @@ class ScoreController: UIViewController{
     var missed = 0
     var hits = 0
     var frogMngr = FrogManager()
-    
+    var relativeVerticalOffset:Float = 600/1300; //label location in the original image
+    var relativeHorizontalOffset:Float = 500/768; //label location in the original image
+    let screenSize: CGSize = UIScreen.mainScreen().bounds.size
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,8 @@ class ScoreController: UIViewController{
                 }
                 break
         }
+        let frame = CGRectMake(20, CGFloat(Float(screenSize.height)*self.relativeVerticalOffset),115, 50)
+        winScoreLabel.frame = frame
         
         if isLoose {
             bgImgView.backgroundColor = UIColor(patternImage: UIImage(named: "looseBG")!)

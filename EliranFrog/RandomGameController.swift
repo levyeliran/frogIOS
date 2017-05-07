@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox.AudioServices
 
 class RandomGameController: UIViewController {
     
@@ -31,7 +32,6 @@ class RandomGameController: UIViewController {
     var hits = 0
     var missed = 0
     var countDownFlag = false
-    //var tapGestureRecognizer = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +78,7 @@ class RandomGameController: UIViewController {
                 self.hitsLabel.text = "\(self.hits)"
             }
             else {
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.missed++
                 self.missedLabel.text = "\(self.missed)"
             }
@@ -137,18 +138,9 @@ class RandomGameController: UIViewController {
     }
     
     func removeFrogs(){
-        //var isMissed = false
         for item in self.displayedFrogs {
-//            if item.isGoodFrog{
-//                isMissed = true
-//            }
             item.imgView.removeFromSuperview()
         }
-        //loose point for at least unclicked good frog
-//        if isMissed{
-//            missed++
-//            self.missedLabel.text = "\(self.missed)"
-//        }
         self.displayedFrogs.removeAll()
         
         //calculate score

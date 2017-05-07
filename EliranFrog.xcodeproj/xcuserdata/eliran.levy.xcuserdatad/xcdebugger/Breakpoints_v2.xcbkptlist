@@ -41,28 +41,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EliranFrog/FrogManager.swift"
-            timestampString = "515336334.402188"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "removeAllDisplayedFrogs()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EliranFrog/CollectionGameController.swift"
-            timestampString = "515335220.103818"
+            timestampString = "515862502.608859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "onBackButtonClick(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/RandomGameController.swift"
-            timestampString = "515332989.057614"
+            timestampString = "515862502.608859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -90,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/FrogManager.swift"
-            timestampString = "515336334.402188"
+            timestampString = "515862502.608859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "stopCountDownMusic()"
             landmarkType = "5">
          </BreakpointContent>

@@ -96,7 +96,6 @@ class FrogManager{
             dim = self.mediumLevelDim
         }
         //hard leve is random - no meed for indexes
-
         for r in 0...(dim-1) {
             for c in 0...2 {
                 let pos = FrogPoint(x: r,y: c)
@@ -248,44 +247,33 @@ class FrogManager{
     
     func playFrogSound(){
         // Load "frogRibbet.wav"
-        do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("frogRibbet", ofType: "wav")!)
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
-            self.audioPlayer.numberOfLoops = 1
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.play()
-        }
-        catch {
-            print("frogRibbet.wav can't be played")
-        }
+        self.playSound("frogRibbet", exten: "wav", loops: 1)
+
     }
     
     func playCountDownMusic(){
         // Load "countdownTimer.mp3"
-        do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("countdownTimer", ofType: "mp3")!)
-            self.frogCountDownAudioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
-            self.frogCountDownAudioPlayer.numberOfLoops = 5
-            self.frogCountDownAudioPlayer.prepareToPlay()
-            self.frogCountDownAudioPlayer.play()
-        }
-        catch {
-            print("countdownTimer.mp3 can't be played")
-        }
+        self.playSound("countdownTimer", exten: "mp3", loops: 5)
+
     }
     
     func playFrogMusic(){
         // Load "gameMusic.mp3"
+        self.playSound("gameMusic", exten: "mp3", loops: 5)
+    }
+    
+    func playSound(fileName:String, exten:String, loops:Int){
         do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gameMusic", ofType: "mp3")!)
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
-            self.audioPlayer.numberOfLoops = 5
+            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: exten)!)
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL: sound)
+            self.audioPlayer.numberOfLoops = loops
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
         }
         catch {
-            print("gameMusic.mp3 can't be played")
+            print("\(fileName).\(exten) can't be played")
         }
+
     }
     
     func stopFrogMusic(){

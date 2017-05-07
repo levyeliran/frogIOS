@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AudioToolbox.AudioServices
+
 
 class CollectionGameController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
@@ -43,14 +45,18 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(animated: Bool) {
+        //get alert object
         let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.EASY ? 10 : 30, miss: level == GAME_LEVEL.EASY ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
             self.timer = NSTimer.scheduledTimerWithTimeInterval(self.levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
         })
+        //display the alert
         self.presentViewController(targetAlert, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nextView = segue.destinationViewController as! ScoreController
+        
+        //set the values in the next view
         nextView.hits = self.hits
         nextView.missed = self.missed
         nextView.level = self.level
@@ -96,6 +102,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.hitsLabel.text = "\(self.hits)"
         }
         else {
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             self.missed++
             self.missedLabel.text = "\(self.missed)"
         }

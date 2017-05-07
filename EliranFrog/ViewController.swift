@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(selectedLevel != GAME_LEVEL.HARD){
             let nextView = segue.destinationViewController as! CollectionGameController
+            
+            //set the values in the next view
             nextView.level = selectedLevel
         }
         self.frogMngr.stopFrogMusic()
@@ -28,18 +30,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.frogMngr.playFrogMusic()
-        
-        easyLevelBtn.layer.cornerRadius = 5
-        easyLevelBtn.layer.borderWidth = 4
-        easyLevelBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        mediumLevelBtn.layer.cornerRadius = 5
-        mediumLevelBtn.layer.borderWidth = 4
-        mediumLevelBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        hardlevelBtn.layer.cornerRadius = 5
-        hardlevelBtn.layer.borderWidth = 4
-        hardlevelBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        setButtonStyle(easyLevelBtn)
+        setButtonStyle(mediumLevelBtn)
+        setButtonStyle(hardlevelBtn)
+    }
+    
+    func setButtonStyle(btn:UIButton){
+        btn.layer.cornerRadius = 5
+        btn.layer.borderWidth = 4
+        btn.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +70,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //disable landscape mode
     override func shouldAutorotate() -> Bool {
         return false
     }

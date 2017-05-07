@@ -282,42 +282,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
-                                <rect key="frame" x="20" y="102" width="335" height="545"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBq-FC-1LV">
-                                    <size key="itemSize" width="101" height="102"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" reuseIdentifier="eliranFrogCell" id="Vzw-sn-6qV" customClass="CustomFrogCell" customModule="EliranFrog" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71U-FF-kbC">
-                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
-                                                    <animations/>
-                                                </imageView>
-                                            </subviews>
-                                            <animations/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <animations/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
-                                        <size key="customSize" width="80" height="80"/>
-                                        <connections>
-                                            <outlet property="cellImage" destination="71U-FF-kbC" id="udf-FN-eL0"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-Uf-JSn">
                                 <rect key="frame" x="20" y="79" width="42" height="21"/>
                                 <animations/>
@@ -371,6 +335,42 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
+                                <rect key="frame" x="20" y="140" width="335" height="507"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBq-FC-1LV">
+                                    <size key="itemSize" width="101" height="102"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" reuseIdentifier="eliranFrogCell" id="Vzw-sn-6qV" customClass="CustomFrogCell" customModule="EliranFrog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71U-FF-kbC">
+                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
+                                        <size key="customSize" width="80" height="80"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="71U-FF-kbC" id="udf-FN-eL0"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -382,7 +382,7 @@
                             <constraint firstItem="6ja-ew-eF5" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="5" id="dp9-YV-8F4"/>
                             <constraint firstItem="6ja-ew-eF5" firstAttribute="top" secondItem="aE3-Uf-JSn" secondAttribute="bottom" constant="2" id="dsf-AZ-kgy"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leading" id="haI-0k-1Xs"/>
-                            <constraint firstItem="6ja-ew-eF5" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="80" id="nzk-uG-AJQ"/>
+                            <constraint firstItem="6ja-ew-eF5" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="120" id="nzk-uG-AJQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dVe-CB-VYC" secondAttribute="trailing" id="vWD-Ga-n4T"/>
                         </constraints>
                     </view>
@@ -408,6 +408,6 @@
         <image name="welcomeBG" width="768" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2wv-qm-VzC"/>
+        <segue reference="hhA-he-Sob"/>
     </inferredMetricsTieBreakers>
 </document>
