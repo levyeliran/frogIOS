@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
     
     func setButtonStyle(btn:UIButton){
-        btn.layer.cornerRadius = 5
+        btn.layer.cornerRadius = 10
         btn.layer.borderWidth = 4
         btn.layer.borderColor = UIColor.whiteColor().CGColor
     }

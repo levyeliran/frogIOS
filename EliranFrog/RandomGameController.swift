@@ -26,7 +26,7 @@ class RandomGameController: UIViewController {
     var bottomY:Int = 0
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
-    var counter = 20
+    var counter = 60
     var frogMngr = FrogManager()
     var timer: NSTimer?
     var hits = 0

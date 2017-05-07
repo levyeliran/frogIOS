@@ -18,7 +18,7 @@ class ScoreController: UIViewController{
     var missed = 0
     var hits = 0
     var frogMngr = FrogManager()
-    var relativeVerticalOffset:Float = 600/1300; //label location in the original image
+    var relativeVerticalOffset:Float = 500/1300; //label location in the original image
     var relativeHorizontalOffset:Float = 500/768; //label location in the original image
     let screenSize: CGSize = UIScreen.mainScreen().bounds.size
 
