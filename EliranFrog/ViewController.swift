@@ -22,6 +22,7 @@ class ViewController: UIViewController {
             
             //set the values in the next view
             nextView.level = selectedLevel
+            nextView.shouldDisappear = false
         }
         self.frogMngr.stopFrogMusic()
     }
@@ -64,6 +65,7 @@ class ViewController: UIViewController {
         selectedLevel = level
         if(selectedLevel != GAME_LEVEL.HARD){
             performSegueWithIdentifier("collectionSeg", sender: self)
+            
         }
         else{
             performSegueWithIdentifier("viewSeg", sender: self)

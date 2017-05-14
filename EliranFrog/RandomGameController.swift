@@ -32,6 +32,7 @@ class RandomGameController: UIViewController {
     var hits = 0
     var missed = 0
     var countDownFlag = false
+    var shouldDisappear = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +50,20 @@ class RandomGameController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
-        })
-        self.presentViewController(targetAlert, animated: true, completion: nil)
+        super.viewDidAppear(animated)
+        if !shouldDisappear {
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimerUpdate",     userInfo: nil, repeats: true)
+            })
+            self.presentViewController(targetAlert, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if shouldDisappear {
+            self.dismissViewControllerAnimated(false, completion: {})
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -60,7 +71,6 @@ class RandomGameController: UIViewController {
         nextView.hits = self.hits
         nextView.missed = self.missed
         nextView.level = self.level
-        
     }
     
     func frogImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -167,6 +177,7 @@ class RandomGameController: UIViewController {
     
     func displayScore(){
         self.stopTimer()
+        self.shouldDisappear = true
         performSegueWithIdentifier("viewScoreSeg", sender: self)
     }
     

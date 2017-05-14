@@ -51,12 +51,15 @@ class ScoreController: UIViewController{
             self.winScoreLabel.text = "\(self.hits)"
             
         }
+        self.dismissViewControllerAnimated(true, completion: nil)
+
     }
     
     
     @IBAction func onBackButtonClick(sender: AnyObject) {
         self.frogMngr.stopFrogMusic()
-        performSegueWithIdentifier("homeSeg", sender: self)
+        self.dismissViewControllerAnimated(true, completion: {})
+
     }
     
     override func shouldAutorotate() -> Bool {

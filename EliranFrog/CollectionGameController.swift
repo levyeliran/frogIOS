@@ -29,6 +29,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     var missed = 0
     var countDownFlag = false
     
+    var shouldDisappear = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,12 +47,22 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
     
     override func viewDidAppear(animated: Bool) {
-        //get alert object
-        let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.EASY ? 10 : 30, miss: level == GAME_LEVEL.EASY ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
-        })
-        //display the alert
-        self.presentViewController(targetAlert, animated: true, completion: nil)
+        super.viewDidAppear(animated)
+        if !shouldDisappear {
+            //get alert object
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.EASY ? 10 : 30, miss: level == GAME_LEVEL.EASY ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+            })
+            //display the alert
+            self.presentViewController(targetAlert, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if shouldDisappear {
+            self.dismissViewControllerAnimated(false, completion: {})
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -198,6 +210,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     func displayScore(){
         self.stopTimer()
+        self.shouldDisappear = true
         performSegueWithIdentifier("collectionScoreSeg", sender: self)
     }
     
