@@ -8,9 +8,33 @@
 
 import UIKit
 import AVFoundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 enum GAME_LEVEL{
-    case EASY, MEDIUM, HARD
+    case easy, medium, hard
 }
 
 class FrogPoint{
@@ -61,7 +85,7 @@ class FrogManager{
     var frogCountDownAudioPlayer:AVAudioPlayer
     
     init(){
-        self.level = GAME_LEVEL.EASY
+        self.level = GAME_LEVEL.easy
         self.xBottom = -1
         self.yBottom = -1
         self.frogPositions = [FrogPoint]()
@@ -84,14 +108,14 @@ class FrogManager{
         self.initGameLevel(level)
     }
     
-    func initGameLevel(level: GAME_LEVEL){
+    func initGameLevel(_ level: GAME_LEVEL){
         var dim = 0;
-        if(level == GAME_LEVEL.EASY){
+        if(level == GAME_LEVEL.easy){
             //create easy pos cells
             dim = self.easyLevelDim
             
         }
-        else if(level == GAME_LEVEL.MEDIUM){
+        else if(level == GAME_LEVEL.medium){
             //create medium pos cells
             dim = self.mediumLevelDim
         }
@@ -107,14 +131,14 @@ class FrogManager{
     }
     
     func canGetFrog() ->Bool{
-        if(self.level == GAME_LEVEL.HARD){
+        if(self.level == GAME_LEVEL.hard){
             if(self.displayedFrogs >= self.hardLevelCount){
                 return false
             }
         }
         else{
             var dim = 0
-            if(self.level == GAME_LEVEL.EASY){
+            if(self.level == GAME_LEVEL.easy){
                 dim = self.easyLevelDim*3
             }
             else {
@@ -160,7 +184,7 @@ class FrogManager{
     }
 
     
-    func getRandomFrog(xBotton:Int, yBottom:Int) -> FrogImageView
+    func getRandomFrog(_ xBotton:Int, yBottom:Int) -> FrogImageView
     {
         let customFrog = self.getCustomFrogImage()
         let imgView = UIImageView()
@@ -169,11 +193,11 @@ class FrogManager{
         
         let frogView = FrogImageView(imgView: imgView, isGoodFrog: customFrog.isGoodFrog)
         
-        self.displayedFrogs++
+        self.displayedFrogs += 1
         return frogView
     }
     
-    func getRandomFrogLocationOnScreen(xBotton:Int, yBottom:Int) -> CGRect {
+    func getRandomFrogLocationOnScreen(_ xBotton:Int, yBottom:Int) -> CGRect {
         let x = Int(arc4random_uniform((UInt32(xBotton - self.frogWidth))) + 1)
         let y = Int(arc4random_uniform((UInt32(yBottom - self.frogWidth))) + 1)
         
@@ -185,7 +209,7 @@ class FrogManager{
         if(self.canGetFrog()){
             let pos = self.frogPositions.removeLast()
             self.displayedPositions.append(pos)
-            self.displayedFrogs++
+            self.displayedFrogs += 1
             //shuffle the array
             self.frogPositions.shuffle()
 
@@ -194,23 +218,23 @@ class FrogManager{
         return FrogPoint(x: -1,y: -1)
     }
     
-    func frogTapped(row:Int, col:Int){
+    func frogTapped(_ row:Int, col:Int){
         
-        if(self.level != GAME_LEVEL.HARD){
+        if(self.level != GAME_LEVEL.hard){
             //add the tapped position back into the array
             self.frogPositions.append(FrogPoint(x: row, y: col))
             
             //remove from the displayed positions
-            let index = self.displayedPositions.indexOf{ $0.x == row && $0.y == col }
+            let index = self.displayedPositions.index{ $0.x == row && $0.y == col }
             if index >= 0
             {
-                self.displayedPositions.removeAtIndex(index!)
+                self.displayedPositions.remove(at: index!)
             }
             
             //shuffle the array
             self.frogPositions.shuffle()
         }
-        self.displayedFrogs--
+        self.displayedFrogs -= 1
     }
     
     func getDefaultImage()-> UIImage{
@@ -233,14 +257,14 @@ class FrogManager{
         return displayed
     }
     
-    func bloat(label: UILabel) {
+    func bloat(_ label: UILabel) {
         let animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = NSNumber(float: 3)
+        animation.toValue = NSNumber(value: 3 as Float)
         animation.duration = 0.5
         animation.repeatCount = 11.0
         animation.autoreverses = true
-        label.textColor = UIColor.yellowColor()
-        label.layer.addAnimation(animation, forKey: nil)
+        label.textColor = UIColor.yellow
+        label.layer.add(animation, forKey: nil)
         self.playCountDownMusic()
     }
     
@@ -248,8 +272,8 @@ class FrogManager{
     func playFrogSound(){
         // Load "frogRibbet.wav"
         do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("frogRibbet", ofType: "wav")!)
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            let frogSound = URL(fileURLWithPath: Bundle.main.path(forResource: "frogRibbet", ofType: "wav")!)
+            self.audioPlayer = try AVAudioPlayer(contentsOf: frogSound)
             self.audioPlayer.numberOfLoops = 1
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
@@ -262,8 +286,8 @@ class FrogManager{
     func playCountDownMusic(){
         // Load "countdownTimer.mp3"
         do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("countdownTimer", ofType: "mp3")!)
-            self.frogCountDownAudioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            let frogSound = URL(fileURLWithPath: Bundle.main.path(forResource: "countdownTimer", ofType: "mp3")!)
+            self.frogCountDownAudioPlayer = try AVAudioPlayer(contentsOf: frogSound)
             self.frogCountDownAudioPlayer.numberOfLoops = 5
             self.frogCountDownAudioPlayer.prepareToPlay()
             self.frogCountDownAudioPlayer.play()
@@ -276,8 +300,8 @@ class FrogManager{
     func playFrogMusic(){
         // Load "gameMusic.mp3"
         do {
-            let frogSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gameMusic", ofType: "mp3")!)
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: frogSound)
+            let frogSound = URL(fileURLWithPath: Bundle.main.path(forResource: "gameMusic", ofType: "mp3")!)
+            self.audioPlayer = try AVAudioPlayer(contentsOf: frogSound)
             self.audioPlayer.numberOfLoops = 5
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
@@ -295,10 +319,10 @@ class FrogManager{
         self.frogCountDownAudioPlayer.stop()
     }
 
-    func getTargetAlert(hits:Int, miss:Int, sec:Int, okButtonHandler:(action: UIAlertAction)->Void) -> UIAlertController{
+    func getTargetAlert(_ hits:Int, miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
         let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\nTarget: \(hits) Hits to win, avoid the Bad frog (up to \(miss))."
-        let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "GO", style: .Default, handler: okButtonHandler)
+        let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "GO", style: .default, handler: okButtonHandler)
         alertController.addAction(defaultAction)
         return alertController
     }

@@ -8,10 +8,34 @@
 
 import UIKit
 import AudioToolbox.AudioServices
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class RandomGameController: UIViewController {
     
-    var level = GAME_LEVEL.HARD
+    var level = GAME_LEVEL.hard
     
     @IBOutlet weak var missedLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
@@ -28,7 +52,7 @@ class RandomGameController: UIViewController {
     var frogTimeout = 4
     var counter = 60
     var frogMngr = FrogManager()
-    var timer: NSTimer?
+    var timer: Timer?
     var hits = 0
     var missed = 0
     var countDownFlag = false
@@ -38,7 +62,7 @@ class RandomGameController: UIViewController {
         super.viewDidLoad()
         
         self.displayedFrogs = [FrogImageView]()
-        self.gameBoardView.backgroundColor = UIColor.clearColor()
+        self.gameBoardView.backgroundColor = UIColor.clear
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
@@ -49,47 +73,41 @@ class RandomGameController: UIViewController {
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !shouldDisappear {
             let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimerUpdate",     userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RandomGameController.onTimerUpdate),     userInfo: nil, repeats: true)
             })
-            self.presentViewController(targetAlert, animated: true, completion: nil)
+            self.present(targetAlert, animated: true, completion: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if shouldDisappear {
-            self.dismissViewControllerAnimated(false, completion: {})
+            self.dismiss(animated: false, completion: {})
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextView = segue.destinationViewController as! ScoreController
-        nextView.hits = self.hits
-        nextView.missed = self.missed
-        nextView.level = self.level
-    }
     
-    func frogImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    func frogImageTapped(_ tapGestureRecognizer: UITapGestureRecognizer)
     {
         let imgView = tapGestureRecognizer.view as! UIImageView
         //remove from the displayed positions
-        let index = self.displayedFrogs.indexOf{ $0.imgView == imgView }
+        let index = self.displayedFrogs.index{ $0.imgView == imgView }
         if index >= 0
         {
-            let frog = self.displayedFrogs.removeAtIndex(index!)
+            let frog = self.displayedFrogs.remove(at: index!)
             
             if frog.isGoodFrog {
                 self.frogMngr.playFrogSound()
-                self.hits++
+                self.hits += 1
                 self.hitsLabel.text = "\(self.hits)"
             }
             else {
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                self.missed++
+                self.missed += 1
                 self.missedLabel.text = "\(self.missed)"
             }
             
@@ -126,8 +144,8 @@ class RandomGameController: UIViewController {
                 self.removeFrogs()
             }
             
-            counter--
-            self.frogTimeout--
+            counter -= 1
+            self.frogTimeout -= 1
             
             let c = Int(arc4random_uniform(3))
             //add random frogs
@@ -136,8 +154,8 @@ class RandomGameController: UIViewController {
                 self.displayedFrogs.append(frog)
                 
                 let imgView = frog.imgView
-                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "frogImageTapped:")
-                imgView.userInteractionEnabled = true
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
+                imgView.isUserInteractionEnabled = true
                 imgView.addGestureRecognizer(tapGestureRecognizer)
                 
                 self.gameBoardView.addSubview(imgView)
@@ -178,7 +196,8 @@ class RandomGameController: UIViewController {
     func displayScore(){
         self.stopTimer()
         self.shouldDisappear = true
-        performSegueWithIdentifier("viewScoreSeg", sender: self)
+        //display confirm
+        print("finish")
     }
     
     func stopTimer(){
@@ -186,17 +205,17 @@ class RandomGameController: UIViewController {
     }
     
     
-    @IBAction func onBackButtonClick(sender: AnyObject) {
+    @IBAction func onBackButtonClick(_ sender: AnyObject) {
         self.stopTimer()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

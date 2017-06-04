@@ -19,74 +19,74 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var gameCollection: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
     
-    var level = GAME_LEVEL.EASY
+    var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
     var counter:Double = 0
     var levelInterval:Double = 1
     var frogMngr = FrogManager()
-    var timer: NSTimer?
+    var timer: Timer?
     var hits = 0
     var missed = 0
     var countDownFlag = false
+    var numOfRows = 0
+    var numOfCols = 0
     
     var shouldDisappear = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.counter = level == GAME_LEVEL.EASY ? 120 : 60
+        self.counter = level == GAME_LEVEL.easy ? 120 : 60
         self.levelInterval = 1
         self.frogMngr = FrogManager(level: level, xBottom: -1, yBottom: -1)
         self.gameCollection.dataSource = self
         self.gameCollection.delegate = self
-        self.gameCollection.backgroundColor = UIColor.clearColor()
+        self.gameCollection.backgroundColor = UIColor.clear
         
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !shouldDisappear {
             //get alert object
-            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.EASY ? 10 : 30, miss: level == GAME_LEVEL.EASY ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.levelInterval, target: self, selector: "onTimerUpdate", userInfo: nil, repeats: true)
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.easy ? 10 : 30, miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+                self.timer = Timer.scheduledTimer(timeInterval: self.levelInterval, target: self, selector: #selector(CollectionGameController.onTimerUpdate), userInfo: nil, repeats: true)
             })
             //display the alert
-            self.presentViewController(targetAlert, animated: true, completion: nil)
+            self.present(targetAlert, animated: true, completion: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if shouldDisappear {
-            self.dismissViewControllerAnimated(false, completion: {})
+            self.dismiss(animated: false, completion: {})
         }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextView = segue.destinationViewController as! ScoreController
         
-        //set the values in the next view
-        nextView.hits = self.hits
-        nextView.missed = self.missed
-        nextView.level = self.level
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        numOfRows = Int((screenHeight-100)/106)
+        numOfCols = Int(screenWidth / 106)
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return level == GAME_LEVEL.EASY ? 4 : 5
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return numOfRows
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return numOfCols
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("eliranFrogCell", forIndexPath: indexPath) as! CustomFrogCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eliranFrogCell", for: indexPath) as! CustomFrogCell
         
         cell.cellImage?.image = self.frogMngr.getDefaultImage()
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         return cell
     }
     
@@ -96,8 +96,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             //game over
         }
         else {
-            let index = NSIndexPath(forRow: pos.y, inSection: pos.x)
-            let cell = gameCollection.cellForItemAtIndexPath(index) as! CustomFrogCell
+            let index = IndexPath(row: pos.y, section: pos.x)
+            let cell = gameCollection.cellForItem(at: index) as! CustomFrogCell
             let customFrog = self.frogMngr.getCustomFrogImage()
             cell.cellImage?.image = customFrog.image
             cell.isGoodFrog = customFrog.isGoodFrog
@@ -105,17 +105,17 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
 
     //on cell click
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! CustomFrogCell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCell = collectionView.cellForItem(at: indexPath) as! CustomFrogCell
         
         if selectedCell.isGoodFrog {
             self.frogMngr.playFrogSound()
-            self.hits++
+            self.hits += 1
             self.hitsLabel.text = "\(self.hits)"
         }
         else {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.missed++
+            self.missed += 1
             self.missedLabel.text = "\(self.missed)"
         }
         
@@ -158,8 +158,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             }
             
             counter-=self.levelInterval
-            self.frogTimeout--
-            if level == GAME_LEVEL.EASY{
+            self.frogTimeout -= 1
+            if level == GAME_LEVEL.easy{
                 self.changeCell()
             }
             else {
@@ -175,8 +175,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     func removeFrogs(){
         let displayedFrogs:[FrogPoint] = frogMngr.getDisplayedFrogPositions()
         for pos in displayedFrogs {
-            let index = NSIndexPath(forRow: pos.y, inSection: pos.x)
-            let cell = gameCollection.cellForItemAtIndexPath(index) as! CustomFrogCell
+            let index = IndexPath(row: pos.y, section: pos.x)
+            let cell = gameCollection.cellForItem(at: index) as! CustomFrogCell
             cell.cellImage?.image = self.frogMngr.getDefaultImage()
         }
         frogMngr.removeAllDisplayedFrogs()
@@ -186,7 +186,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         var isWon = false
         var isLost = false
         
-        if self.level == GAME_LEVEL.EASY {
+        if self.level == GAME_LEVEL.easy {
             if self.hits >= 10 {
                 isWon = true
             }
@@ -211,7 +211,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     func displayScore(){
         self.stopTimer()
         self.shouldDisappear = true
-        performSegueWithIdentifier("collectionScoreSeg", sender: self)
+        //display confirm
+        print("finish")
     }
     
     func stopTimer(){
@@ -219,16 +220,16 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
 
     }
     
-    @IBAction func onBackButtonClick(sender: AnyObject) {
+    @IBAction func onBackButtonClick(_ sender: AnyObject) {
         self.stopTimer()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
 }

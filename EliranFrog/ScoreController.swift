@@ -14,13 +14,13 @@ class ScoreController: UIViewController{
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var winScoreLabel: UILabel!
     
-    var level = GAME_LEVEL.HARD
+    var level = GAME_LEVEL.hard
     var missed = 0
     var hits = 0
     var frogMngr = FrogManager()
     var relativeVerticalOffset:Float = 500/1300; //label location in the original image
     var relativeHorizontalOffset:Float = 500/768; //label location in the original image
-    let screenSize: CGSize = UIScreen.mainScreen().bounds.size
+    let screenSize: CGSize = UIScreen.main.bounds.size
 
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class ScoreController: UIViewController{
         self.frogMngr.playFrogMusic()
         var isLoose = false
         switch self.level {
-            case GAME_LEVEL.EASY:
+            case GAME_LEVEL.easy:
                 if missed >= 5 || hits < 10 {
                     isLoose = true
                 }
@@ -39,7 +39,7 @@ class ScoreController: UIViewController{
                 }
                 break
         }
-        let frame = CGRectMake(20, CGFloat(Float(screenSize.height)*self.relativeVerticalOffset),115, 50)
+        let frame = CGRect(x: 20, y: CGFloat(Float(screenSize.height)*self.relativeVerticalOffset),width: 115, height: 50)
         winScoreLabel.frame = frame
         
         if isLoose {
@@ -51,23 +51,23 @@ class ScoreController: UIViewController{
             self.winScoreLabel.text = "\(self.hits)"
             
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
 
     }
     
     
-    @IBAction func onBackButtonClick(sender: AnyObject) {
+    @IBAction func onBackButtonClick(_ sender: AnyObject) {
         self.frogMngr.stopFrogMusic()
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.dismiss(animated: true, completion: {})
 
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }
