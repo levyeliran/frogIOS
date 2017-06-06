@@ -71,8 +71,6 @@ class FrogManager{
     //create manager consts
     var frogWidth = 60
     var frogHeight = 60
-    var easyLevelDim = 4
-    var mediumLevelDim = 5
     var hardLevelCount = 50
     var displayedFrogs = 0
     
@@ -83,6 +81,8 @@ class FrogManager{
     var displayedPositions :[FrogPoint]
     var audioPlayer:AVAudioPlayer
     var frogCountDownAudioPlayer:AVAudioPlayer
+    var numOfRows = 0
+    var numOfCols = 0
     
     init(){
         self.level = GAME_LEVEL.easy
@@ -93,7 +93,21 @@ class FrogManager{
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
         
-        self.initGameLevel(level)
+        //self.initGameLevel(level: level)
+    }
+    
+    init(level: GAME_LEVEL, posRows:Int, posCols:Int){
+        self.level = GAME_LEVEL.easy
+        self.xBottom = -1
+        self.yBottom = -1
+        self.frogPositions = [FrogPoint]()
+        self.displayedPositions = [FrogPoint]()
+        self.audioPlayer = AVAudioPlayer()
+        self.frogCountDownAudioPlayer = AVAudioPlayer()
+        self.numOfRows = posRows
+        self.numOfCols = posCols
+        
+        //self.initGameLevel(level: level)
     }
     
     init(level: GAME_LEVEL, xBottom:Int, yBottom:Int){
@@ -105,29 +119,22 @@ class FrogManager{
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
 
-        self.initGameLevel(level)
+        //self.initGameLevel(level: level)
     }
     
-    func initGameLevel(_ level: GAME_LEVEL){
-        var dim = 0;
-        if(level == GAME_LEVEL.easy){
-            //create easy pos cells
-            dim = self.easyLevelDim
+    func initGameLevel(){
+        if(self.level == GAME_LEVEL.easy || self.level == GAME_LEVEL.medium){
             
-        }
-        else if(level == GAME_LEVEL.medium){
-            //create medium pos cells
-            dim = self.mediumLevelDim
-        }
-        //hard leve is random - no meed for indexes
-        for r in 0...(dim-1) {
-            for c in 0...2 {
-                let pos = FrogPoint(x: r,y: c)
-                self.frogPositions.append(pos)
+            for r in 0...(self.numOfRows-1) {
+                for c in 0...(self.numOfCols-1) {
+                    let pos = FrogPoint(x: r,y: c)
+                    self.frogPositions.append(pos)
+                }
             }
+            //shuffle the array
+            self.frogPositions.shuffle()
         }
-        //shuffle the array
-        self.frogPositions.shuffle()
+        //hard leve is random - no need for indexes
     }
     
     func canGetFrog() ->Bool{
@@ -137,14 +144,7 @@ class FrogManager{
             }
         }
         else{
-            var dim = 0
-            if(self.level == GAME_LEVEL.easy){
-                dim = self.easyLevelDim*3
-            }
-            else {
-                dim = self.mediumLevelDim*3
-            }
-            
+            let dim = self.numOfCols*self.numOfRows
             if(self.displayedFrogs >= dim){
                 return false
             }

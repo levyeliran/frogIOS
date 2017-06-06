@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/CollectionGameController.swift"
-            timestampString = "518284897.010151"
+            timestampString = "518288037.532186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "scoreStatus()"
             landmarkType = "7">
          </BreakpointContent>

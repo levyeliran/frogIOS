@@ -46,6 +46,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         self.hitsLabel.text = "0"
         self.missedLabel.text = "0"
         self.countDownLabel.text = ""
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,8 +71,12 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
-        numOfRows = Int((screenHeight-100)/106)
-        numOfCols = Int(screenWidth / 106)
+        self.numOfRows = Int((screenHeight-100)/95)
+        self.numOfCols = Int(screenWidth / 95)
+        
+        self.frogMngr.numOfRows = self.numOfRows
+        self.frogMngr.numOfCols = self.numOfCols
+        self.frogMngr.initGameLevel()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

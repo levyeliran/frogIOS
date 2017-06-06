@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         self.frogMngr.stopFrogMusic()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.frogMngr.playFrogMusic()

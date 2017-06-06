@@ -233,7 +233,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-fi-6Rh">
-                                <rect key="frame" x="299" y="58" width="45" height="21"/>
+                                <rect key="frame" x="299" y="79" width="45" height="21"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -262,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
-                                <rect key="frame" x="26" y="165" width="328" height="492"/>
+                                <rect key="frame" x="26" y="186" width="323" height="461"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBq-FC-1LV">
                                     <size key="itemSize" width="80" height="80"/>
@@ -294,7 +294,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-ua-bLN">
-                                <rect key="frame" x="304" y="84" width="40" height="21"/>
+                                <rect key="frame" x="304" y="105" width="40" height="21"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -306,7 +306,6 @@
                             <constraint firstItem="YBM-BQ-25T" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="15" id="63R-IQ-959"/>
                             <constraint firstItem="c3w-v0-vHR" firstAttribute="leading" secondItem="BnO-mI-wUP" secondAttribute="trailing" constant="105.5" id="AP4-i5-gaY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6ja-ew-eF5" secondAttribute="trailing" constant="10" id="Btk-NU-SEb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6ja-ew-eF5" secondAttribute="trailing" constant="5" id="Eaf-0E-wcv"/>
                             <constraint firstItem="6ja-ew-eF5" firstAttribute="top" secondItem="lYv-ua-bLN" secondAttribute="bottom" constant="60" id="GGr-GR-wfl"/>
                             <constraint firstItem="aE3-Uf-JSn" firstAttribute="top" secondItem="BnO-mI-wUP" secondAttribute="bottom" constant="5" id="HrP-aw-R84"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYv-ua-bLN" secondAttribute="trailing" constant="15" id="KDe-el-LNx"/>
@@ -315,17 +314,15 @@
                             <constraint firstItem="BnO-mI-wUP" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="15" id="QR5-bj-9m3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bXj-fi-6Rh" secondAttribute="trailing" constant="15" id="SQx-1b-UwS"/>
                             <constraint firstAttribute="trailing" secondItem="dVe-CB-VYC" secondAttribute="trailing" id="W1p-jA-dMl"/>
-                            <constraint firstItem="bXj-fi-6Rh" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="38" id="b4t-od-hGY"/>
                             <constraint firstItem="lYv-ua-bLN" firstAttribute="top" secondItem="bXj-fi-6Rh" secondAttribute="bottom" constant="5" id="cnq-Ml-Oc9"/>
                             <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="6ja-ew-eF5" secondAttribute="bottom" constant="20" id="cyD-9w-Kee"/>
-                            <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="6ja-ew-eF5" secondAttribute="bottom" constant="10" id="dAH-K8-5Wc"/>
-                            <constraint firstItem="6ja-ew-eF5" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="5" id="dp9-YV-8F4"/>
                             <constraint firstItem="6ja-ew-eF5" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="10" id="edP-RL-kSH"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leading" id="haI-0k-1Xs"/>
                             <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="dVe-CB-VYC" secondAttribute="bottom" id="pGQ-XD-6In"/>
                             <constraint firstItem="bXj-fi-6Rh" firstAttribute="leading" secondItem="c3w-v0-vHR" secondAttribute="trailing" constant="89" id="rX7-OF-7Ub"/>
                             <constraint firstItem="aE3-Uf-JSn" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="15" id="t6C-Nz-1mL"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="top" secondItem="c3w-v0-vHR" secondAttribute="bottom" constant="-77.5" id="uoP-EW-Hn7"/>
+                            <constraint firstItem="bXj-fi-6Rh" firstAttribute="top" secondItem="YBM-BQ-25T" secondAttribute="bottom" constant="13" id="wJX-mq-YfK"/>
                         </constraints>
                     </view>
                     <connections>
