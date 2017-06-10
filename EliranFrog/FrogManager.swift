@@ -350,7 +350,7 @@ class FrogManager{
     //function - addNewRecord(name, score) - get permission for location
     //scores view
     //map view
-    //storage 
+    //storage
     
     
     
