@@ -34,7 +34,7 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 enum GAME_LEVEL{
-    case easy, medium, hard
+    case none, easy, medium, hard
 }
 
 class FrogPoint{
@@ -96,6 +96,7 @@ class FrogManager{
         //self.initGameLevel(level: level)
     }
     
+    //collection view level
     init(level: GAME_LEVEL, posRows:Int, posCols:Int){
         self.level = GAME_LEVEL.easy
         self.xBottom = -1
@@ -110,6 +111,7 @@ class FrogManager{
         //self.initGameLevel(level: level)
     }
     
+    //random view level
     init(level: GAME_LEVEL, xBottom:Int, yBottom:Int){
         self.level = level
         self.xBottom = xBottom
@@ -210,8 +212,6 @@ class FrogManager{
             let pos = self.frogPositions.removeLast()
             self.displayedPositions.append(pos)
             self.displayedFrogs += 1
-            //shuffle the array
-            self.frogPositions.shuffle()
 
             return pos
         }
@@ -257,6 +257,7 @@ class FrogManager{
         return displayed
     }
     
+    //count down animation
     func bloat(_ label: UILabel) {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.toValue = NSNumber(value: 3 as Float)
@@ -326,6 +327,37 @@ class FrogManager{
         alertController.addAction(defaultAction)
         return alertController
     }
+    
+    
+    
+    
+    
+    //Eliran Area
+    
+    //tap on a bad frog - pause the frog appearence
+    //limit to 1 minute
+    //score according to fruit ninja
+    //add "best score" of user
+    //add animation to frog image
+    //add dialog to the end of the game + input
+    //pause images when the user shake the phone (up to 3 times)
+    
+    
+    //Matan Area
+    //function - getBestScore()
+    //function - getRecordPosition(score)
+    //function - isNewRecord(score)
+    //function - addNewRecord(name, score) - get permission for location
+    //scores view
+    //map view
+    //storage 
+    
+    
+    
+    
+    
+    
+    
     
 }
 

@@ -57,6 +57,19 @@
                                     <action selector="hardBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLz-rT-J67"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
+                                <rect key="frame" x="113" y="326" width="149" height="41"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scoresBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFS-sm-qTE"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
                                 <rect key="frame" x="113" y="153" width="149" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.68430544490921252" blue="0.17666978087367724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,6 +96,7 @@
                             <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="Vus-qu-w7f"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="aIU-oe-f4x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lBb-Iy-pSE" secondAttribute="trailing" constant="80" id="boi-Pc-H7k"/>
+                            <constraint firstItem="APL-nf-3O8" firstAttribute="top" secondItem="AZz-87-xnI" secondAttribute="bottom" constant="58" id="cg2-gv-Qxe"/>
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fCq-dk-7iL"/>
                             <constraint firstAttribute="trailing" secondItem="5TW-5w-1fJ" secondAttribute="trailing" id="lby-5Q-8Hs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rMq-sw-qAL" secondAttribute="trailing" constant="80" id="rnM-ZE-Rc8"/>
@@ -95,10 +109,14 @@
                         <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="O03-kR-M8W"/>
                         <outlet property="hardlevelBtn" destination="AZz-87-xnI" id="Zsy-rz-y36"/>
                         <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="Y4N-Ax-ndW"/>
+                        <outlet property="scoresBtn" destination="APL-nf-3O8" id="1TJ-QC-bGx"/>
                         <segue destination="UJr-Lx-E1A" kind="popoverPresentation" identifier="viewSeg" popoverAnchorView="8bC-Xf-vdC" id="Ppg-em-mID">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                         <segue destination="CuK-JH-GVW" kind="popoverPresentation" identifier="collectionSeg" popoverAnchorView="8bC-Xf-vdC" id="Wd8-0C-NgT">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="QqM-Uc-c5S" kind="popoverPresentation" identifier="scoreSeg" popoverAnchorView="5TW-5w-1fJ" id="yxH-hk-Ine">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -204,6 +222,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3g-BI-qeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972.5" y="48.5"/>
+        </scene>
+        <!--Scores Controller View Controller-->
+        <scene sceneID="gfo-zH-9zW">
+            <objects>
+                <viewController id="QqM-Uc-c5S" customClass="ScoresControllerViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YrG-LO-OJ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="er7-4B-B0d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yye-VR-BqS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nnr-Xv-0X4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-922" y="643"/>
         </scene>
         <!--Collection Game Controller-->
         <scene sceneID="cZl-US-igf">

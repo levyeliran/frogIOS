@@ -13,16 +13,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var easyLevelBtn: UIButton!
     @IBOutlet weak var mediumLevelBtn: UIButton!
     @IBOutlet weak var hardlevelBtn: UIButton!
-    var selectedLevel = GAME_LEVEL.easy
+    @IBOutlet weak var scoresBtn: UIButton!
+    
+    var selectedLevel = GAME_LEVEL.none
     var frogMngr = FrogManager()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(selectedLevel != GAME_LEVEL.none){
         if(selectedLevel != GAME_LEVEL.hard){
             let nextView = segue.destination as! CollectionGameController
             
             //set the values in the next view
             nextView.level = selectedLevel
-            nextView.shouldDisappear = false
+        }
         }
         self.frogMngr.stopFrogMusic()
     }
@@ -33,6 +36,7 @@ class ViewController: UIViewController {
         setButtonStyle(easyLevelBtn)
         setButtonStyle(mediumLevelBtn)
         setButtonStyle(hardlevelBtn)
+        setButtonStyle(scoresBtn)
     }
     
     func setButtonStyle(_ btn:UIButton){
@@ -58,6 +62,11 @@ class ViewController: UIViewController {
     
     @IBAction func hardBtnClick(_ sender: AnyObject) {
         initSeg(GAME_LEVEL.hard)
+    }
+    
+    
+    @IBAction func scoresBtnClick(_ sender: Any) {
+        performSegue(withIdentifier: "scoreSeg", sender: self)
     }
     
     fileprivate func initSeg(_ level:GAME_LEVEL){

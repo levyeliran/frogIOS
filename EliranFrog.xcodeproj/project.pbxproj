@@ -10,6 +10,7 @@
 		8E04FBDE1EE72E12006F1AB2 /* countdownTimer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */; };
 		8E04FBE01EE72E2D006F1AB2 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */; };
 		8E04FBE21EE72E47006F1AB2 /* frogRibbet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */; };
+		8E04FBE41EEC3FFE006F1AB2 /* ScoresControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */; };
 		8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */; };
 		8EA1DDE31EB74426008A9C22 /* frogRibbet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8EA1DDE21EB74426008A9C22 /* frogRibbet.wav */; };
 		8EA1DDE71EB74F9D008A9C22 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA1DDE61EB74F9D008A9C22 /* gameMusic.mp3 */; };
@@ -48,6 +49,7 @@
 		8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdownTimer.mp3; sourceTree = "<group>"; };
 		8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameMusic.mp3; sourceTree = "<group>"; };
 		8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = frogRibbet.wav; sourceTree = "<group>"; };
+		8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresControllerViewController.swift; sourceTree = "<group>"; };
 		8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		8EA1DDE21EB74426008A9C22 /* frogRibbet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = frogRibbet.wav; path = ../../../Downloads/frogRibbet.wav; sourceTree = "<group>"; };
 		8EA1DDE61EB74F9D008A9C22 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gameMusic.mp3; path = ../../../Downloads/gameMusic.mp3; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
 				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
 				8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */,
+				8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */,
+				8E04FBE41EEC3FFE006F1AB2 /* ScoresControllerViewController.swift in Sources */,
 				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
 				8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */,
