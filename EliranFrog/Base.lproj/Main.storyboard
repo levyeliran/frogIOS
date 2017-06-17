@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeBG" translatesAutoresizingMaskIntoConstraints="NO" id="5TW-5w-1fJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-sw-qAL">
                                 <rect key="frame" x="113" y="88" width="149" height="40"/>
@@ -68,6 +68,7 @@
                                 </state>
                                 <connections>
                                     <action selector="scoresBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFS-sm-qTE"/>
+                                    <segue destination="Ljw-HN-gaK" kind="presentation" identifier="scoreSeg" id="a42-Hn-iMI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
@@ -116,14 +117,11 @@
                         <segue destination="CuK-JH-GVW" kind="popoverPresentation" identifier="collectionSeg" popoverAnchorView="8bC-Xf-vdC" id="Wd8-0C-NgT">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="QqM-Uc-c5S" kind="popoverPresentation" identifier="scoreSeg" popoverAnchorView="5TW-5w-1fJ" id="yxH-hk-Ine">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="643"/>
+            <point key="canvasLocation" x="1788" y="642.72863568215894"/>
         </scene>
         <!--Random Game Controller-->
         <scene sceneID="lZv-0K-qoE">
@@ -221,25 +219,122 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3g-BI-qeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972.5" y="48.5"/>
+            <point key="canvasLocation" x="2850.4000000000001" y="48.125937031484263"/>
         </scene>
-        <!--Scores Controller View Controller-->
+        <!--Master Scores View Controller-->
         <scene sceneID="gfo-zH-9zW">
             <objects>
-                <viewController id="QqM-Uc-c5S" customClass="ScoresControllerViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QqM-Uc-c5S" customClass="MasterScoresViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YrG-LO-OJ9"/>
                         <viewControllerLayoutGuide type="bottom" id="er7-4B-B0d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yye-VR-BqS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fkv-lp-a0t">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zST-YS-e7u">
+                            <rect key="frame" x="85" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedController" destination="zST-YS-e7u" id="w1L-g0-Zcd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnr-Xv-0X4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922" y="643"/>
+            <point key="canvasLocation" x="956" y="642.72863568215894"/>
+        </scene>
+        <!--Scores Map View Controller-->
+        <scene sceneID="rNE-9h-c7g">
+            <objects>
+                <viewController storyboardIdentifier="ScoresMapViewController" id="Uto-Ep-Ad5" customClass="ScoresMapViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eub-oN-Qx5"/>
+                        <viewControllerLayoutGuide type="bottom" id="dAf-nU-eqg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9j5-2C-GsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nm1-vq-p0f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.25165997880000002" blue="0.28592671829999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nm1-vq-p0f" firstAttribute="leading" secondItem="9j5-2C-GsS" secondAttribute="leading" id="1pO-FV-sOY"/>
+                            <constraint firstItem="dAf-nU-eqg" firstAttribute="top" secondItem="Nm1-vq-p0f" secondAttribute="bottom" id="MrZ-Rz-BzO"/>
+                            <constraint firstItem="Nm1-vq-p0f" firstAttribute="top" secondItem="9j5-2C-GsS" secondAttribute="top" id="axy-KA-JKF"/>
+                            <constraint firstAttribute="trailing" secondItem="Nm1-vq-p0f" secondAttribute="trailing" id="iph-jA-Onc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Nm1-vq-p0f" id="tfm-nT-PC0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ued-NV-3Zk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738.75" y="1316.1971830985915"/>
+        </scene>
+        <!--Scores List View Controller-->
+        <scene sceneID="ed8-VP-8lk">
+            <objects>
+                <viewController storyboardIdentifier="ScoresListViewController" id="Lxy-Rc-rde" customClass="ScoresListViewController" customModule="EliranFrog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uAf-jY-V1c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q1t-np-DPK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sie-jB-jt7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-0q-bgd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" rowHeight="58" id="W79-hb-MUm">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W79-hb-MUm" id="Jf4-Ta-ysR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lxy-Rc-rde" id="8wC-hB-hy0"/>
+                                    <outlet property="delegate" destination="Lxy-Rc-rde" id="Lr3-n1-fWr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0050152318960000001" green="0.81108884160000005" blue="0.36006563069999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lLA-0q-bgd" secondAttribute="trailing" id="4oh-17-TZ4"/>
+                            <constraint firstItem="lLA-0q-bgd" firstAttribute="top" secondItem="sie-jB-jt7" secondAttribute="top" id="51f-Sp-nRL"/>
+                            <constraint firstAttribute="bottom" secondItem="lLA-0q-bgd" secondAttribute="bottom" id="959-ce-Wa8"/>
+                            <constraint firstAttribute="trailing" secondItem="lLA-0q-bgd" secondAttribute="trailing" id="SNF-Hm-V9x"/>
+                            <constraint firstItem="lLA-0q-bgd" firstAttribute="leading" secondItem="sie-jB-jt7" secondAttribute="leading" id="UaU-4a-jwu"/>
+                            <constraint firstItem="Q1t-np-DPK" firstAttribute="top" secondItem="lLA-0q-bgd" secondAttribute="bottom" id="dt8-Sd-rEr"/>
+                            <constraint firstAttribute="trailing" secondItem="lLA-0q-bgd" secondAttribute="trailing" id="f4A-Ow-XaV"/>
+                            <constraint firstItem="Q1t-np-DPK" firstAttribute="top" secondItem="lLA-0q-bgd" secondAttribute="bottom" id="gU9-7b-zac"/>
+                            <constraint firstAttribute="trailing" secondItem="lLA-0q-bgd" secondAttribute="trailing" id="kbn-hb-yac"/>
+                            <constraint firstItem="lLA-0q-bgd" firstAttribute="leading" secondItem="sie-jB-jt7" secondAttribute="leading" id="n7V-TQ-oJx"/>
+                            <constraint firstItem="lLA-0q-bgd" firstAttribute="leading" secondItem="sie-jB-jt7" secondAttribute="leading" id="yRV-IX-vzB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ca6-nf-yMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="1317.2535211267607"/>
         </scene>
         <!--Collection Game Controller-->
         <scene sceneID="cZl-US-igf">
@@ -371,7 +466,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSM-OQ-hkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="1005.2473763118442"/>
+            <point key="canvasLocation" x="2850.4000000000001" y="1005.2473763118442"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3q1-hX-va7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ljw-HN-gaK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="If9-oZ-xs1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QqM-Uc-c5S" kind="relationship" relationship="rootViewController" id="T73-ce-RmT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnK-ls-ntt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="642.72863568215894"/>
         </scene>
     </scenes>
     <resources>

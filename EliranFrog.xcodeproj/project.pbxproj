@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681E81EF52AB70021E132 /* MasterScoresViewController.swift */; };
+		457681EB1EF52EC90021E132 /* ScoresListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EA1EF52EC90021E132 /* ScoresListViewController.swift */; };
+		457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EC1EF52F080021E132 /* ScoresMapViewController.swift */; };
+		457681F01EF576850021E132 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457681EF1EF576850021E132 /* MapKit.framework */; };
+		457681F31EF585D70021E132 /* MapAnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F21EF585D70021E132 /* MapAnnotationPin.swift */; };
+		457681F51EF58CE50021E132 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F41EF58CE50021E132 /* Record.swift */; };
+		457681F71EF590BF0021E132 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F61EF590BF0021E132 /* RecordManager.swift */; };
 		8E04FBDE1EE72E12006F1AB2 /* countdownTimer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */; };
 		8E04FBE01EE72E2D006F1AB2 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */; };
 		8E04FBE21EE72E47006F1AB2 /* frogRibbet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */; };
-		8E04FBE41EEC3FFE006F1AB2 /* ScoresControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */; };
 		8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */; };
 		8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */; };
 		8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA4401EAA2222007C52C0 /* ViewController.swift */; };
@@ -43,10 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		457681E81EF52AB70021E132 /* MasterScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterScoresViewController.swift; sourceTree = "<group>"; };
+		457681EA1EF52EC90021E132 /* ScoresListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresListViewController.swift; sourceTree = "<group>"; };
+		457681EC1EF52F080021E132 /* ScoresMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresMapViewController.swift; sourceTree = "<group>"; };
+		457681EF1EF576850021E132 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		457681F21EF585D70021E132 /* MapAnnotationPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationPin.swift; sourceTree = "<group>"; };
+		457681F41EF58CE50021E132 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		457681F61EF590BF0021E132 /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdownTimer.mp3; sourceTree = "<group>"; };
 		8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameMusic.mp3; sourceTree = "<group>"; };
 		8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = frogRibbet.wav; sourceTree = "<group>"; };
-		8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresControllerViewController.swift; sourceTree = "<group>"; };
 		8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		8EAFA43B1EAA2222007C52C0 /* EliranFrog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EliranFrog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457681F01EF576850021E132 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		457681EE1EF576850021E132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				457681EF1EF576850021E132 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8EAFA4321EAA2222007C52C0 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +120,7 @@
 				8EAFA4521EAA2222007C52C0 /* EliranFrogTests */,
 				8EAFA45D1EAA2222007C52C0 /* EliranFrogUITests */,
 				8EAFA43C1EAA2222007C52C0 /* Products */,
+				457681EE1EF576850021E132 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,7 +151,12 @@
 				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
 				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
 				8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */,
-				8E04FBE31EEC3FFE006F1AB2 /* ScoresControllerViewController.swift */,
+				457681E81EF52AB70021E132 /* MasterScoresViewController.swift */,
+				457681EA1EF52EC90021E132 /* ScoresListViewController.swift */,
+				457681EC1EF52F080021E132 /* ScoresMapViewController.swift */,
+				457681F21EF585D70021E132 /* MapAnnotationPin.swift */,
+				457681F41EF58CE50021E132 /* Record.swift */,
+				457681F61EF590BF0021E132 /* RecordManager.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -220,9 +247,14 @@
 				TargetAttributes = {
 					8EAFA43A1EAA2222007C52C0 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = R6P2MGW5YP;
+						DevelopmentTeam = 85L33L7EE3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8EAFA44E1EAA2222007C52C0 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -292,10 +324,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */,
-				8E04FBE41EEC3FFE006F1AB2 /* ScoresControllerViewController.swift in Sources */,
 				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
+				457681F51EF58CE50021E132 /* Record.swift in Sources */,
+				457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
+				457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */,
+				457681F31EF585D70021E132 /* MapAnnotationPin.swift in Sources */,
 				8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */,
+				457681EB1EF52EC90021E132 /* ScoresListViewController.swift in Sources */,
+				457681F71EF590BF0021E132 /* RecordManager.swift in Sources */,
 				8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */,
 				8EEE33AB1EB345E20052DA72 /* CustomFrogCell.swift in Sources */,
 				8EAFA46D1EAA28C4007C52C0 /* CollectionGameController.swift in Sources */,
@@ -442,7 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6P2MGW5YP;
+				DEVELOPMENT_TEAM = 85L33L7EE3;
 				INFOPLIST_FILE = EliranFrog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -459,7 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6P2MGW5YP;
+				DEVELOPMENT_TEAM = 85L33L7EE3;
 				INFOPLIST_FILE = EliranFrog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
