@@ -12,9 +12,8 @@ class MasterScoresViewController: UIViewController {
     
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
-   
     
- 
+    
     
     lazy var  scoresListViewController : ScoresListViewController = {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)

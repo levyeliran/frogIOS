@@ -11,8 +11,11 @@ import MapKit
 
  class RecordManager  {
     
-    var recordList : [Record] = []
-    
+var recordList : [Record] = []
+    //required.addRecordI
+    init() {
+        
+    }
     
     
     func addRecord(playerName: String, score: Int, coordinateOfRecord: CLLocationCoordinate2D){
@@ -48,9 +51,6 @@ import MapKit
             return false
         }
     }
-    
-    
-    
     
 }
 
