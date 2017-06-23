@@ -69,8 +69,8 @@ class FrogImageView{
 class FrogManager{
     
     var recordManager = RecordManager()
-    
-    
+
+
     //create manager consts
     var frogWidth = 60
     var frogHeight = 60
@@ -96,6 +96,7 @@ class FrogManager{
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
         saveData()
+        loadData()
         //self.initGameLevel(level: level)
     }
     
@@ -336,6 +337,9 @@ class FrogManager{
         recordManager.saveData()
     }
     
+    func loadData(){
+        recordManager.loadData()
+    }
     
     
     //Eliran Area

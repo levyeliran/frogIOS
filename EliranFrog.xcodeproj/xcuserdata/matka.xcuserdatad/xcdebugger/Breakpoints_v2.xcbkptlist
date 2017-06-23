@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/RecordManager.swift"
-            timestampString = "519918550.181116"
+            timestampString = "519943471.282483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "getBestScore()"
             landmarkType = "7">
          </BreakpointContent>

@@ -236,6 +236,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="fkv-lp-a0t">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Ku6-Zh-5VM">
+                            <connections>
+                                <action selector="closeBtn:" destination="QqM-Uc-c5S" id="aNu-zk-nCA"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zST-YS-e7u">
                             <rect key="frame" x="85" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
