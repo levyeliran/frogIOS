@@ -42,7 +42,9 @@ class RandomGameController: UIViewController {
     @IBOutlet weak var countDownLabel: UILabel!
     @IBOutlet weak var gameBoardView: UIView!
     @IBOutlet weak var backButton: UIButton!
-    
+    @IBOutlet weak var firstHelpImage: UIImageView!
+    @IBOutlet weak var secondHelpImage: UIImageView!
+    @IBOutlet weak var thirdHelpImage: UIImageView!
     
     var topX:CGFloat = 0.0
     var topY:CGFloat = 0.0
@@ -56,7 +58,13 @@ class RandomGameController: UIViewController {
     var hits = 0
     var missed = 0
     var countDownFlag = false
-    var shouldDisappear = false
+    var isWon = false
+    var isLost = false
+    var pauseFrogsCounter = 0
+    var isDeviceShaked = false
+    var deviceShakedHelps = 3
+    var deviceShakedCounter = 0
+    var countDownMusicPaused = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,19 +83,10 @@ class RandomGameController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !shouldDisappear {
             let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RandomGameController.onTimerUpdate),     userInfo: nil, repeats: true)
             })
             self.present(targetAlert, animated: true, completion: nil)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if shouldDisappear {
-            self.dismiss(animated: false, completion: {})
-        }
     }
     
     
@@ -107,10 +106,18 @@ class RandomGameController: UIViewController {
             }
             else {
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                self.pauseFrogsCounter = 3
+                //remove all good frogs
+                for (_, frg) in displayedFrogs.enumerated() {
+                    if (frg.isGoodFrog) {
+                        frg.imgView.zoomOut()
+                        frg.imgView.removeFromSuperview()
+                    }
+                }
                 self.missed += 1
                 self.missedLabel.text = "\(self.missed)"
             }
-            
+            frog.imgView.zoomOut()
             frog.imgView.removeFromSuperview()
         }
         
@@ -121,17 +128,27 @@ class RandomGameController: UIViewController {
     
     func onTimerUpdate(){
         if self.counter <= 0 {
+            self.countDownLabel.text = " "
             self.stopTimer()
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
             self.frogMngr.stopCountDownMusic()
-            
+            countDownLabel.removeFromSuperview()
             //display score
             self.displayScore()
         }
         else {
             if self.counter <= 11 {
+                
+                if self.pauseFrogsCounter > 0 {
+                    self.countDownLabel.textColor = UIColor.red
+                    self.pauseFrogsCounter-=1
+                    counter-=1
+                    self.countDownLabel.text = "\(Int(self.counter))"
+                    return
+                }
+                
                 if !self.countDownFlag{
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
@@ -144,21 +161,46 @@ class RandomGameController: UIViewController {
                 self.removeFrogs()
             }
             
+            if self.pauseFrogsCounter > 0 {
+                self.countDownLabel.textColor = UIColor.red
+                self.pauseFrogsCounter-=1
+                counter-=1
+                self.countDownLabel.text = "\(Int(self.counter))"
+                return
+            }
+            
+            if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.deviceShakedCounter-=1
+                self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
+                return
+            }
+            
+            if self.countDownMusicPaused && !self.isDeviceShaked {
+                //re-play count down music
+                frogMngr.rePlayCountDownMusic()
+                self.countDownMusicPaused = false
+            }
+            
+            self.countDownLabel.textColor = UIColor.white
             counter -= 1
             self.frogTimeout -= 1
             
             let c = Int(arc4random_uniform(3))
             //add random frogs
             for _ in 0...c {
-                let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
-                self.displayedFrogs.append(frog)
-                
-                let imgView = frog.imgView
-                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
-                imgView.isUserInteractionEnabled = true
-                imgView.addGestureRecognizer(tapGestureRecognizer)
-                
-                self.gameBoardView.addSubview(imgView)
+                if self.pauseFrogsCounter == 0{
+                    let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
+                    self.displayedFrogs.append(frog)
+                    
+                    let imgView = frog.imgView
+                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
+                    imgView.isUserInteractionEnabled = true
+                    imgView.addGestureRecognizer(tapGestureRecognizer)
+                    
+                    imgView.zoomOut()
+                    self.gameBoardView.addSubview(imgView)
+                    imgView.zoomIn()
+                }
             }
         }
         self.countDownLabel.text = "\(Int(self.counter))"
@@ -177,9 +219,6 @@ class RandomGameController: UIViewController {
     
     
     func scoreStatus(){
-        var isWon = false
-        var isLost = false
-        
         if self.hits >= 30 {
             isWon = true
         }
@@ -195,9 +234,35 @@ class RandomGameController: UIViewController {
     
     func displayScore(){
         self.stopTimer()
-        self.shouldDisappear = true
+
+        if self.countDownFlag && !self.countDownMusicPaused{
+            frogMngr.stopCountDownMusic()
+        }
         //display confirm
-        print("finish")
+        var isNewRecord = false
+        
+        if self.isWon {
+            isNewRecord = true
+            
+        }
+        
+        let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
+        let buttonTitle = isWon ? "Go" : "Try again?"
+        let saveAction = UIAlertAction(title: buttonTitle, style: .default, handler:
+        {
+            alert -> Void in
+            if self.isWon{
+                let nameTextField = scoreAlert.textFields![0] as UITextField
+                //add the user record to core data
+                print("firstName \(String(describing: nameTextField.text))")
+            }
+            
+            //back to home page
+            self.dismiss(animated: true, completion: nil)
+        })
+        scoreAlert.addAction(saveAction)
+        self.present(scoreAlert, animated: true, completion: nil)
+
     }
     
     func stopTimer(){
@@ -217,5 +282,32 @@ class RandomGameController: UIViewController {
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if !self.isDeviceShaked && self.deviceShakedHelps > 0 {
+            
+            if self.countDownFlag {
+                //pause count down music
+                self.countDownMusicPaused = true
+                frogMngr.pauseCountDownMusic()
+            }
+            self.isDeviceShaked = true
+            self.countDownLabel.textColor = UIColor.green
+            self.deviceShakedCounter = 3
+            self.deviceShakedHelps-=1
+            
+            if self.deviceShakedHelps == 2{
+                firstHelpImage.removeFromSuperview()
+            }
+            else if self.deviceShakedHelps == 1{
+                secondHelpImage.removeFromSuperview()
+            }
+            else {
+                thirdHelpImage.removeFromSuperview()
+            }
+        }
+        
+    }
+
     
 }
