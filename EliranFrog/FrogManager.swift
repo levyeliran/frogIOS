@@ -68,6 +68,8 @@ class FrogImageView{
 
 class FrogManager{
     
+    var recordManager = RecordManager()
+    
     //create manager consts
     var frogWidth = 60
     var frogHeight = 60
