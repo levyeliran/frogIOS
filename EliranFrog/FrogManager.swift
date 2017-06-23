@@ -70,6 +70,7 @@ class FrogManager{
     
     var recordManager = RecordManager()
     
+    
     //create manager consts
     var frogWidth = 60
     var frogHeight = 60
@@ -94,7 +95,7 @@ class FrogManager{
         self.displayedPositions = [FrogPoint]()
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
-        
+        saveData()
         //self.initGameLevel(level: level)
     }
     
@@ -109,6 +110,7 @@ class FrogManager{
         self.frogCountDownAudioPlayer = AVAudioPlayer()
         self.numOfRows = posRows
         self.numOfCols = posCols
+        
         
         //self.initGameLevel(level: level)
     }
@@ -330,7 +332,9 @@ class FrogManager{
         return alertController
     }
     
-    
+    func saveData(){
+        recordManager.saveData()
+    }
     
     
     

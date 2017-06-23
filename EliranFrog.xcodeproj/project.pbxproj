@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450F7B971EFD43F800F0C205 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7B961EFD43F800F0C205 /* DataController.swift */; };
+		450F7B9E1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 450F7B9C1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld */; };
+		450F7BE11EFD52DB00F0C205 /* MyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7BE01EFD52DB00F0C205 /* MyRecord.swift */; };
 		457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681E81EF52AB70021E132 /* MasterScoresViewController.swift */; };
 		457681EB1EF52EC90021E132 /* ScoresListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EA1EF52EC90021E132 /* ScoresListViewController.swift */; };
 		457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EC1EF52F080021E132 /* ScoresMapViewController.swift */; };
 		457681F01EF576850021E132 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457681EF1EF576850021E132 /* MapKit.framework */; };
 		457681F31EF585D70021E132 /* MapAnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F21EF585D70021E132 /* MapAnnotationPin.swift */; };
-		457681F51EF58CE50021E132 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F41EF58CE50021E132 /* Record.swift */; };
 		457681F71EF590BF0021E132 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681F61EF590BF0021E132 /* RecordManager.swift */; };
 		8E04FBDE1EE72E12006F1AB2 /* countdownTimer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */; };
 		8E04FBE01EE72E2D006F1AB2 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */; };
@@ -49,12 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		450F7B961EFD43F800F0C205 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		450F7B9D1EFD4CDB00F0C205 /* EliranFrog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EliranFrog.xcdatamodel; sourceTree = "<group>"; };
+		450F7BE01EFD52DB00F0C205 /* MyRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecord.swift; sourceTree = "<group>"; };
 		457681E81EF52AB70021E132 /* MasterScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterScoresViewController.swift; sourceTree = "<group>"; };
 		457681EA1EF52EC90021E132 /* ScoresListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresListViewController.swift; sourceTree = "<group>"; };
 		457681EC1EF52F080021E132 /* ScoresMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresMapViewController.swift; sourceTree = "<group>"; };
 		457681EF1EF576850021E132 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		457681F21EF585D70021E132 /* MapAnnotationPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationPin.swift; sourceTree = "<group>"; };
-		457681F41EF58CE50021E132 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		457681F61EF590BF0021E132 /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdownTimer.mp3; sourceTree = "<group>"; };
 		8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameMusic.mp3; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		8EAFA43D1EAA2222007C52C0 /* EliranFrog */ = {
 			isa = PBXGroup;
 			children = (
+				450F7B9C1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld */,
 				8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */,
 				8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */,
 				8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */,
@@ -155,8 +160,9 @@
 				457681EA1EF52EC90021E132 /* ScoresListViewController.swift */,
 				457681EC1EF52F080021E132 /* ScoresMapViewController.swift */,
 				457681F21EF585D70021E132 /* MapAnnotationPin.swift */,
-				457681F41EF58CE50021E132 /* Record.swift */,
 				457681F61EF590BF0021E132 /* RecordManager.swift */,
+				450F7B961EFD43F800F0C205 /* DataController.swift */,
+				450F7BE01EFD52DB00F0C205 /* MyRecord.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -242,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Eliran Levy";
 				TargetAttributes = {
 					8EAFA43A1EAA2222007C52C0 = {
@@ -324,17 +330,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAFA4411EAA2222007C52C0 /* ViewController.swift in Sources */,
+				450F7B9E1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld in Sources */,
 				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
-				457681F51EF58CE50021E132 /* Record.swift in Sources */,
 				457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
 				457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */,
+				450F7B971EFD43F800F0C205 /* DataController.swift in Sources */,
 				457681F31EF585D70021E132 /* MapAnnotationPin.swift in Sources */,
 				8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */,
 				457681EB1EF52EC90021E132 /* ScoresListViewController.swift in Sources */,
 				457681F71EF590BF0021E132 /* RecordManager.swift in Sources */,
 				8EAFA43F1EAA2222007C52C0 /* AppDelegate.swift in Sources */,
 				8EEE33AB1EB345E20052DA72 /* CustomFrogCell.swift in Sources */,
+				450F7BE11EFD52DB00F0C205 /* MyRecord.swift in Sources */,
 				8EAFA46D1EAA28C4007C52C0 /* CollectionGameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,8 +411,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -448,8 +458,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -468,6 +480,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -605,6 +618,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		450F7B9C1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				450F7B9D1EFD4CDB00F0C205 /* EliranFrog.xcdatamodel */,
+			);
+			currentVersion = 450F7B9D1EFD4CDB00F0C205 /* EliranFrog.xcdatamodel */;
+			path = EliranFrog.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8EAFA4331EAA2222007C52C0 /* Project object */;
 }
