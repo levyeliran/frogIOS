@@ -95,8 +95,14 @@ class FrogManager{
         self.displayedPositions = [FrogPoint]()
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
-        saveData()
+        //saveData()
+        
+        recordManager.deleteAllData(entity: "Record")
         loadData()
+        
+        recordManager.addRecord(playerName: "Emily", score: 100, long: 34.775001, lat: 32.086606)
+        recordManager.addRecord(playerName: "Matan", score: 101, long: 34.775001, lat: 32.086606)
+        recordManager.addRecord(playerName: "Eliran", score: 103, long: 34.7750016, lat: 32.0866060)
         //self.initGameLevel(level: level)
     }
     
@@ -333,8 +339,8 @@ class FrogManager{
         return alertController
     }
     
-    func saveData(){
-        recordManager.saveData()
+    func saveData(myRecord: MyRecord){
+        recordManager.saveData(myRecord: myRecord)
     }
     
     func loadData(){

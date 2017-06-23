@@ -12,7 +12,7 @@ import CoreData
  class RecordManager  {
     
     
-var recordList : [MyRecord] = []
+ static var recordList : [MyRecord] = []
     //required.addRecordI
 
     
@@ -31,12 +31,11 @@ var recordList : [MyRecord] = []
         
         do {
             let results = try context.fetch(request)
-            print(results)
             var i = 0
             if results.count > 0 {
                 for res in results as! [NSManagedObject] {
-                    var recordItem = MyRecord()
-                    recordList.insert(recordItem, at: i)
+                    let recordItem = MyRecord()
+                    RecordManager.recordList.insert(recordItem, at: i)
                     if let username = res.value(forKey: "username") as? String{
                         recordItem.playerName = username
                     }
@@ -53,9 +52,7 @@ var recordList : [MyRecord] = []
                     }
                     i += 1
                 }
-                for x in recordList{
-                    print(x.playerName!)
-                }
+                
             }
             
         }catch{
@@ -64,51 +61,47 @@ var recordList : [MyRecord] = []
         
     }
     
-    func saveData(){
-        var long: Double = 32.113510
-        var lat :Double  = 32.113510
-//        var myCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 32.113510, longitude: 32.113510)
-
-        
-//        let moc = DataController(completionClosure: <#() -> ()#>).managedObjectContext
-//        let record = NSEntityDescription.insertNewObject(forEntityName: "Record", into: moc)
+    func saveData(myRecord: MyRecord){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
-        
         let record = NSEntityDescription.insertNewObject(forEntityName: "Record", into: context)
-        
-        record.setValue("eliran", forKey: "username")
-        record.setValue(20, forKey: "score")
-       // record.setValue(myCoordinate, forKey: "location")
-        record.setValue(long, forKey: "long")
-        record.setValue(lat, forKey: "lat")
-        
-    
+        record.setValue(myRecord.playerName, forKey: "username")
+        record.setValue(myRecord.score, forKey: "score")
+        record.setValue(myRecord.long, forKey: "long")
+        record.setValue(myRecord.lat, forKey: "lat")
         
         do {
             try context.save()
-            print(record)
+            print("#########################################################")
+            for x in RecordManager.recordList{
+                print(x.playerName!)
+                
+            }
         }catch{
             fatalError("failed to save context: \(error)")
         }
     }
     
     
+    
     func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
        
         let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
-        recordList.append(record)
-        recordList.sort{
+        if RecordManager.recordList.count == 10 {
+            RecordManager.recordList.remove(at: 9)
+        }
+        RecordManager.recordList.append(record)
+        RecordManager.recordList.sort{
             $0.score! > $1.score!
         }
-        
+        saveData(myRecord: record)
     }
     
     
     func getBestScore() -> Int{
-        if recordList.count > 0 {
-            return recordList[0].score!
+        if RecordManager.recordList.count > 0 {
+            return RecordManager.recordList[0].score!
         }
         else{
             return 0
@@ -121,13 +114,37 @@ var recordList : [MyRecord] = []
     }
     
     func isNewRecord(score: Int) -> Bool {
-        if score > recordList[0].score! {
+        if score > RecordManager.recordList[9].score! {
             return true
         }
         else{
             return false
         }
     }
+    
+    
+    // clean core data
+    func deleteAllData(entity: String)
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do
+        {
+            let results = try context.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                context.delete(managedObjectData)
+                print("data deleted")
+            }
+        } catch let error as NSError {
+            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
     
 }
 

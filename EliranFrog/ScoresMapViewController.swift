@@ -11,7 +11,7 @@ import MapKit
 
 class ScoresMapViewController: UIViewController {
 
-    
+    var recordM = RecordManager()
     @IBOutlet weak var mapView: MKMapView!
      var afekaLat: CLLocationDegrees = 32.113510
      var afekaLong: CLLocationDegrees =  34.818186
@@ -30,11 +30,22 @@ class ScoresMapViewController: UIViewController {
     
     
     func prepareMap(){
-        let distanceSpan: CLLocationDegrees = 12000
+        let distanceSpan: CLLocationDegrees = 100000
         let afekaCampusLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(afekaLat, afekaLong)
         
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(afekaCampusLocation, distanceSpan, distanceSpan) , animated: true)
         
+       
+        for record in RecordManager.recordList{
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(record.lat!, record.long!)
+            let score : String
+            score = "Score - " + String(describing: record.score)
+
+            let recordMapPin = MapAnnotationPin(title: record.playerName!, subtitle: score, myCoordinate: location )
+            
+            mapView.addAnnotation(recordMapPin)
+            print("record add to map: ")
+        }
         let mapPin = MapAnnotationPin(title: "Afeka", subtitle: "top score", myCoordinate: afekaCampusLocation)
         
         mapView.addAnnotation(mapPin)
