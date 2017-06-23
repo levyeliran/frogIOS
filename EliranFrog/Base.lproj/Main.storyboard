@@ -83,6 +83,7 @@
                                 </state>
                                 <connections>
                                     <action selector="scoresBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFS-sm-qTE"/>
+                                    <segue destination="Ljw-HN-gaK" kind="presentation" identifier="scoreSeg" id="2ml-eH-tbV"/>
                                 </connections>
                             </button>
                         </subviews>

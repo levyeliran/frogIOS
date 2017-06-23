@@ -36,7 +36,7 @@ var recordList : [MyRecord] = []
         
         record.setValue("eliran", forKey: "username")
         record.setValue(20, forKey: "score")
-        record.setValue(myCoordinate, forKey: "location")
+        //record.setValue(myCoordinate, forKey: "location")
         
     
         

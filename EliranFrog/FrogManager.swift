@@ -95,7 +95,7 @@ class FrogManager{
         self.displayedPositions = [FrogPoint]()
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
-        saveData()
+        //saveData()
         //self.initGameLevel(level: level)
     }
     
