@@ -22,7 +22,9 @@ var recordList : [MyRecord] = []
     
     
     func saveData(){
-        var myCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 32.113510, longitude: 32.113510)
+        var long: Double = 32.113510
+        var lat :Double  = 32.113510
+//        var myCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 32.113510, longitude: 32.113510)
 
         
 //        let moc = DataController(completionClosure: <#() -> ()#>).managedObjectContext
@@ -34,7 +36,7 @@ var recordList : [MyRecord] = []
         
         record.setValue("eliran", forKey: "username")
         record.setValue(20, forKey: "score")
-        //record.setValue(myCoordinate, forKey: "location")
+        record.setValue(myCoordinate, forKey: "location")
         
     
         
