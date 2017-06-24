@@ -363,10 +363,6 @@ class FrogManager {
         recordManager.saveData(myRecord: myRecord)
     }
     
-    func loadData(){
-        recordManager.loadData()
-    }
-    
     func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
         var message = isWon ? "You are a Winner!" : "Why?"
         message = isNewRecord ? message + "With a new Record!" : message
@@ -382,6 +378,11 @@ class FrogManager {
         
         return alertController
     }
+    
+    func loadData(){
+        recordManager.loadData()
+    }
+    
     
     
        
@@ -413,11 +414,7 @@ class FrogManager {
     //
     
     
-    
-    
-    
-    
-    
+
 }
 
 extension Array {
@@ -430,10 +427,6 @@ extension Array {
             }
         }
     }
-    
-    
-    
-    
 }
 
 extension UIView {

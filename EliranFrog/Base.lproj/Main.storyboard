@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,22 +57,8 @@
                                     <action selector="hardBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLz-rT-J67"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
-                                <rect key="frame" x="96" y="326" width="128" height="41"/>
-                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="Hard">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="scoresBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFS-sm-qTE"/>
-                                    <segue destination="Ljw-HN-gaK" kind="presentation" identifier="scoreSeg" id="a42-Hn-iMI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
-                                <rect key="frame" x="113" y="153" width="149" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBb-Iy-pSE">
+                                <rect key="frame" x="96" y="147" width="128" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.68430544490921252" blue="0.17666978087367724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="L7u-RD-oIv"/>
@@ -108,8 +94,8 @@
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="60Q-Q2-wlZ"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="CM8-1u-iNP"/>
                             <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="FmB-Mb-h0k"/>
-                            <constraint firstItem="APL-nf-3O8" firstAttribute="trailing" secondItem="AZz-87-xnI" secondAttribute="trailing" id="JPE-6e-hMi"/>
-                            <constraint firstItem="APL-nf-3O8" firstAttribute="leading" secondItem="AZz-87-xnI" secondAttribute="leading" id="NoL-yt-VAN"/>
+                            <constraint firstItem="APL-nf-3O8" firstAttribute="trailing" secondItem="AZz-87-xnI" secondAttribute="trailing" id="LQE-42-Nlx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="APL-nf-3O8" secondAttribute="bottom" constant="278" id="Nv7-eq-8Oc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="80" id="VsT-Xr-cvO"/>
                             <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="Vus-qu-w7f"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="aIU-oe-f4x"/>
@@ -390,6 +376,9 @@
                             <constraint firstItem="lLA-0q-bgd" firstAttribute="leading" secondItem="sie-jB-jt7" secondAttribute="leading" id="yRV-IX-vzB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scoreTable" destination="lLA-0q-bgd" id="VQd-KY-LzN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca6-nf-yMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
