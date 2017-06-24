@@ -10,6 +10,9 @@ import UIKit
 
 class MasterScoresViewController: UIViewController {
     
+    @IBAction func closeBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -110,10 +110,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="O03-kR-M8W"/>
-                        <outlet property="hardlevelBtn" destination="AZz-87-xnI" id="Zsy-rz-y36"/>
-                        <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="Y4N-Ax-ndW"/>
-                        <outlet property="scoresBtn" destination="APL-nf-3O8" id="1TJ-QC-bGx"/>
+                        <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="xJc-GE-9xB"/>
+                        <outlet property="hardLevelBtn" destination="AZz-87-xnI" id="6pH-vu-gvq"/>
+                        <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="mrc-nq-P6d"/>
+                        <outlet property="scoreBtn" destination="APL-nf-3O8" id="hiy-Ro-g6S"/>
                         <segue destination="UJr-Lx-E1A" kind="popoverPresentation" identifier="viewSeg" popoverAnchorView="8bC-Xf-vdC" id="Ppg-em-mID">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -276,6 +276,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="fkv-lp-a0t">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Ku6-Zh-5VM">
+                            <connections>
+                                <action selector="closeBtn:" destination="QqM-Uc-c5S" id="aNu-zk-nCA"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zST-YS-e7u">
                             <rect key="frame" x="85" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -371,6 +376,9 @@
                             <constraint firstItem="lLA-0q-bgd" firstAttribute="leading" secondItem="sie-jB-jt7" secondAttribute="leading" id="yRV-IX-vzB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scoreTable" destination="lLA-0q-bgd" id="VQd-KY-LzN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca6-nf-yMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

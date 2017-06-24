@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -66,11 +67,12 @@ class FrogImageView{
     }
 }
 
-class FrogManager{
+class FrogManager {
     
     var recordManager = RecordManager()
     
     
+
     //create manager consts
     var frogWidth = 60
     var frogHeight = 60
@@ -96,6 +98,14 @@ class FrogManager{
         self.audioPlayer = AVAudioPlayer()
         self.frogCountDownAudioPlayer = AVAudioPlayer()
         //saveData()
+        
+        recordManager.deleteAllData(entity: "Record")
+        loadData()
+        
+        recordManager.addRecord(playerName: "Emily", score: 100, long: 34.775001, lat: 32.086606)
+        recordManager.addRecord(playerName: "Matan", score: 101, long: 34.769944, lat: 32.085557)
+        recordManager.addRecord(playerName: "Eliran", score: 103, long: 35.216924, lat: 31.776058)
+        
         //self.initGameLevel(level: level)
     }
     
@@ -349,6 +359,9 @@ class FrogManager{
         return alertController
     }
     
+    func saveData(myRecord: MyRecord){
+        recordManager.saveData(myRecord: myRecord)
+    }
     
     func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
         var message = isWon ? "You are a Winner!" : "Why?"
@@ -365,6 +378,14 @@ class FrogManager{
         
         return alertController
     }
+    
+    func loadData(){
+        recordManager.loadData()
+    }
+    
+    
+    
+       
     
     
     //Eliran Area
@@ -393,11 +414,7 @@ class FrogManager{
     //
     
     
-    
-    
-    
-    
-    
+
 }
 
 extension Array {
