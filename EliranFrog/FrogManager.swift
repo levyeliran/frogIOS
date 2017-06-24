@@ -90,7 +90,7 @@ class FrogManager {
     var frogCountDownAudioPlayer:AVAudioPlayer
     var numOfRows = 0
     var numOfCols = 0
-    var currentLocation: CLLocation!
+    static var currentLocation: CLLocation!
     
     init(){
         self.level = GAME_LEVEL.easy
@@ -354,8 +354,8 @@ class FrogManager {
         }
     }
 
-    func getTargetAlert(_ hits:Int, miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
-        let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\nTarget: \(hits) Hits to win, avoid the Bad frog (up to \(miss))."
+    func getTargetAlert( miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
+        let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\n, avoid the Bad frog (up to \(miss))."
         let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "GO", style: .default, handler: okButtonHandler)
         alertController.addAction(defaultAction)
@@ -386,10 +386,6 @@ class FrogManager {
 //        recordManager.loadData()
 //    }
     
-    
-    func updateUserLocation(location: CLLocation){
-        currentLocation = location
-    }
        
     
     

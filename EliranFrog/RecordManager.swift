@@ -11,7 +11,6 @@ import MapKit
 import CoreData
  class RecordManager  {
     
-    
  static var recordList : [MyRecord] = []
     //required.addRecordI
 

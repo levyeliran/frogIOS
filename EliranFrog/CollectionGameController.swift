@@ -24,7 +24,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
-    var counter:Int = 60
+    var counter:Int = 20
     var levelInterval:Int = 1
     var frogMngr = FrogManager()
     var timer: Timer?
@@ -40,7 +40,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     var deviceShakedHelps = 3
     var deviceShakedCounter = 0
     var countDownMusicPaused = false
-    
+    var isNewRecord = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +60,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
             //get alert object
-            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.easy ? 10 : 30, miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert( miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
                 self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(self.levelInterval), target: self, selector: #selector(CollectionGameController.onTimerUpdate), userInfo: nil, repeats: true)
             })
             //display the alert
@@ -122,7 +123,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         
         if selectedCell.isGoodFrog {
             self.frogMngr.playFrogSound()
-            self.hits += 1
+            self.hits += 10
             self.hitsLabel.text = "\(self.hits)"
         }
         else {
@@ -145,9 +146,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         selectedCell.zoomIn()
         selectedCell.rotate()
         
-        //calculate score
-        self.scoreStatus()
-        
     }
     
     
@@ -160,6 +158,9 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.counter = 0
             self.frogMngr.stopCountDownMusic()
             self.countDownLabel.removeFromSuperview()
+            
+            //calculate score
+            self.scoreStatus()
             //display score
             self.displayScore()
         }
@@ -236,6 +237,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func scoreStatus(){
+        isWon = true
+        isLost = false
         
         if self.level == GAME_LEVEL.easy {
             if self.hits >= 5 {
@@ -245,17 +248,12 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 isLost = true
             }
         }
-        else {
-            if self.hits >= 30 {
-                isWon = true
-            }
-            else if self.missed >= 3 {
-                isLost = true
-            }
+        else if self.missed >= 3 {
+            isLost = true
+            isWon = false
         }
-        
-        if (isWon || isLost){
-            self.displayScore()
+        else if RecordManager.isNewRecord(score: self.hits){
+            isNewRecord = true
         }
     }
     
@@ -265,8 +263,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             frogMngr.stopCountDownMusic()
         }
         //display confirm
-        let isNewRecord = self.isWon && RecordManager.isNewRecord(score: self.hits)
-        
         let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
         let buttonTitle = isWon ? "Go" : "Try again?"
         let saveAction = UIAlertAction(title: buttonTitle, style: .default, handler:
@@ -279,9 +275,9 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                     
                     var long:Double = 0
                     var lat:Double = 0
-                    if(self.frogMngr.currentLocation != nil){
-                        long = self.frogMngr.currentLocation.coordinate.longitude
-                        lat = self.frogMngr.currentLocation.coordinate.latitude
+                    if(FrogManager.currentLocation != nil){
+                        long = FrogManager.currentLocation.coordinate.longitude
+                        lat = FrogManager.currentLocation.coordinate.latitude
                     }
                     RecordManager.addRecord(playerName: nameTextField.text!, score: self.hits, long: long, lat: lat)
                 }

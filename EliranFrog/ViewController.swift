@@ -21,16 +21,15 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     var frogMngr = FrogManager()
     
     let locationManager = CLLocationManager()
-    var currentLocation: CLLocation!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(selectedLevel != GAME_LEVEL.none){
-        if(selectedLevel != GAME_LEVEL.hard){
-            let nextView = segue.destination as! CollectionGameController
+            if(selectedLevel != GAME_LEVEL.hard){
+                let nextView = segue.destination as! CollectionGameController
             
-            //set the values in the next view
-            nextView.level = selectedLevel
-        }
+                //set the values in the next view
+                nextView.level = selectedLevel
+            }
         }
         self.frogMngr.stopFrogMusic()
     }
@@ -142,9 +141,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        currentLocation = locations[0]
-        print(currentLocation)
-        frogMngr.updateUserLocation(location: currentLocation)
+        //currentLocation = locations[0]
+        print(locations[0])
+        FrogManager.currentLocation = locations[0]
         locationManager.stopUpdatingLocation()
     }
     
