@@ -54,16 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EliranFrog/ViewController.swift"
-            timestampString = "520011445.72021"
+            filePath = "EliranFrog/RecordManager.swift"
+            timestampString = "520015799.083753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "addRecord(playerName:score:long:lat:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

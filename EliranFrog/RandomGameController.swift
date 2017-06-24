@@ -52,7 +52,7 @@ class RandomGameController: UIViewController {
     var bottomY:Int = 0
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
-    var counter = 60
+    var counter = 20
     var frogMngr = FrogManager()
     var timer: Timer?
     var hits = 0
@@ -103,7 +103,7 @@ class RandomGameController: UIViewController {
             
             if frog.isGoodFrog {
                 self.frogMngr.playFrogSound()
-                self.hits += 1
+                self.hits += 10
                 self.hitsLabel.text = "\(self.hits)"
             }
             else {
@@ -122,9 +122,6 @@ class RandomGameController: UIViewController {
             frog.imgView.zoomOut()
             frog.imgView.removeFromSuperview()
         }
-        
-        //calculate score
-        self.scoreStatus()
     }
     
     
@@ -137,6 +134,9 @@ class RandomGameController: UIViewController {
             self.counter = 0
             self.frogMngr.stopCountDownMusic()
             countDownLabel.removeFromSuperview()
+            
+            //calculate score
+            self.scoreStatus()
             //display score
             self.displayScore()
         }
@@ -214,26 +214,19 @@ class RandomGameController: UIViewController {
             item.imgView.removeFromSuperview()
         }
         self.displayedFrogs.removeAll()
-        
-        //calculate score
-        self.scoreStatus()
     }
     
     
     func scoreStatus(){
+        isWon = true
+        isLost = false
         
         if self.missed >= 3 {
             isLost = true
             isWon = false
         }
         else if RecordManager.isNewRecord(score: self.hits){
-            isWon = true
-            isLost = false
             isNewRecord = true
-        }
-        
-        if (isWon || isLost){
-            self.displayScore()
         }
     }
     

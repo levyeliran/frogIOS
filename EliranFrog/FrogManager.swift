@@ -90,7 +90,7 @@ class FrogManager {
     var frogCountDownAudioPlayer:AVAudioPlayer
     var numOfRows = 0
     var numOfCols = 0
-    var currentLocation: CLLocation!
+    static var currentLocation: CLLocation!
     
     init(){
         self.level = GAME_LEVEL.easy
@@ -386,10 +386,6 @@ class FrogManager {
 //        recordManager.loadData()
 //    }
     
-    
-    func updateUserLocation(location: CLLocation){
-        currentLocation = location
-    }
        
     
     

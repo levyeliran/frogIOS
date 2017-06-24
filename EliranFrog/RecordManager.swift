@@ -11,7 +11,6 @@ import MapKit
 import CoreData
  class RecordManager  {
     
-    
  static var recordList : [MyRecord] = []
     //required.addRecordI
 
@@ -114,12 +113,15 @@ import CoreData
     }
     
     static func isNewRecord(score: Int) -> Bool {
+        if RecordManager.recordList.count > 9{
         if score > RecordManager.recordList[9].score! {
             return true
         }
         else{
             return false
         }
+        }
+        return false
     }
     
     
