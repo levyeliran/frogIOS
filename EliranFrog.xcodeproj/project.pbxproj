@@ -11,7 +11,7 @@
 		450F7B9E1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 450F7B9C1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld */; };
 		450F7BE11EFD52DB00F0C205 /* MyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7BE01EFD52DB00F0C205 /* MyRecord.swift */; };
 		450F7BE51EFE921F00F0C205 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7BE41EFE921F00F0C205 /* LocationManager.swift */; };
-		450F7BE71EFEA09000F0C205 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7BE61EFEA09000F0C205 /* MyTableViewCell.swift */; };
+		450F7BE91EFEB15F00F0C205 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450F7BE81EFEB15F00F0C205 /* MyTableViewCell.swift */; };
 		457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681E81EF52AB70021E132 /* MasterScoresViewController.swift */; };
 		457681EB1EF52EC90021E132 /* ScoresListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EA1EF52EC90021E132 /* ScoresListViewController.swift */; };
 		457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457681EC1EF52F080021E132 /* ScoresMapViewController.swift */; };
@@ -57,7 +57,7 @@
 		450F7B9D1EFD4CDB00F0C205 /* EliranFrog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EliranFrog.xcdatamodel; sourceTree = "<group>"; };
 		450F7BE01EFD52DB00F0C205 /* MyRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecord.swift; sourceTree = "<group>"; };
 		450F7BE41EFE921F00F0C205 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = ../LocationManager.swift; sourceTree = "<group>"; };
-		450F7BE61EFEA09000F0C205 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		450F7BE81EFEB15F00F0C205 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		457681E81EF52AB70021E132 /* MasterScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterScoresViewController.swift; sourceTree = "<group>"; };
 		457681EA1EF52EC90021E132 /* ScoresListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresListViewController.swift; sourceTree = "<group>"; };
 		457681EC1EF52F080021E132 /* ScoresMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresMapViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				450F7B961EFD43F800F0C205 /* DataController.swift */,
 				450F7BE01EFD52DB00F0C205 /* MyRecord.swift */,
 				450F7BE41EFE921F00F0C205 /* LocationManager.swift */,
-				450F7BE61EFEA09000F0C205 /* MyTableViewCell.swift */,
+				450F7BE81EFEB15F00F0C205 /* MyTableViewCell.swift */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
@@ -342,7 +342,7 @@
 				450F7BE51EFE921F00F0C205 /* LocationManager.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
 				457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */,
-				450F7BE71EFEA09000F0C205 /* MyTableViewCell.swift in Sources */,
+				450F7BE91EFEB15F00F0C205 /* MyTableViewCell.swift in Sources */,
 				450F7B971EFD43F800F0C205 /* DataController.swift in Sources */,
 				457681F31EF585D70021E132 /* MapAnnotationPin.swift in Sources */,
 				8EA1DDE01EB707E9008A9C22 /* ScoreController.swift in Sources */,
