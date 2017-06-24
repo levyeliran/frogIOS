@@ -101,8 +101,9 @@ class FrogManager{
         loadData()
         
         recordManager.addRecord(playerName: "Emily", score: 100, long: 34.775001, lat: 32.086606)
-        recordManager.addRecord(playerName: "Matan", score: 101, long: 34.775001, lat: 32.086606)
-        recordManager.addRecord(playerName: "Eliran", score: 103, long: 34.7750016, lat: 32.0866060)
+        recordManager.addRecord(playerName: "Matan", score: 101, long: 34.769944, lat: 32.085557)
+        recordManager.addRecord(playerName: "Eliran", score: 103, long: 35.216924, lat: 31.776058)
+        
         //self.initGameLevel(level: level)
     }
     

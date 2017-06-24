@@ -39,13 +39,13 @@ class ScoresMapViewController: UIViewController {
         for record in RecordManager.recordList{
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(record.lat!, record.long!)
             let score : String
-            score = "Score - " + String(describing: record.score)
+            score = "Score - " + ((record.score)?.description)!
 
-            let recordMapPin = MapAnnotationPin(title: record.playerName!, subtitle: score, myCoordinate: location )
-            
+            let recordMapPin = MapAnnotationPin(title: record.playerName!, subtitle: score, myCoordinate: location)
             mapView.addAnnotation(recordMapPin)
-            print("record add to map: ")
+            print("record added to map: ")
         }
+        
         let mapPin = MapAnnotationPin(title: "Afeka", subtitle: "top score", myCoordinate: afekaCampusLocation)
         
         mapView.addAnnotation(mapPin)

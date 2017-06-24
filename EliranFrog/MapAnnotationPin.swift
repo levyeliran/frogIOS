@@ -9,11 +9,12 @@
 import Foundation
 import MapKit
 
-class MapAnnotationPin: NSObject ,  MKAnnotation {
+class MapAnnotationPin: NSObject , MKAnnotation {
     
     var title: String?
     var subtitle: String?
     var myCoordinate: CLLocationCoordinate2D
+   // var color: MKPinAnnotationView = MKPinAnnotationView.greenPinColor()
     
     var coordinate: CLLocationCoordinate2D {
         return myCoordinate
@@ -24,4 +25,17 @@ class MapAnnotationPin: NSObject ,  MKAnnotation {
         self.subtitle = subtitle
         self.myCoordinate = myCoordinate
     }
+    
+   
+    
+//    func changeColor(color: UIColor){
+//        self.pinTintColor = color
+//    }
+    
 }
+
+//extension MapAnnotationPin {
+//    static func bluePinColor() -> UIColor {
+//        return UIColor.blue
+//    }
+//}
