@@ -36,6 +36,10 @@ class ViewController: UIViewController {
         setButtonStyle(scoresBtn)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.frogMngr.playFrogMusic()
+    }
+    
     func setButtonStyle(_ btn:UIButton){
         btn.layer.cornerRadius = 10
         btn.layer.borderWidth = 4

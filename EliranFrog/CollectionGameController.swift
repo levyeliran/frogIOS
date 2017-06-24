@@ -18,11 +18,14 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var countDownLabel: UILabel!
     @IBOutlet weak var gameCollection: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var firstHelpImage: UIImageView!
+    @IBOutlet weak var secondHelpImage: UIImageView!
+    @IBOutlet weak var thirdHelpImage: UIImageView!
     
     var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
-    var counter:Double = 0
-    var levelInterval:Double = 1
+    var counter:Int = 60
+    var levelInterval:Int = 1
     var frogMngr = FrogManager()
     var timer: Timer?
     var hits = 0
@@ -30,13 +33,17 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     var countDownFlag = false
     var numOfRows = 0
     var numOfCols = 0
-    
-    var shouldDisappear = false
+    var isWon = false
+    var isLost = false
+    var pauseFrogsCounter = 0
+    var isDeviceShaked = false
+    var deviceShakedHelps = 3
+    var deviceShakedCounter = 0
+    var countDownMusicPaused = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.counter = level == GAME_LEVEL.easy ? 120 : 60
         self.levelInterval = 1
         self.frogMngr = FrogManager(level: level, xBottom: -1, yBottom: -1)
         self.gameCollection.dataSource = self
@@ -51,21 +58,16 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !shouldDisappear {
             //get alert object
             let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.easy ? 10 : 30, miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
-                self.timer = Timer.scheduledTimer(timeInterval: self.levelInterval, target: self, selector: #selector(CollectionGameController.onTimerUpdate), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(self.levelInterval), target: self, selector: #selector(CollectionGameController.onTimerUpdate), userInfo: nil, repeats: true)
             })
             //display the alert
             self.present(targetAlert, animated: true, completion: nil)
         }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if shouldDisappear {
-            self.dismiss(animated: false, completion: {})
-        }
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
@@ -100,12 +102,17 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         if pos.x < 0 {
             //game over
         }
-        else {
-            let index = IndexPath(row: pos.y, section: pos.x)
-            let cell = gameCollection.cellForItem(at: index) as! CustomFrogCell
-            let customFrog = self.frogMngr.getCustomFrogImage()
-            cell.cellImage?.image = customFrog.image
-            cell.isGoodFrog = customFrog.isGoodFrog
+        else if(frogMngr.canGetFrog()){
+                let index = IndexPath(row: pos.y, section: pos.x)
+                let cell = gameCollection.cellForItem(at: index) as! CustomFrogCell
+            
+                cell.zoomOut()
+            
+                let customFrog = self.frogMngr.getCustomFrogImage()
+                cell.cellImage?.image = customFrog.image
+                cell.isGoodFrog = customFrog.isGoodFrog
+            
+                cell.zoomIn()
         }
     }
 
@@ -119,6 +126,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.hitsLabel.text = "\(self.hits)"
         }
         else {
+            self.pauseFrogsCounter = 3
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             self.missed += 1
             self.missedLabel.text = "\(self.missed)"
@@ -127,10 +135,15 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         let cellX = indexPath.section
         let cellY = indexPath.row
         
+        selectedCell.isGoodFrog = false
+        selectedCell.zoomOut()
+        
         //free the pos
         self.frogMngr.frogTapped(cellX, col: cellY)
         selectedCell.cellImage?.image = self.frogMngr.getDefaultImage()
-        selectedCell.isGoodFrog = false
+        
+        selectedCell.zoomIn()
+        selectedCell.rotate()
         
         //calculate score
         self.scoreStatus()
@@ -140,21 +153,32 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     func onTimerUpdate(){
         if self.counter <= 0 {
+            self.countDownLabel.text = " "
             self.stopTimer()
             //remove all displayed frogs
             self.removeFrogs()
             self.counter = 0
             self.frogMngr.stopCountDownMusic()
-            
+            self.countDownLabel.removeFromSuperview()
             //display score
             self.displayScore()
         }
         else {
             if self.counter <= 11 {
+                
+                if self.pauseFrogsCounter > 0 {
+                    self.countDownLabel.textColor = UIColor.red
+                    self.pauseFrogsCounter-=1
+                    counter-=self.levelInterval
+                    self.countDownLabel.text = "\(Int(self.counter))"
+                    return
+                }
+                
                 if !self.countDownFlag{
                     self.countDownFlag = true
                     self.frogMngr.bloat(self.countDownLabel)
-                }            }
+                }
+            }
             
             if self.frogTimeout <= 0 {
                 self.frogTimeout = 4
@@ -162,16 +186,39 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 self.removeFrogs()
             }
             
-            counter-=self.levelInterval
-            self.frogTimeout -= 1
-            if level == GAME_LEVEL.easy{
+            if self.pauseFrogsCounter > 0 {
+                self.countDownLabel.textColor = UIColor.red
+                self.pauseFrogsCounter-=1
+                counter-=self.levelInterval
+                self.countDownLabel.text = "\(Int(self.counter))"
+                return
+            }
+            
+            if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.deviceShakedCounter-=1
+                self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
+                return
+            }
+            
+            if self.countDownMusicPaused && !self.isDeviceShaked {
+                //re-play count down music
+                frogMngr.rePlayCountDownMusic()
+                self.countDownMusicPaused = false
+            }
+
+            if level == GAME_LEVEL.easy {
                 self.changeCell()
             }
-            else {
+            else  {
                 for _ in 0...2 {
-                    self.changeCell()
+                    if self.pauseFrogsCounter == 0 {
+                        self.changeCell()
+                    }
                 }
             }
+            self.countDownLabel.textColor = UIColor.white
+            self.frogTimeout -= 1
+            counter-=self.levelInterval
         }
         self.countDownLabel.text = "\(Int(self.counter))"
 
@@ -182,14 +229,13 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         for pos in displayedFrogs {
             let index = IndexPath(row: pos.y, section: pos.x)
             let cell = gameCollection.cellForItem(at: index) as! CustomFrogCell
+            cell.isGoodFrog = false
             cell.cellImage?.image = self.frogMngr.getDefaultImage()
         }
         frogMngr.removeAllDisplayedFrogs()
     }
     
     func scoreStatus(){
-        var isWon = false
-        var isLost = false
         
         if self.level == GAME_LEVEL.easy {
             if self.hits >= 10 {
@@ -215,9 +261,33 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     func displayScore(){
         self.stopTimer()
-        self.shouldDisappear = true
+        if self.countDownFlag && !self.countDownMusicPaused{
+            frogMngr.stopCountDownMusic()
+        }
         //display confirm
-        print("finish")
+        var isNewRecord = false
+
+        if self.isWon {
+            isNewRecord = true
+            
+        }
+        
+        let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
+        let buttonTitle = isWon ? "Go" : "Try again?"
+        let saveAction = UIAlertAction(title: buttonTitle, style: .default, handler:
+            {
+                alert -> Void in
+                if self.isWon{
+                    let nameTextField = scoreAlert.textFields![0] as UITextField
+                    //add the user record to core data
+                    print("firstName \(String(describing: nameTextField.text))")
+                }
+
+                //back to home page
+                self.dismiss(animated: true, completion: nil)
+            })
+        scoreAlert.addAction(saveAction)
+        self.present(scoreAlert, animated: true, completion: nil)
     }
     
     func stopTimer(){
@@ -236,5 +306,35 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
+    }
+    
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if !self.isDeviceShaked && self.deviceShakedHelps > 0 {
+            
+            if self.countDownFlag {
+                //pause count down music
+                self.countDownMusicPaused = true
+                frogMngr.pauseCountDownMusic()
+            }
+            self.isDeviceShaked = true
+            self.countDownLabel.textColor = UIColor.green
+            self.deviceShakedCounter = 3
+            self.deviceShakedHelps-=1
+            
+            if self.deviceShakedHelps == 2{
+                firstHelpImage.removeFromSuperview()
+            }
+            else if self.deviceShakedHelps == 1{
+                secondHelpImage.removeFromSuperview()
+            }
+            else {
+                thirdHelpImage.removeFromSuperview()
+            }
+        }
+
     }
 }

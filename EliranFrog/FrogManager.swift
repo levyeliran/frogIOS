@@ -154,6 +154,7 @@ class FrogManager {
     }
     
     func canGetFrog() ->Bool{
+        
         if(self.level == GAME_LEVEL.hard){
             if(self.displayedFrogs >= self.hardLevelCount){
                 return false
@@ -259,8 +260,8 @@ class FrogManager {
         return self.displayedPositions
     }
     
-    func removeAllDisplayedFrogs() -> Int{
-        let displayed = self.displayedPositions.count
+    func removeAllDisplayedFrogs(){
+        //let displayed = self.displayedPositions.count
         for pos in self.displayedPositions{
             self.frogPositions.append(FrogPoint(x: pos.x, y: pos.y))
         }
@@ -268,7 +269,7 @@ class FrogManager {
         self.displayedFrogs = 0
         //shuffle the array
         self.frogPositions.shuffle()
-        return displayed
+        //return displayed
     }
     
     //count down animation
@@ -276,7 +277,7 @@ class FrogManager {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.toValue = NSNumber(value: 3 as Float)
         animation.duration = 0.5
-        animation.repeatCount = 11.0
+        animation.repeatCount = 30
         animation.autoreverses = true
         label.textColor = UIColor.yellow
         label.layer.add(animation, forKey: nil)
@@ -327,11 +328,27 @@ class FrogManager {
     }
     
     func stopFrogMusic(){
-        self.audioPlayer.stop()
+        if self.audioPlayer.isPlaying {
+            self.audioPlayer.stop()
+        }
     }
     
     func stopCountDownMusic(){
-        self.frogCountDownAudioPlayer.stop()
+        if self.frogCountDownAudioPlayer.isPlaying {
+            self.frogCountDownAudioPlayer.stop()
+        }
+    }
+    
+    func pauseCountDownMusic(){
+        if self.frogCountDownAudioPlayer.isPlaying {
+            self.frogCountDownAudioPlayer.pause()
+        }
+    }
+    
+    func rePlayCountDownMusic(){
+        if !self.frogCountDownAudioPlayer.isPlaying {
+            self.frogCountDownAudioPlayer.play()
+        }
     }
 
     func getTargetAlert(_ hits:Int, miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
@@ -350,6 +367,21 @@ class FrogManager {
         recordManager.loadData()
     }
     
+    func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
+        var message = isWon ? "You are a Winner!" : "Why?"
+        message = isNewRecord ? message + "With a new Record!" : message
+        let title = isWon ? "Your Score is \(score)" : "Loser"
+    
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+        if isWon {
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Enter Your Name"
+            }
+        }
+        
+        return alertController
+    }
     
     
        
@@ -402,4 +434,83 @@ extension Array {
     
     
     
+}
+
+extension UIView {
+    //https://stackoverflow.com/questions/31320819/scale-uibutton-animation-swift
+    /**
+     Simply zooming in of a view: set view scale to 0 and zoom to Identity on 'duration' time interval.
+     
+     - parameter duration: animation duration
+     */
+    func zoomIn(duration: TimeInterval = 0.5) {
+        self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: { () -> Void in
+            self.transform = CGAffineTransform.identity
+        }) { (animationCompleted: Bool) -> Void in
+        }
+    }
+    
+    /**
+     Simply zooming out of a view: set view scale to Identity and zoom out to 0 on 'duration' time interval.
+     
+     - parameter duration: animation duration
+     */
+    func zoomOut(duration: TimeInterval = 0.2) {
+        self.transform = CGAffineTransform.identity
+        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: { () -> Void in
+            self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        }) { (animationCompleted: Bool) -> Void in
+        }
+    }
+    
+    /**
+     Zoom in any view with specified offset magnification.
+     
+     - parameter duration:     animation duration.
+     - parameter easingOffset: easing offset.
+     */
+    func zoomInWithEasing(duration: TimeInterval = 0.2, easingOffset: CGFloat = 0.2) {
+        let easeScale = 1.0 + easingOffset
+        let easingDuration = TimeInterval(easingOffset) * duration / TimeInterval(easeScale)
+        let scalingDuration = duration - easingDuration
+        UIView.animate(withDuration: scalingDuration, delay: 0.0, options: .curveEaseIn, animations: { () -> Void in
+            self.transform = CGAffineTransform(scaleX: easeScale, y: easeScale)
+        }, completion: { (completed: Bool) -> Void in
+            UIView.animate(withDuration: easingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+                self.transform = CGAffineTransform.identity
+            }, completion: { (completed: Bool) -> Void in
+            })
+        })
+    }
+    
+    /**
+     Zoom out any view with specified offset magnification.
+     
+     - parameter duration:     animation duration.
+     - parameter easingOffset: easing offset.
+     */
+    func zoomOutWithEasing(duration: TimeInterval = 0.2, easingOffset: CGFloat = 0.2) {
+        let easeScale = 1.0 + easingOffset
+        let easingDuration = TimeInterval(easingOffset) * duration / TimeInterval(easeScale)
+        let scalingDuration = duration - easingDuration
+        UIView.animate(withDuration: easingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+            self.transform = CGAffineTransform(scaleX: easeScale, y: easeScale)
+        }, completion: { (completed: Bool) -> Void in
+            UIView.animate(withDuration: scalingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+                self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+            }, completion: { (completed: Bool) -> Void in
+            })
+        })
+    }
+    
+    //https://stackoverflow.com/questions/9844925/uiview-infinite-360-degree-rotation-animation
+    func rotate() {
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 1
+        rotation.isCumulative = true
+        rotation.repeatCount = 1
+        self.layer.add(rotation, forKey: "rotationAnimation")
+    }
 }
