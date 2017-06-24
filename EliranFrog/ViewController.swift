@@ -10,10 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var easyLevelBtn: UIButton!
-    @IBOutlet weak var mediumLevelBtn: UIButton!
-    @IBOutlet weak var hardlevelBtn: UIButton!
-    @IBOutlet weak var scoresBtn: UIButton!
+   
     
     var selectedLevel = GAME_LEVEL.none
     var frogMngr = FrogManager()

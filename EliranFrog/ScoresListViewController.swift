@@ -10,6 +10,9 @@ import UIKit
 
 class ScoresListViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
 
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +25,9 @@ class ScoresListViewController: UIViewController, UITableViewDelegate , UITableV
     }
     
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: UITableViewCellStyle.default , reuseIdentifier: "scoreCell")
-        cell.textLabel?.text = RecordManager.recordList[indexPath.row].playerName
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MyTableViewCell{
+        let cell = UITableViewCell(style: UITableViewCellStyle.default , reuseIdentifier: "scoreCell") as! MyTableViewCell
+        userNameLabel?.text = RecordManager.recordList[indexPath.row].playerName
         return cell
     }
     

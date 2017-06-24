@@ -57,8 +57,8 @@
                                     <action selector="hardBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLz-rT-J67"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
-                                <rect key="frame" x="113" y="326" width="149" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
+                                <rect key="frame" x="96" y="326" width="128" height="41"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -93,6 +93,8 @@
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="60Q-Q2-wlZ"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="CM8-1u-iNP"/>
                             <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="FmB-Mb-h0k"/>
+                            <constraint firstItem="APL-nf-3O8" firstAttribute="trailing" secondItem="AZz-87-xnI" secondAttribute="trailing" id="JPE-6e-hMi"/>
+                            <constraint firstItem="APL-nf-3O8" firstAttribute="leading" secondItem="AZz-87-xnI" secondAttribute="leading" id="NoL-yt-VAN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="80" id="VsT-Xr-cvO"/>
                             <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="Vus-qu-w7f"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="aIU-oe-f4x"/>

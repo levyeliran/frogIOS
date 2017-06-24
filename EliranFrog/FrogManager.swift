@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -66,10 +67,11 @@ class FrogImageView{
     }
 }
 
-class FrogManager{
+class FrogManager {
     
     var recordManager = RecordManager()
-
+    
+    
 
     //create manager consts
     var frogWidth = 60
@@ -349,6 +351,10 @@ class FrogManager{
     }
     
     
+    
+       
+    
+    
     //Eliran Area
     
     //tap on a bad frog - pause the frog appearence
@@ -392,4 +398,8 @@ extension Array {
             }
         }
     }
+    
+    
+    
+    
 }
