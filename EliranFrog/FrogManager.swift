@@ -354,8 +354,8 @@ class FrogManager {
         }
     }
 
-    func getTargetAlert(_ hits:Int, miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
-        let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\nTarget: \(hits) Hits to win, avoid the Bad frog (up to \(miss))."
+    func getTargetAlert( miss:Int, sec:Int, okButtonHandler:@escaping (_ action: UIAlertAction)->Void) -> UIAlertController{
+        let message = "Tap as many frogs as possible in \(sec) seconds to earn points.\n, avoid the Bad frog (up to \(miss))."
         let alertController = UIAlertController(title: "Level Target", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "GO", style: .default, handler: okButtonHandler)
         alertController.addAction(defaultAction)

@@ -40,7 +40,8 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     var deviceShakedHelps = 3
     var deviceShakedCounter = 0
     var countDownMusicPaused = false
-    
+    var isNewRecord = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +60,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
             //get alert object
-            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(level == GAME_LEVEL.easy ? 10 : 30, miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert( miss: level == GAME_LEVEL.easy ? 5 : 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
                 self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(self.levelInterval), target: self, selector: #selector(CollectionGameController.onTimerUpdate), userInfo: nil, repeats: true)
             })
             //display the alert
@@ -237,22 +238,20 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     func scoreStatus(){
         
-        if self.level == GAME_LEVEL.easy {
-            if self.hits >= 10 {
-                isWon = true
-            }
-            else if self.missed >= 5 {
-                isLost = true
-            }
+        if self.level == GAME_LEVEL.easy && self.missed >= 5 {
+            isLost = true
+            isWon = false
         }
-        else {
-            if self.hits >= 30 {
-                isWon = true
-            }
-            else if self.missed >= 3 {
-                isLost = true
-            }
+        else if self.missed >= 3 {
+            isLost = true
+            isWon = false
         }
+        else if RecordManager.isNewRecord(score: self.hits){
+            isNewRecord = true
+            isWon = true
+            isLost = false
+        }
+        
         
         if (isWon || isLost){
             self.displayScore()
@@ -265,8 +264,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             frogMngr.stopCountDownMusic()
         }
         //display confirm
-        let isNewRecord = self.isWon && RecordManager.isNewRecord(score: self.hits)
-        
         let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
         let buttonTitle = isWon ? "Go" : "Try again?"
         let saveAction = UIAlertAction(title: buttonTitle, style: .default, handler:

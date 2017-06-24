@@ -65,6 +65,8 @@ class RandomGameController: UIViewController {
     var deviceShakedHelps = 3
     var deviceShakedCounter = 0
     var countDownMusicPaused = false
+    var isNewRecord = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +85,7 @@ class RandomGameController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert(30, miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
+            let targetAlert:UIAlertController = self.frogMngr.getTargetAlert( miss: 3, sec: Int(self.counter) ,okButtonHandler: { (action) -> Void in
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RandomGameController.onTimerUpdate),     userInfo: nil, repeats: true)
             })
             self.present(targetAlert, animated: true, completion: nil)
@@ -219,11 +221,15 @@ class RandomGameController: UIViewController {
     
     
     func scoreStatus(){
-        if self.hits >= 30 {
-            isWon = true
-        }
-        else if self.missed >= 3 {
+        
+        if self.missed >= 3 {
             isLost = true
+            isWon = false
+        }
+        else if RecordManager.isNewRecord(score: self.hits){
+            isWon = true
+            isLost = false
+            isNewRecord = true
         }
         
         if (isWon || isLost){
@@ -239,8 +245,6 @@ class RandomGameController: UIViewController {
             frogMngr.stopCountDownMusic()
         }
         //display confirm
-        let isNewRecord = self.isWon && RecordManager.isNewRecord(score: self.hits)
-        
         let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
         let buttonTitle = isWon ? "Go" : "Try again?"
         let saveAction = UIAlertAction(title: buttonTitle, style: .default, handler:
