@@ -114,12 +114,15 @@ import CoreData
     }
     
     static func isNewRecord(score: Int) -> Bool {
-        if score > RecordManager.recordList[9].score! {
-            return true
+        if(!recordList.isEmpty){
+            if score > recordList[(recordList.count)-1].score! {
+                return true
+            }
+            else {
+                return false
+            }
         }
-        else{
-            return false
-        }
+        return true
     }
     
     

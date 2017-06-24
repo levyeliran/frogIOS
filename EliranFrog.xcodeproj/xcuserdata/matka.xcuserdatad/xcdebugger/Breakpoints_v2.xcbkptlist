@@ -14,7 +14,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
-            endingLineNumber = "103">
+            endingLineNumber = "103"
+            landmarkName = "getBestScore()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,7 +76,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
-            endingLineNumber = "92">
+            endingLineNumber = "92"
+            landmarkName = "addRecord(playerName:score:long:lat:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,7 +102,7 @@
                   moduleName = "EliranFrog"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matka/GitHub/frogIOS/EliranFrog/FrogManager.swift"
-                  timestampString = "520012478.06121"
+                  timestampString = "520016857.791294"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -113,7 +117,7 @@
                   moduleName = "EliranFrog"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matka/GitHub/frogIOS/EliranFrog/FrogManager.swift"
-                  timestampString = "520012478.066331"
+                  timestampString = "520016857.79353"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -121,6 +125,22 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EliranFrog/ViewController.swift"
+            timestampString = "520014782.419794"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

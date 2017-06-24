@@ -12,9 +12,10 @@ class MyTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var positionLabel: UILabel!
-    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

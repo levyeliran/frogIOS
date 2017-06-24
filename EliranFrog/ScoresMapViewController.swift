@@ -30,7 +30,7 @@ class ScoresMapViewController: UIViewController {
     
     
     func prepareMap(){
-        let distanceSpan: CLLocationDegrees = 100000
+        let distanceSpan: CLLocationDegrees = 1000000
         let afekaCampusLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(afekaLat, afekaLong)
         
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(afekaCampusLocation, distanceSpan, distanceSpan) , animated: true)
@@ -43,7 +43,7 @@ class ScoresMapViewController: UIViewController {
 
             let recordMapPin = MapAnnotationPin(title: record.playerName!, subtitle: score, myCoordinate: location)
             mapView.addAnnotation(recordMapPin)
-            print("record added to map: ")
+            print("record added to map: " )
         }
         
         let mapPin = MapAnnotationPin(title: "Afeka", subtitle: "top score", myCoordinate: afekaCampusLocation)

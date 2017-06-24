@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  EliranFrog
 //
@@ -46,11 +45,15 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
         
         RecordManager.loadData()
         self.locationManager.delegate = self
-        self.initLocation()
+        //self.initLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.frogMngr.playFrogMusic()
+        self.selectedLevel = GAME_LEVEL.none
     }
     
     func setButtonStyle(_ btn:UIButton){

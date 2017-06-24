@@ -32,7 +32,7 @@ class ScoresListViewController: UIViewController, UITableViewDelegate , UITableV
         
         cell.userNameLabel?.text = RecordManager.recordList[indexPath.row].playerName
         cell.scoreLabel?.text = RecordManager.recordList[indexPath.row].score?.description
-        cell.positionLabel?.text = (indexPath.row + 1).description
+        cell.positionLabel?.text = "\(indexPath.row + 1)."
         return cell
     }
     

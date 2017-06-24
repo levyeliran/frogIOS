@@ -238,7 +238,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     func scoreStatus(){
         
         if self.level == GAME_LEVEL.easy {
-            if self.hits >= 10 {
+            if self.hits >= 5 {
                 isWon = true
             }
             else if self.missed >= 5 {
