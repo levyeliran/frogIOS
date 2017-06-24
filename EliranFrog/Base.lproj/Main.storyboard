@@ -110,10 +110,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="O03-kR-M8W"/>
-                        <outlet property="hardlevelBtn" destination="AZz-87-xnI" id="Zsy-rz-y36"/>
-                        <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="Y4N-Ax-ndW"/>
-                        <outlet property="scoresBtn" destination="APL-nf-3O8" id="1TJ-QC-bGx"/>
+                        <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="xJc-GE-9xB"/>
+                        <outlet property="hardLevelBtn" destination="AZz-87-xnI" id="6pH-vu-gvq"/>
+                        <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="mrc-nq-P6d"/>
+                        <outlet property="scoreBtn" destination="APL-nf-3O8" id="hiy-Ro-g6S"/>
                         <segue destination="UJr-Lx-E1A" kind="popoverPresentation" identifier="viewSeg" popoverAnchorView="8bC-Xf-vdC" id="Ppg-em-mID">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>

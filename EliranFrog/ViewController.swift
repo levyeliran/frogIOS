@@ -11,7 +11,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-   
+    @IBOutlet weak var easyLevelBtn: UIButton!
+    @IBOutlet weak var scoreBtn: UIButton!
+    @IBOutlet weak var hardLevelBtn: UIButton!
+    @IBOutlet weak var mediumLevelBtn: UIButton!
     
     var selectedLevel = GAME_LEVEL.none
     var frogMngr = FrogManager()
@@ -33,8 +36,8 @@ class ViewController: UIViewController {
         self.frogMngr.playFrogMusic()
         setButtonStyle(easyLevelBtn)
         setButtonStyle(mediumLevelBtn)
-        setButtonStyle(hardlevelBtn)
-        setButtonStyle(scoresBtn)
+        setButtonStyle(hardLevelBtn)
+        setButtonStyle(scoreBtn)
     }
     
     override func viewDidAppear(_ animated: Bool) {
