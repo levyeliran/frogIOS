@@ -11,7 +11,7 @@ import MapKit
 
 class ScoresMapViewController: UIViewController {
 
-    var recordM = RecordManager()
+    //var recordM = RecordManager()
     @IBOutlet weak var mapView: MKMapView!
      var afekaLat: CLLocationDegrees = 32.113510
      var afekaLong: CLLocationDegrees =  34.818186

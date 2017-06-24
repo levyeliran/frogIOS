@@ -239,12 +239,7 @@ class RandomGameController: UIViewController {
             frogMngr.stopCountDownMusic()
         }
         //display confirm
-        var isNewRecord = false
-        
-        if self.isWon {
-            isNewRecord = true
-            
-        }
+        let isNewRecord = self.isWon && RecordManager.isNewRecord(score: self.hits)
         
         let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
         let buttonTitle = isWon ? "Go" : "Try again?"

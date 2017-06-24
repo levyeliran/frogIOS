@@ -22,7 +22,7 @@ import CoreData
        
     }
     
-    func loadData(){
+    static func loadData(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
@@ -61,7 +61,7 @@ import CoreData
         
     }
     
-    func saveData(myRecord: MyRecord){
+    static func saveData(myRecord: MyRecord){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
@@ -85,7 +85,7 @@ import CoreData
     
     
     
-    func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
+    static func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
        
         let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
         if RecordManager.recordList.count == 10 {
@@ -95,11 +95,11 @@ import CoreData
         RecordManager.recordList.sort{
             $0.score! > $1.score!
         }
-        saveData(myRecord: record)
+        self.saveData(myRecord: record)
     }
     
     
-    func getBestScore() -> Int{
+    static func getBestScore() -> Int{
         if RecordManager.recordList.count > 0 {
             return RecordManager.recordList[0].score!
         }
@@ -108,12 +108,12 @@ import CoreData
         }
     }
     
-    func getRecordPosition(score: Int) -> Int{
+    static func getRecordPosition(score: Int) -> Int{
         return 1
 
     }
     
-    func isNewRecord(score: Int) -> Bool {
+    static func isNewRecord(score: Int) -> Bool {
         if score > RecordManager.recordList[9].score! {
             return true
         }
@@ -124,7 +124,7 @@ import CoreData
     
     
     // clean core data
-    func deleteAllData(entity: String)
+    static func deleteAllData(entity: String)
     {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
