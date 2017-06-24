@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
+
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -69,7 +71,7 @@ class FrogImageView{
 
 class FrogManager {
     
-    var recordManager = RecordManager()
+    //var recordManager = RecordManager()
     
     
 
@@ -88,6 +90,7 @@ class FrogManager {
     var frogCountDownAudioPlayer:AVAudioPlayer
     var numOfRows = 0
     var numOfCols = 0
+    var currentLocation: CLLocation!
     
     init(){
         self.level = GAME_LEVEL.easy
@@ -99,12 +102,12 @@ class FrogManager {
         self.frogCountDownAudioPlayer = AVAudioPlayer()
         //saveData()
         
-        recordManager.deleteAllData(entity: "Record")
-        loadData()
+        //recordManager.deleteAllData(entity: "Record")
+        //loadData()
         
-        recordManager.addRecord(playerName: "Emily", score: 100, long: 34.775001, lat: 32.086606)
-        recordManager.addRecord(playerName: "Matan", score: 101, long: 34.769944, lat: 32.085557)
-        recordManager.addRecord(playerName: "Eliran", score: 103, long: 35.216924, lat: 31.776058)
+        //recordManager.addRecord(playerName: "Emily", score: 100, long: 34.775001, lat: 32.086606)
+        //recordManager.addRecord(playerName: "Matan", score: 101, long: 34.769944, lat: 32.085557)
+        //recordManager.addRecord(playerName: "Eliran", score: 103, long: 35.216924, lat: 31.776058)
         
         //self.initGameLevel(level: level)
     }
@@ -359,9 +362,9 @@ class FrogManager {
         return alertController
     }
     
-    func saveData(myRecord: MyRecord){
-        recordManager.saveData(myRecord: myRecord)
-    }
+//    func saveData(myRecord: MyRecord){
+//        recordManager.saveData(myRecord: myRecord)
+//    }
     
     func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
         var message = isWon ? "You are a Winner!" : "Why?"
@@ -379,12 +382,14 @@ class FrogManager {
         return alertController
     }
     
-    func loadData(){
-        recordManager.loadData()
+//    func loadData(){
+//        recordManager.loadData()
+//    }
+    
+    
+    func updateUserLocation(location: CLLocation){
+        currentLocation = location
     }
-    
-    
-    
        
     
     

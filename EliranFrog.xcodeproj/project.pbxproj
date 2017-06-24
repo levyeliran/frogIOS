@@ -339,7 +339,6 @@
 				450F7B9E1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld in Sources */,
 				8EAFA4731EAA5884007C52C0 /* FrogManager.swift in Sources */,
 				457681E91EF52AB70021E132 /* MasterScoresViewController.swift in Sources */,
-				450F7BE51EFE921F00F0C205 /* LocationManager.swift in Sources */,
 				8EAFA46F1EAA40CF007C52C0 /* RandomGameController.swift in Sources */,
 				457681ED1EF52F080021E132 /* ScoresMapViewController.swift in Sources */,
 				450F7BE91EFEB15F00F0C205 /* MyTableViewCell.swift in Sources */,

@@ -265,12 +265,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             frogMngr.stopCountDownMusic()
         }
         //display confirm
-        var isNewRecord = false
-
-        if self.isWon {
-            isNewRecord = true
-            
-        }
+        let isNewRecord = self.isWon && RecordManager.isNewRecord(score: self.hits)
         
         let scoreAlert = frogMngr.getScoreAlert( score: self.hits, isWon: self.isWon, isNewRecord:isNewRecord)
         let buttonTitle = isWon ? "Go" : "Try again?"
@@ -281,6 +276,14 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                     let nameTextField = scoreAlert.textFields![0] as UITextField
                     //add the user record to core data
                     print("firstName \(String(describing: nameTextField.text))")
+                    
+                    var long:Double = 0
+                    var lat:Double = 0
+                    if(self.frogMngr.currentLocation != nil){
+                        long = self.frogMngr.currentLocation.coordinate.longitude
+                        lat = self.frogMngr.currentLocation.coordinate.latitude
+                    }
+                    RecordManager.addRecord(playerName: nameTextField.text!, score: self.hits, long: long, lat: lat)
                 }
 
                 //back to home page
