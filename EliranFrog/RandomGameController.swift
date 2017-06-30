@@ -157,12 +157,6 @@ class RandomGameController: UIViewController {
                 }
             }
             
-            if self.frogTimeout <= 0 {
-                self.frogTimeout = Int(arc4random_uniform(4) + 1)
-                //remove all displayed frogs
-                self.removeFrogs()
-            }
-            
             if self.pauseFrogsCounter > 0 {
                 self.countDownLabel.textColor = UIColor.red
                 self.pauseFrogsCounter-=1
@@ -172,6 +166,7 @@ class RandomGameController: UIViewController {
             }
             
             if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.generateFrogs()
                 self.deviceShakedCounter-=1
                 self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
                 return
@@ -187,26 +182,38 @@ class RandomGameController: UIViewController {
             counter -= 1
             self.frogTimeout -= 1
             
-            let c = Int(arc4random_uniform(3))
-            //add random frogs
-            for _ in 0...c {
-                if self.pauseFrogsCounter == 0{
-                    let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
-                    self.displayedFrogs.append(frog)
-                    
-                    let imgView = frog.imgView
-                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
-                    imgView.isUserInteractionEnabled = true
-                    imgView.addGestureRecognizer(tapGestureRecognizer)
-                    
-                    imgView.zoomOut()
-                    self.gameBoardView.addSubview(imgView)
-                    imgView.zoomIn()
-                }
-            }
+            self.generateFrogs()
+            
         }
         self.countDownLabel.text = "\(Int(self.counter))"
         
+    }
+    
+    func generateFrogs(){
+        if self.frogTimeout <= 0 {
+            self.frogTimeout = Int(arc4random_uniform(4) + 1)
+            //remove all displayed frogs
+            self.removeFrogs()
+        }
+        
+        let c = Int(arc4random_uniform(3))
+        //add random frogs
+        for _ in 0...c {
+            if self.pauseFrogsCounter == 0{
+                let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
+                self.displayedFrogs.append(frog)
+                
+                let imgView = frog.imgView
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
+                imgView.isUserInteractionEnabled = true
+                imgView.addGestureRecognizer(tapGestureRecognizer)
+                
+                imgView.zoomOut()
+                self.gameBoardView.addSubview(imgView)
+                imgView.zoomIn()
+            }
+        }
+
     }
     
     func removeFrogs(){

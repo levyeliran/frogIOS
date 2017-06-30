@@ -181,12 +181,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 }
             }
             
-            if self.frogTimeout <= 0 {
-                self.frogTimeout = 4
-                //remove all displayed frogs
-                self.removeFrogs()
-            }
-            
             if self.pauseFrogsCounter > 0 {
                 self.countDownLabel.textColor = UIColor.red
                 self.pauseFrogsCounter-=1
@@ -196,6 +190,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             }
             
             if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.generateFrogs()
                 self.deviceShakedCounter-=1
                 self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
                 return
@@ -206,22 +201,34 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 frogMngr.rePlayCountDownMusic()
                 self.countDownMusicPaused = false
             }
+            
+            self.generateFrogs()
 
-            if level == GAME_LEVEL.easy {
-                self.changeCell()
-            }
-            else  {
-                for _ in 0...2 {
-                    if self.pauseFrogsCounter == 0 {
-                        self.changeCell()
-                    }
-                }
-            }
             self.countDownLabel.textColor = UIColor.white
             self.frogTimeout -= 1
             counter-=self.levelInterval
         }
         self.countDownLabel.text = "\(Int(self.counter))"
+
+    }
+    
+    func generateFrogs(){
+        if self.frogTimeout <= 0 {
+            self.frogTimeout = 4
+            //remove all displayed frogs
+            self.removeFrogs()
+        }
+        
+        if level == GAME_LEVEL.easy {
+            self.changeCell()
+        }
+        else  {
+            for _ in 0...2 {
+                if self.pauseFrogsCounter == 0 {
+                    self.changeCell()
+                }
+            }
+        }
 
     }
     
