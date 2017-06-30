@@ -10,16 +10,15 @@ import UIKit
 
 class ScoresListViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
 
+    
     @IBOutlet weak var scoreTable: UITableView!
-    @IBOutlet weak var positionLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scoreTable.dataSource = self
-        self.scoreTable.delegate = self
+        scoreTable.delegate = self
+        scoreTable.dataSource = self
+
     }
 
     
@@ -29,8 +28,11 @@ class ScoresListViewController: UIViewController, UITableViewDelegate , UITableV
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: UITableViewCellStyle.default , reuseIdentifier: "scoreCell") 
-        userNameLabel?.text = RecordManager.recordList[indexPath.row].playerName
+       let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! MyTableViewCell
+        
+        cell.userNameLabel?.text = RecordManager.recordList[indexPath.row].playerName
+        cell.scoreLabel?.text = RecordManager.recordList[indexPath.row].score?.description
+        cell.positionLabel?.text = "\(indexPath.row + 1)."
         return cell
     }
     

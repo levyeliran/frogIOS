@@ -11,11 +11,9 @@ import MapKit
 import CoreData
  class RecordManager  {
     
- static var recordList : [MyRecord] = []
+    static var recordTableSize: Int = 10
+    static var recordList : [MyRecord] = []
     //required.addRecordI
-
-    
-    
     
     init() {
        
@@ -72,7 +70,7 @@ import CoreData
         
         do {
             try context.save()
-            print("#########################################################")
+            //debug
             for x in RecordManager.recordList{
                 print(x.playerName!)
                 
@@ -87,13 +85,15 @@ import CoreData
     static func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
        
         let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
-        if RecordManager.recordList.count == 10 {
-            RecordManager.recordList.remove(at: 9)
+        if RecordManager.recordList.count == recordTableSize {
+            RecordManager.recordList.remove(at: (recordTableSize - 1))
+            print("The record list size is \(recordTableSize)")
         }
         RecordManager.recordList.append(record)
         RecordManager.recordList.sort{
             $0.score! > $1.score!
         }
+        //deleteAllData(entity: "Record")
         self.saveData(myRecord: record)
     }
     
@@ -109,19 +109,18 @@ import CoreData
     
     static func getRecordPosition(score: Int) -> Int{
         return 1
-
     }
     
     static func isNewRecord(score: Int) -> Bool {
-        if RecordManager.recordList.count > 9{
-        if score > RecordManager.recordList[9].score! {
-            return true
+        if(!recordList.isEmpty){
+            if score > recordList[(recordList.count)-1].score! {
+                return true
+            }
+            else {
+                return false
+            }
         }
-        else{
-            return false
-        }
-        }
-        return false
+        return true
     }
     
     

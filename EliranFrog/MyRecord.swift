@@ -12,7 +12,6 @@ import MapKit
 class MyRecord: NSObject {
     var playerName: String?
     var score: Int?
-    //var coordinateOfRecord: CLLocationCoordinate2D
     var long : Double?
     var lat : Double?
 
@@ -24,12 +23,8 @@ class MyRecord: NSObject {
     init(playerName: String , score: Int ,long: Double ,lat: Double) {
         self.playerName = playerName
         self.score = score
-        //self.coordinateOfRecord = coordinateOfRecord
         self.long = long
         self.lat = lat
     }
-    
-    
-    
-    
+
 }
