@@ -43,7 +43,7 @@ class ScoresMapViewController: UIViewController {
 
             let recordMapPin = MapAnnotationPin(title: record.playerName!, subtitle: score, myCoordinate: location)
             mapView.addAnnotation(recordMapPin)
-            print("record added to map: " )
+            print("record added to map: \(recordMapPin)" )
         }
         
         let mapPin = MapAnnotationPin(title: "Afeka", subtitle: "top score", myCoordinate: afekaCampusLocation)
