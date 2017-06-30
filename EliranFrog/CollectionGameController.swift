@@ -24,7 +24,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
-    var counter:Int = 20
+    var counter:Int = 60
     var levelInterval:Int = 1
     var frogMngr = FrogManager()
     var timer: Timer?
