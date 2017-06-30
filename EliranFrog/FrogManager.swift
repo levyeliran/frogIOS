@@ -413,6 +413,27 @@ extension Array {
     }
 }
 
+extension UIImageView{
+    func shake(count : Float? = nil,for duration : TimeInterval? = nil,withTranslation translation : Float? = nil) {
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.repeatCount = count ?? 4
+        animation.duration = (duration ?? 0.5)/TimeInterval(animation.repeatCount)
+        animation.autoreverses = true
+        animation.byValue = translation ?? -4
+        layer.add(animation, forKey: "shake")
+    }
+    
+    func customZoomOut(duration: TimeInterval = 0.5) {
+        self.transform = CGAffineTransform.identity
+        UIView.animate(withDuration: duration, delay: 2, options: [.curveLinear], animations: { () -> Void in
+            self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        }) { (animationCompleted: Bool) -> Void in
+        }
+    }
+    
+}
+
 extension UIView {
     //https://stackoverflow.com/questions/31320819/scale-uibutton-animation-swift
     /**
@@ -490,4 +511,5 @@ extension UIView {
         rotation.repeatCount = 1
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
+    
 }

@@ -24,7 +24,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
-    var counter:Int = 60
+    var counter:Int = 30
     var levelInterval:Int = 1
     var frogMngr = FrogManager()
     var timer: Timer?
@@ -328,13 +328,22 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.deviceShakedHelps-=1
             
             if self.deviceShakedHelps == 2{
-                firstHelpImage.removeFromSuperview()
+                firstHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.firstHelpImage.removeFromSuperview()
+                })
             }
             else if self.deviceShakedHelps == 1{
-                secondHelpImage.removeFromSuperview()
+                secondHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.secondHelpImage.removeFromSuperview()
+                })
             }
             else {
-                thirdHelpImage.removeFromSuperview()
+                thirdHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.thirdHelpImage.removeFromSuperview()
+                })
             }
         }
 

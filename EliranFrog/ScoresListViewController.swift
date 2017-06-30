@@ -18,6 +18,10 @@ class ScoresListViewController: UIViewController, UITableViewDelegate , UITableV
         super.viewDidLoad()
         scoreTable.delegate = self
         scoreTable.dataSource = self
+        
+        let backgroundImage = UIImage(named: "welcomeBG.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.scoreTable.backgroundView = imageView
 
     }
 

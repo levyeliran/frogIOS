@@ -71,12 +71,12 @@
                                     <action selector="mediumBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9J-61-7o0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="241" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
-                                <rect key="frame" x="96" y="339" width="128" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="241" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
+                                <rect key="frame" x="73" y="338" width="181" height="51"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="Hard">
+                                <state key="normal" title="   Top Scores" backgroundImage="topScoresImg">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="642.72863568215894"/>
+            <point key="canvasLocation" x="1786.875" y="642.25352112676057"/>
         </scene>
         <!--Random Game Controller-->
         <scene sceneID="lZv-0K-qoE">
@@ -191,20 +191,18 @@
                                     <action selector="onBackButtonClick:" destination="UJr-Lx-E1A" eventType="touchUpInside" id="ctx-rp-p5n"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TR-Nt-s01">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="firstShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="0TR-Nt-s01">
                                 <rect key="frame" x="115" y="109" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="0.0" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QA7-Tc-GQ6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="secondShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="QA7-Tc-GQ6">
                                 <rect key="frame" x="169" y="109" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="teO-jV-8Lq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thirdShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="teO-jV-8Lq">
                                 <rect key="frame" x="223" y="109" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -332,40 +330,40 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-0q-bgd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.0050152318960000001" green="0.81108884160000005" blue="0.36006563069999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.6843054449" blue="0.17666978089999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" rowHeight="58" id="W79-hb-MUm" customClass="MyTableViewCell" customModule="EliranFrog" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" rowHeight="58" id="W79-hb-MUm" customClass="MyTableViewCell" customModule="EliranFrog" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W79-hb-MUm" id="Jf4-Ta-ysR">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="center" tableViewCell="W79-hb-MUm" id="Jf4-Ta-ysR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7o-n6-nZP">
                                                     <rect key="frame" x="16" y="18" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-OP-xHv">
                                                     <rect key="frame" x="80" y="18" width="177" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6E-Pp-KZS">
                                                     <rect key="frame" x="270" y="17" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0050152318960000001" green="0.81108884160000005" blue="0.36006563069999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.64129265660000001" green="0.93102964740000005" blue="0.24889613490000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="positionLabel" destination="E7o-n6-nZP" id="YZV-gd-iGY"/>
@@ -459,20 +457,17 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-Bq-IHt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="firstShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-Bq-IHt">
                                 <rect key="frame" x="110" y="113" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-D9-vyu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="secondShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-D9-vyu">
                                 <rect key="frame" x="165" y="113" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aNW-3K-HVL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thirdShakeImg" translatesAutoresizingMaskIntoConstraints="NO" id="aNW-3K-HVL">
                                 <rect key="frame" x="222" y="113" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
                                 <rect key="frame" x="26" y="173" width="323" height="474"/>
@@ -578,7 +573,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="firstShakeImg" width="48" height="51"/>
         <image name="gameBG" width="151" height="300"/>
+        <image name="secondShakeImg" width="48" height="51"/>
+        <image name="thirdShakeImg" width="48" height="51"/>
+        <image name="topScoresImg" width="684" height="222"/>
         <image name="welcomeBG" width="384" height="650"/>
     </resources>
 </document>
