@@ -331,26 +331,46 @@ class FrogManager {
     }
     
     func stopFrogMusic(){
-        if self.audioPlayer.isPlaying {
-            self.audioPlayer.stop()
+        do {
+            if self.audioPlayer.isPlaying {
+                self.audioPlayer.stop()
+            }
+        }
+        catch {
+            print("gameMusic.mp3 can't be stopped")
         }
     }
     
     func stopCountDownMusic(){
-        if self.frogCountDownAudioPlayer.isPlaying {
-            self.frogCountDownAudioPlayer.stop()
+        do{
+            if self.frogCountDownAudioPlayer.isPlaying {
+                self.frogCountDownAudioPlayer.stop()
+            }
+        }
+        catch {
+            print("countdownTimer.mp3 can't be stopped")
         }
     }
     
     func pauseCountDownMusic(){
-        if self.frogCountDownAudioPlayer.isPlaying {
-            self.frogCountDownAudioPlayer.pause()
+        do{
+            if self.frogCountDownAudioPlayer.isPlaying {
+                self.frogCountDownAudioPlayer.pause()
+            }
+        }
+        catch {
+            print("countdownTimer.mp3 can't be paused")
         }
     }
     
     func rePlayCountDownMusic(){
-        if !self.frogCountDownAudioPlayer.isPlaying {
-            self.frogCountDownAudioPlayer.play()
+        do{
+            if !self.frogCountDownAudioPlayer.isPlaying {
+                self.frogCountDownAudioPlayer.play()
+            }
+        }
+        catch {
+            print("countdownTimer.mp3 can't be re-played")
         }
     }
 
@@ -362,9 +382,6 @@ class FrogManager {
         return alertController
     }
     
-//    func saveData(myRecord: MyRecord){
-//        recordManager.saveData(myRecord: myRecord)
-//    }
     
     func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
         var message = isWon ? "You are a Winner!" : "Why?"
@@ -381,40 +398,6 @@ class FrogManager {
         
         return alertController
     }
-    
-//    func loadData(){
-//        recordManager.loadData()
-//    }
-    
-       
-    
-    
-    //Eliran Area
-    
-    //tap on a bad frog - pause the frog appearence
-    //limit to 1 minute
-    //score according to fruit ninja
-    //add "best score" of user
-    //add animation to frog image
-    //add dialog to the end of the game + input
-    //pause images when the user shake the phone (up to 3 times)
-    
-    
-    //Matan Area
-    //function - getBestScore()
-    //function - getRecordPosition(score)
-    //function - isNewRecord(score)
-    //function - addNewRecord(name, score) - get permission for location
-    //scores view
-    //map view
-    //storage
-    
-    //
-    //
-    //
-    //
-    
-    
 
 }
 
