@@ -11,7 +11,7 @@ import MapKit
 import CoreData
  class RecordManager  {
     
-    static var recordTableSize: Int = 10
+    static let RECORD_TABLE_SIZE: Int = 10
     static var recordList : [MyRecord] = []
     //required.addRecordI
     
@@ -48,9 +48,13 @@ import CoreData
                         recordItem.lat = lat
                     }
                     i += 1
+                    
                 }
-                
-            }
+                    RecordManager.recordList.sort{
+                    $0.score! > $1.score!
+                    }
+                    RecordManager.recordList = Array(RecordManager.recordList.prefix(RECORD_TABLE_SIZE))
+                }
             
         }catch{
             fatalError("could not load data from core data:  \(error)")
@@ -85,9 +89,9 @@ import CoreData
     static func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
        
         let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
-        if RecordManager.recordList.count == recordTableSize {
-            RecordManager.recordList.remove(at: (recordTableSize - 1))
-            print("The record list size is \(recordTableSize)")
+        if RecordManager.recordList.count >= RECORD_TABLE_SIZE {
+            RecordManager.recordList.removeLast()
+            print("The record list size is \(RECORD_TABLE_SIZE)")
         }
         RecordManager.recordList.append(record)
         RecordManager.recordList.sort{
@@ -99,7 +103,7 @@ import CoreData
     
     
     static func getBestScore() -> Int{
-        if RecordManager.recordList.count > 0 {
+         if(!recordList.isEmpty){
             return RecordManager.recordList[0].score!
         }
         else{
