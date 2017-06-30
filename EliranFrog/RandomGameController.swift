@@ -52,7 +52,7 @@ class RandomGameController: UIViewController {
     var bottomY:Int = 0
     var displayedFrogs = [FrogImageView]()
     var frogTimeout = 4
-    var counter = 60
+    var counter = 30
     var frogMngr = FrogManager()
     var timer: Timer?
     var hits = 0
@@ -157,12 +157,6 @@ class RandomGameController: UIViewController {
                 }
             }
             
-            if self.frogTimeout <= 0 {
-                self.frogTimeout = Int(arc4random_uniform(4) + 1)
-                //remove all displayed frogs
-                self.removeFrogs()
-            }
-            
             if self.pauseFrogsCounter > 0 {
                 self.countDownLabel.textColor = UIColor.red
                 self.pauseFrogsCounter-=1
@@ -172,6 +166,7 @@ class RandomGameController: UIViewController {
             }
             
             if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.generateFrogs()
                 self.deviceShakedCounter-=1
                 self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
                 return
@@ -187,26 +182,38 @@ class RandomGameController: UIViewController {
             counter -= 1
             self.frogTimeout -= 1
             
-            let c = Int(arc4random_uniform(3))
-            //add random frogs
-            for _ in 0...c {
-                if self.pauseFrogsCounter == 0{
-                    let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
-                    self.displayedFrogs.append(frog)
-                    
-                    let imgView = frog.imgView
-                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
-                    imgView.isUserInteractionEnabled = true
-                    imgView.addGestureRecognizer(tapGestureRecognizer)
-                    
-                    imgView.zoomOut()
-                    self.gameBoardView.addSubview(imgView)
-                    imgView.zoomIn()
-                }
-            }
+            self.generateFrogs()
+            
         }
         self.countDownLabel.text = "\(Int(self.counter))"
         
+    }
+    
+    func generateFrogs(){
+        if self.frogTimeout <= 0 {
+            self.frogTimeout = Int(arc4random_uniform(4) + 1)
+            //remove all displayed frogs
+            self.removeFrogs()
+        }
+        
+        let c = Int(arc4random_uniform(3))
+        //add random frogs
+        for _ in 0...c {
+            if self.pauseFrogsCounter == 0{
+                let frog = frogMngr.getRandomFrog(self.bottomX, yBottom: self.bottomY)
+                self.displayedFrogs.append(frog)
+                
+                let imgView = frog.imgView
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RandomGameController.frogImageTapped(_:)))
+                imgView.isUserInteractionEnabled = true
+                imgView.addGestureRecognizer(tapGestureRecognizer)
+                
+                imgView.zoomOut()
+                self.gameBoardView.addSubview(imgView)
+                imgView.zoomIn()
+            }
+        }
+
     }
     
     func removeFrogs(){
@@ -247,7 +254,16 @@ class RandomGameController: UIViewController {
                 let nameTextField = scoreAlert.textFields![0] as UITextField
                 //add the user record to core data
                 print("firstName \(String(describing: nameTextField.text))")
+                
+                var long:Double = 0
+                var lat:Double = 0
+                if(FrogManager.currentLocation != nil){
+                    long = FrogManager.currentLocation.coordinate.longitude
+                    lat = FrogManager.currentLocation.coordinate.latitude
+                }
+                RecordManager.addRecord(playerName: nameTextField.text!, score: self.hits, long: long, lat: lat)
             }
+
             
             //back to home page
             self.dismiss(animated: true, completion: nil)
@@ -289,13 +305,22 @@ class RandomGameController: UIViewController {
             self.deviceShakedHelps-=1
             
             if self.deviceShakedHelps == 2{
-                firstHelpImage.removeFromSuperview()
+                firstHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.firstHelpImage.removeFromSuperview()
+                })
             }
             else if self.deviceShakedHelps == 1{
-                secondHelpImage.removeFromSuperview()
+                secondHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.secondHelpImage.removeFromSuperview()
+                })
             }
             else {
-                thirdHelpImage.removeFromSuperview()
+                thirdHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.thirdHelpImage.removeFromSuperview()
+                })
             }
         }
         

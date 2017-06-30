@@ -24,7 +24,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
     
     var level = GAME_LEVEL.easy
     var frogTimeout:Int = 4
-    var counter:Int = 60
+    var counter:Int = 30
     var levelInterval:Int = 1
     var frogMngr = FrogManager()
     var timer: Timer?
@@ -181,12 +181,6 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 }
             }
             
-            if self.frogTimeout <= 0 {
-                self.frogTimeout = 4
-                //remove all displayed frogs
-                self.removeFrogs()
-            }
-            
             if self.pauseFrogsCounter > 0 {
                 self.countDownLabel.textColor = UIColor.red
                 self.pauseFrogsCounter-=1
@@ -196,6 +190,7 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             }
             
             if self.isDeviceShaked && self.deviceShakedCounter > 0 {
+                self.generateFrogs()
                 self.deviceShakedCounter-=1
                 self.isDeviceShaked = self.deviceShakedCounter > 0 ? true : false
                 return
@@ -206,22 +201,34 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
                 frogMngr.rePlayCountDownMusic()
                 self.countDownMusicPaused = false
             }
+            
+            self.generateFrogs()
 
-            if level == GAME_LEVEL.easy {
-                self.changeCell()
-            }
-            else  {
-                for _ in 0...2 {
-                    if self.pauseFrogsCounter == 0 {
-                        self.changeCell()
-                    }
-                }
-            }
             self.countDownLabel.textColor = UIColor.white
             self.frogTimeout -= 1
             counter-=self.levelInterval
         }
         self.countDownLabel.text = "\(Int(self.counter))"
+
+    }
+    
+    func generateFrogs(){
+        if self.frogTimeout <= 0 {
+            self.frogTimeout = 4
+            //remove all displayed frogs
+            self.removeFrogs()
+        }
+        
+        if level == GAME_LEVEL.easy {
+            self.changeCell()
+        }
+        else  {
+            for _ in 0...2 {
+                if self.pauseFrogsCounter == 0 {
+                    self.changeCell()
+                }
+            }
+        }
 
     }
     
@@ -321,13 +328,22 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
             self.deviceShakedHelps-=1
             
             if self.deviceShakedHelps == 2{
-                firstHelpImage.removeFromSuperview()
+                firstHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.firstHelpImage.removeFromSuperview()
+                })
             }
             else if self.deviceShakedHelps == 1{
-                secondHelpImage.removeFromSuperview()
+                secondHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.secondHelpImage.removeFromSuperview()
+                })
             }
             else {
-                thirdHelpImage.removeFromSuperview()
+                thirdHelpImage.shake()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+                    self.thirdHelpImage.removeFromSuperview()
+                })
             }
         }
 
