@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/RecordManager.swift"
-            timestampString = "519947224.786044"
+            timestampString = "520018285.234792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getBestScore()"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EliranFrog/RecordManager.swift"
-            timestampString = "519950346.410237"
+            timestampString = "520018285.234792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "addRecord(playerName:score:long:lat:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,9 +138,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
+            endingLineNumber = "145">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

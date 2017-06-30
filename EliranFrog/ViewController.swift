@@ -44,10 +44,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
         
         RecordManager.loadData()
         self.locationManager.delegate = self
-        //self.initLocation()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-
+        self.locationManager.startUpdatingLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {

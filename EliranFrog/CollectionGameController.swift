@@ -240,13 +240,9 @@ class CollectionGameController: UIViewController, UICollectionViewDataSource, UI
         isWon = true
         isLost = false
         
-        if self.level == GAME_LEVEL.easy {
-            if self.hits >= 5 {
-                isWon = true
-            }
-            else if self.missed >= 5 {
-                isLost = true
-            }
+        if self.level == GAME_LEVEL.easy && self.missed >= 5 {
+            isLost = true
+            isWon = false
         }
         else if self.missed >= 3 {
             isLost = true
