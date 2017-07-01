@@ -109,6 +109,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45251A4F1F07D5580021D569 /* Scores */ = {
+			isa = PBXGroup;
+			children = (
+				457681E81EF52AB70021E132 /* MasterScoresViewController.swift */,
+				457681EA1EF52EC90021E132 /* ScoresListViewController.swift */,
+				457681EC1EF52F080021E132 /* ScoresMapViewController.swift */,
+				457681F21EF585D70021E132 /* MapAnnotationPin.swift */,
+				457681F61EF590BF0021E132 /* RecordManager.swift */,
+				450F7BE01EFD52DB00F0C205 /* MyRecord.swift */,
+				450F7BE81EFEB15F00F0C205 /* MyTableViewCell.swift */,
+			);
+			name = Scores;
+			sourceTree = "<group>";
+		};
+		45251A501F07D5D80021D569 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8EAFA4401EAA2222007C52C0 /* ViewController.swift */,
+			);
+			name = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		45251A511F07D61D0021D569 /* Tones */ = {
+			isa = PBXGroup;
+			children = (
+				8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */,
+				8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */,
+				8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */,
+			);
+			name = Tones;
+			sourceTree = "<group>";
+		};
+		45251A521F07D6490021D569 /* GameBoards */ = {
+			isa = PBXGroup;
+			children = (
+				8EAFA46C1EAA28C4007C52C0 /* CollectionGameController.swift */,
+				8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */,
+				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
+				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
+				8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */,
+			);
+			name = GameBoards;
+			sourceTree = "<group>";
+		};
+		45251A531F07D6940021D569 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				8EAFA4471EAA2222007C52C0 /* LaunchScreen.storyboard */,
+				8EAFA4421EAA2222007C52C0 /* Main.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
 		457681EE1EF576850021E132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,27 +195,14 @@
 			isa = PBXGroup;
 			children = (
 				450F7B9C1EFD4CDB00F0C205 /* EliranFrog.xcdatamodeld */,
-				8E04FBDF1EE72E2D006F1AB2 /* gameMusic.mp3 */,
-				8E04FBE11EE72E47006F1AB2 /* frogRibbet.wav */,
-				8E04FBDD1EE72E12006F1AB2 /* countdownTimer.mp3 */,
 				8EAFA43E1EAA2222007C52C0 /* AppDelegate.swift */,
-				8EAFA4401EAA2222007C52C0 /* ViewController.swift */,
-				8EAFA4421EAA2222007C52C0 /* Main.storyboard */,
 				8EAFA4451EAA2222007C52C0 /* Assets.xcassets */,
-				8EAFA4471EAA2222007C52C0 /* LaunchScreen.storyboard */,
 				8EAFA44A1EAA2222007C52C0 /* Info.plist */,
-				8EAFA46C1EAA28C4007C52C0 /* CollectionGameController.swift */,
-				8EAFA46E1EAA40CF007C52C0 /* RandomGameController.swift */,
-				8EAFA4721EAA5884007C52C0 /* FrogManager.swift */,
-				8EEE33AA1EB345E20052DA72 /* CustomFrogCell.swift */,
-				8EA1DDDF1EB707E9008A9C22 /* ScoreController.swift */,
-				457681E81EF52AB70021E132 /* MasterScoresViewController.swift */,
-				457681EA1EF52EC90021E132 /* ScoresListViewController.swift */,
-				457681EC1EF52F080021E132 /* ScoresMapViewController.swift */,
-				457681F21EF585D70021E132 /* MapAnnotationPin.swift */,
-				457681F61EF590BF0021E132 /* RecordManager.swift */,
-				450F7BE01EFD52DB00F0C205 /* MyRecord.swift */,
-				450F7BE81EFEB15F00F0C205 /* MyTableViewCell.swift */,
+				45251A531F07D6940021D569 /* StoryBoard */,
+				45251A521F07D6490021D569 /* GameBoards */,
+				45251A501F07D5D80021D569 /* WelcomeScreen */,
+				45251A4F1F07D5580021D569 /* Scores */,
+				45251A511F07D61D0021D569 /* Tones */,
 			);
 			path = EliranFrog;
 			sourceTree = "<group>";
