@@ -385,7 +385,7 @@ class FrogManager {
     
     func getScoreAlert(score:Int, isWon:Bool, isNewRecord:Bool) -> UIAlertController{
         var message = isWon ? "You are a Winner!" : "Why?"
-        message = isNewRecord ? message + "With a new Record!" : message
+        message = isNewRecord ? message + " With a new Record!" : message
         let title = isWon ? "Your Score is \(score)" : "Loser"
     
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

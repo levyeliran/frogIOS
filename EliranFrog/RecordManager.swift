@@ -84,8 +84,6 @@ import CoreData
         }
     }
     
-    
-    
     static func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
        
         let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
@@ -109,10 +107,6 @@ import CoreData
         else{
             return 0
         }
-    }
-    
-    static func getRecordPosition(score: Int) -> Int{
-        return 1
     }
     
     static func isNewRecord(score: Int) -> Bool {

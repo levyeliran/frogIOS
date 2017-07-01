@@ -85,7 +85,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0CF-Oh-Vme"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5TW-5w-1fJ" secondAttribute="bottom" id="3XC-dU-CJg"/>
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="60Q-Q2-wlZ"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="CM8-1u-iNP"/>

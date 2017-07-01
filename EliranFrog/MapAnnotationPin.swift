@@ -26,16 +26,4 @@ class MapAnnotationPin: NSObject , MKAnnotation {
         self.myCoordinate = myCoordinate
     }
     
-   
-    
-//    func changeColor(color: UIColor){
-//        self.pinTintColor = color
-//    }
-    
 }
-
-//extension MapAnnotationPin {
-//    static func bluePinColor() -> UIColor {
-//        return UIColor.blue
-//    }
-//}
