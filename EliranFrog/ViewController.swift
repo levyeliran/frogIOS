@@ -13,10 +13,10 @@ import CoreLocation
 class ViewController: UIViewController , CLLocationManagerDelegate{
     
     @IBOutlet weak var easyLevelBtn: UIButton!
-    @IBOutlet weak var scoreBtn: UIButton!
     @IBOutlet weak var hardLevelBtn: UIButton!
     @IBOutlet weak var mediumLevelBtn: UIButton!
     
+    @IBOutlet weak var scoreBtn: UIButton!
     var selectedLevel = GAME_LEVEL.none
     var frogMngr = FrogManager()
     
@@ -78,9 +78,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     }
     
     
-    @IBAction func scoresBtnClick(_ sender: Any) {
-        performSegue(withIdentifier: "scoreSeg", sender: self)
-    }
+//    @IBAction func scoresBtnClick(_ sender: Any) {
+//        performSegue(withIdentifier: "scoreSeg", sender: self)
+//    }
     
     fileprivate func initSeg(_ level:GAME_LEVEL){
         selectedLevel = level

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,11 +40,11 @@
                                     <action selector="easyBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnc-vB-pJZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="242" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-87-xnI">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="242" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-87-xnI">
                                 <rect key="frame" x="96" y="218" width="128" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="axW-A0-UXg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="N7c-qH-VtJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -71,39 +71,32 @@
                                     <action selector="mediumBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9J-61-7o0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="241" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APL-nf-3O8">
-                                <rect key="frame" x="73" y="338" width="181" height="51"/>
-                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64t-3O-M0f">
+                                <rect key="frame" x="41" y="317" width="237" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="   Top Scores" backgroundImage="topScoresImg">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Top Scores" backgroundImage="topScoresImg">
+                                    <color key="titleColor" red="0.043030104710000003" green="0.043030104710000003" blue="0.043030104710000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="scoresBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFS-sm-qTE"/>
-                                    <segue destination="Ljw-HN-gaK" kind="presentation" identifier="scoreSeg" id="2ml-eH-tbV"/>
+                                    <segue destination="Ljw-HN-gaK" kind="presentation" id="2sv-X3-uBj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0CF-Oh-Vme"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5TW-5w-1fJ" secondAttribute="bottom" id="3XC-dU-CJg"/>
-                            <constraint firstItem="APL-nf-3O8" firstAttribute="top" secondItem="AZz-87-xnI" secondAttribute="bottom" constant="71" id="5p4-k0-YCq"/>
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="60Q-Q2-wlZ"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="top" secondItem="lBb-Iy-pSE" secondAttribute="bottom" constant="21" id="CM8-1u-iNP"/>
                             <constraint firstItem="lBb-Iy-pSE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="FmB-Mb-h0k"/>
-                            <constraint firstItem="APL-nf-3O8" firstAttribute="trailing" secondItem="AZz-87-xnI" secondAttribute="trailing" id="LQE-42-Nlx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="APL-nf-3O8" secondAttribute="bottom" constant="278" id="Nv7-eq-8Oc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AZz-87-xnI" secondAttribute="trailing" constant="80" id="VsT-Xr-cvO"/>
                             <constraint firstItem="rMq-sw-qAL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="Vus-qu-w7f"/>
                             <constraint firstItem="AZz-87-xnI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="aIU-oe-f4x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lBb-Iy-pSE" secondAttribute="trailing" constant="80" id="boi-Pc-H7k"/>
                             <constraint firstItem="5TW-5w-1fJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fCq-dk-7iL"/>
-                            <constraint firstAttribute="trailing" secondItem="5TW-5w-1fJ" secondAttribute="trailing" id="lby-5Q-8Hs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rMq-sw-qAL" secondAttribute="trailing" constant="80" id="rnM-ZE-Rc8"/>
                             <constraint firstAttribute="trailing" secondItem="5TW-5w-1fJ" secondAttribute="trailing" id="sJi-O4-wL1"/>
-                            <constraint firstItem="APL-nf-3O8" firstAttribute="leading" secondItem="AZz-87-xnI" secondAttribute="leading" id="uVS-TD-W9k"/>
                             <constraint firstItem="lBb-Iy-pSE" firstAttribute="top" secondItem="rMq-sw-qAL" secondAttribute="bottom" constant="22" id="unq-xg-FJA"/>
                             <constraint firstItem="rMq-sw-qAL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="wbi-wC-GzR"/>
                         </constraints>
@@ -112,7 +105,7 @@
                         <outlet property="easyLevelBtn" destination="rMq-sw-qAL" id="xJc-GE-9xB"/>
                         <outlet property="hardLevelBtn" destination="AZz-87-xnI" id="6pH-vu-gvq"/>
                         <outlet property="mediumLevelBtn" destination="lBb-Iy-pSE" id="mrc-nq-P6d"/>
-                        <outlet property="scoreBtn" destination="APL-nf-3O8" id="hiy-Ro-g6S"/>
+                        <outlet property="scoreBtn" destination="64t-3O-M0f" id="EnQ-FM-1xZ"/>
                         <segue destination="UJr-Lx-E1A" kind="popoverPresentation" identifier="viewSeg" popoverAnchorView="8bC-Xf-vdC" id="Ppg-em-mID">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -123,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786.875" y="642.25352112676057"/>
+            <point key="canvasLocation" x="1783.125" y="639.08450704225356"/>
         </scene>
         <!--Random Game Controller-->
         <scene sceneID="lZv-0K-qoE">
@@ -141,23 +134,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-4U-oI7">
-                                <rect key="frame" x="21" y="159" width="333" height="488"/>
+                                <rect key="frame" x="21" y="161" width="333" height="486"/>
                                 <color key="backgroundColor" red="1" green="0.50094697710000002" blue="0.34445899149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-vv-bFh">
-                                <rect key="frame" x="309" y="78" width="40" height="21"/>
+                                <rect key="frame" x="309" y="79" width="40" height="22"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4p-KT-Blf">
-                                <rect key="frame" x="306" y="58" width="45" height="21"/>
+                                <rect key="frame" x="306" y="58" width="45" height="22"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNT-vl-mH4">
-                                <rect key="frame" x="22" y="80" width="40" height="21"/>
+                                <rect key="frame" x="22" y="80" width="40" height="22"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="0.67729382390577586" green="0.95432692307692313" blue="0.26909553479506171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -296,8 +289,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nm1-vq-p0f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nm1-vq-p0f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="736"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.25165997880000002" blue="0.28592671829999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -417,7 +410,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-Uf-JSn">
-                                <rect key="frame" x="31" y="98" width="40" height="21.5"/>
+                                <rect key="frame" x="31" y="98" width="40" height="22"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="0.67729382390000004" green="0.9543269231" blue="0.26909553479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -428,8 +421,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-fi-6Rh">
-                                <rect key="frame" x="299" y="66" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MISS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-fi-6Rh">
+                                <rect key="frame" x="277" y="71" width="60" height="21"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -445,7 +438,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-v0-vHR">
-                                <rect key="frame" x="165" y="49.5" width="45" height="28"/>
+                                <rect key="frame" x="165" y="50" width="45" height="28"/>
                                 <attributedString key="attributedText">
                                     <fragment content="label">
                                         <attributes>
@@ -470,7 +463,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-ew-eF5">
-                                <rect key="frame" x="26" y="173" width="323" height="474"/>
+                                <rect key="frame" x="26" y="174" width="323" height="473"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBq-FC-1LV">
                                     <size key="itemSize" width="80" height="80"/>
@@ -506,8 +499,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-ua-bLN">
-                                <rect key="frame" x="304" y="92" width="40" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-ua-bLN">
+                                <rect key="frame" x="287" y="97" width="40" height="22"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -516,6 +509,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BnO-mI-wUP" firstAttribute="top" secondItem="YBM-BQ-25T" secondAttribute="bottom" constant="5" id="2Xu-Ae-gaC"/>
+                            <constraint firstItem="bXj-fi-6Rh" firstAttribute="leading" secondItem="c3w-v0-vHR" secondAttribute="trailing" constant="67" id="5Re-8v-eFU"/>
                             <constraint firstItem="YBM-BQ-25T" firstAttribute="top" secondItem="nx9-G6-14q" secondAttribute="bottom" constant="15" id="63R-IQ-959"/>
                             <constraint firstItem="c3w-v0-vHR" firstAttribute="leading" secondItem="BnO-mI-wUP" secondAttribute="trailing" constant="105.5" id="AP4-i5-gaY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6ja-ew-eF5" secondAttribute="trailing" constant="10" id="Btk-NU-SEb"/>
@@ -525,14 +519,12 @@
                             <constraint firstItem="YBM-BQ-25T" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leading" constant="15" id="KfY-hO-YuV"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="top" secondItem="S6h-TE-w76" secondAttribute="top" id="NxQ-Sh-MeZ"/>
                             <constraint firstItem="BnO-mI-wUP" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="15" id="QR5-bj-9m3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bXj-fi-6Rh" secondAttribute="trailing" constant="15" id="SQx-1b-UwS"/>
                             <constraint firstAttribute="trailing" secondItem="dVe-CB-VYC" secondAttribute="trailing" id="W1p-jA-dMl"/>
                             <constraint firstItem="lYv-ua-bLN" firstAttribute="top" secondItem="bXj-fi-6Rh" secondAttribute="bottom" constant="5" id="cnq-Ml-Oc9"/>
                             <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="6ja-ew-eF5" secondAttribute="bottom" constant="20" id="cyD-9w-Kee"/>
                             <constraint firstItem="6ja-ew-eF5" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="10" id="edP-RL-kSH"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leading" id="haI-0k-1Xs"/>
                             <constraint firstItem="3oQ-1z-wWj" firstAttribute="top" secondItem="dVe-CB-VYC" secondAttribute="bottom" id="pGQ-XD-6In"/>
-                            <constraint firstItem="bXj-fi-6Rh" firstAttribute="leading" secondItem="c3w-v0-vHR" secondAttribute="trailing" constant="89" id="rX7-OF-7Ub"/>
                             <constraint firstItem="aE3-Uf-JSn" firstAttribute="leading" secondItem="S6h-TE-w76" secondAttribute="leadingMargin" constant="15" id="t6C-Nz-1mL"/>
                             <constraint firstItem="dVe-CB-VYC" firstAttribute="top" secondItem="c3w-v0-vHR" secondAttribute="bottom" constant="-77.5" id="uoP-EW-Hn7"/>
                             <constraint firstItem="bXj-fi-6Rh" firstAttribute="top" secondItem="YBM-BQ-25T" secondAttribute="bottom" id="wJX-mq-YfK"/>
@@ -551,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSM-OQ-hkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850.4000000000001" y="1005.2473763118442"/>
+            <point key="canvasLocation" x="2849.0625" y="1004.0492957746479"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3q1-hX-va7">
